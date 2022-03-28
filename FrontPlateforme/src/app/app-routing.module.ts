@@ -4,18 +4,11 @@ import { CreateProjectComponent } from "./create-project/create-project.componen
 import { HomeComponent } from "./home/home.component";
 
 const routs : Routes = [
-    {
-        path: "home", component: HomeComponent
-    },
-    {
-        path: "newproject", component: CreateProjectComponent
-    },
-    {
-        path: "", redirectTo: "home", pathMatch: "full"
-    },
-    {
-        path: "**", redirectTo: "home", pathMatch: "full"
-    }
+    {path: "home", component: HomeComponent},
+    {path: "newproject", component: CreateProjectComponent},
+    
+    {path: "", redirectTo: "home", pathMatch: "full"},
+    {path: "**", redirectTo: "home", pathMatch: "full"}
 ];
 
 @NgModule({
