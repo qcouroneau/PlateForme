@@ -9,11 +9,9 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   constructor(private router: Router) {
-    console.log("test")
    }
 
   ngOnInit(): void {
-    console.log("test")
   }
 
 }
