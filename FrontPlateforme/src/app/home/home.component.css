@@ -1,26 +1,42 @@
 
 .card-group{
   padding-top: 3em;
-  padding-bottom: 3em;
 }
 
 #contact{
   margin: auto;
   text-align: center;
+  padding-top: 3em;
+}
+.carousel {
+  /*height: 500px; OLD*/
+  /*margin-bottom: 60px; OLD*/
+  /*max-width:1200px; THIS IS OPTIONAL (ANY SIZE YOU LIKE)*/
+  margin:0 auto 60px;
+  margin-top: 10em;
 }
 
-html,body{
-  height:100%;
-}
+.carousel .item {
+  /*height: 500px; OLD*/
+  /*background-color: #777; OLD*/
 
-.img{
-  height:40em;
-  margin-top:auto;
+  width:100%;
+  height:auto;
+}
+.carousel-inner > .item > img {
+  /*position: absolute; OLD+WHY?*/
+  /*top: 0; OLD+WHY?*/
+  /*left: 0; OLD+WHY?*/
+
+  min-width:100%;
+  height:auto;
+}
+.carousel-item img {
+    height: 400px;
+    max-height: 400px;
   object-fit: scale-down;
 }
-
-.carousel .item img {
-  max-height: 200px;
-  min-width: auto;
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+  filter: invert(100%);
 }
-
