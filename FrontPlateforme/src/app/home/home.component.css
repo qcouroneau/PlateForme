@@ -1,0 +1,26 @@
+
+.card-group{
+  padding-top: 3em;
+  padding-bottom: 3em;
+}
+
+#contact{
+  margin: auto;
+  text-align: center;
+}
+
+html,body{
+  height:100%;
+}
+
+.img{
+  height:40em;
+  margin-top:auto;
+  object-fit: scale-down;
+}
+
+.carousel .item img {
+  max-height: 200px;
+  min-width: auto;
+}
+

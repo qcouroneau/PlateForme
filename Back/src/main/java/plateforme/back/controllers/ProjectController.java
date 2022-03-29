@@ -21,9 +21,7 @@ public class ProjectController {
 	}
 
 	@GetMapping("/dto")
-	public List<ProjectDTO> getAllProjectDTO(){
-		return this.service.getAllProjectDTO();
-	}
+	public List<ProjectDTO> getAllProjectDTO(){ return this.service.getAllProjectDTO(); }
 	
 	@GetMapping("/dto/getById/{id}")
 	public ProjectDTO getProjectDTOById(@PathVariable("id") final int id){
