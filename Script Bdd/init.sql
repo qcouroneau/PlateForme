@@ -1,5 +1,6 @@
-CREATE SCHEMA plateform AUTHORIZATION postgres;
+DROP SCHEMA IF EXISTS plateform CASCADE;
 
+CREATE SCHEMA plateform AUTHORIZATION postgres;
 
 CREATE TABLE plateform.plateform_user (
 	id serial NOT NULL,
@@ -74,6 +75,7 @@ CREATE TABLE plateform.project (
 	id serial NOT NULL,
 	name_project varchar NOT NULL,
 	description varchar NOT NULL,
+	image_projet bytea NULL,
 	id_project_category int4 NOT null,
 	CONSTRAINT project_pkey PRIMARY KEY (id)
 );
@@ -116,3 +118,11 @@ CREATE TABLE plateform.project_user (
 
 ALTER TABLE plateform.project_user ADD CONSTRAINT project_tache_fk1 FOREIGN KEY (id_project) REFERENCES plateform.project(id);
 ALTER TABLE plateform.project_user ADD CONSTRAINT project_tache_fk2 FOREIGN KEY (id_user) REFERENCES plateform.plateform_user(id);
+
+INSERT INTO plateform.project_category
+(name_project_category, description)
+VALUES('Nature', 'Project en rapport avec l environnement');
+
+INSERT INTO plateform.project
+(name_project, description, image_projet, id_project_category)
+VALUES('Faire du bien aux arbres', 'XOXO', '\xDEADBEEF', 1);

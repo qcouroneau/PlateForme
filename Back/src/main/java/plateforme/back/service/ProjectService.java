@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import plateforme.back.dto.ProjectDTO;
-import plateforme.back.object.Project;
 import plateforme.back.repository.ProjectRepository;
 
 @Service
@@ -20,11 +19,14 @@ public class ProjectService {
     }
 
 	public List<ProjectDTO> getAllProjectDTO() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.repository.getAllDto();
 	}
 
 	public ProjectDTO getProjectDTOById(final int id) {
 		return this.repository.getDtoById(id);
+	}
+
+	public ProjectDTO getProjectDTOByName(String name) {
+		return this.repository.getDtoByName(name);
 	}
 }
