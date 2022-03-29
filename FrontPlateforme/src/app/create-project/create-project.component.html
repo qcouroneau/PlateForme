@@ -1,1 +1,14 @@
-<p>create-project works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="name">Name : </label>
+  <input id="name" type="text" formControlName="name">
+
+  <label for="description">Description : </label>
+  <input id="description" type="text" formControlName="description">
+
+  <label for="budget">Budget : </label>
+  <input id="budget" type="number" formControlName="budget">
+
+  <button type="submit">
+    Validate
+  </button>
+</form>
