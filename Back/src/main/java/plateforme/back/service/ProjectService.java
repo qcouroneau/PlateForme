@@ -19,7 +19,14 @@ public class ProjectService {
     }
 
 	public List<ProjectDTO> getAllProjectDTO() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.repository.getAllDto();
+	}
+
+	public ProjectDTO getProjectDTOById(final int id) {
+		return this.repository.getDtoById(id);
+	}
+
+	public ProjectDTO getProjectDTOByName(String name) {
+		return this.repository.getDtoByName(name);
 	}
 }
