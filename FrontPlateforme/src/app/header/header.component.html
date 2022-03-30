@@ -1,6 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar sticky-top navbar-light bg-light navSize">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar scroll</a>
+    <a [routerLink] ="['/home']"><img class="logo" src="../../assets/images/Plateform_logo.png"/>
+    </a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <a [routerLink] ="['/home']">my projects
+    </a>
+    <a [routerLink] ="['/home']"><img class="logo"  src="../../assets/images/profil_logo.png"/></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -34,3 +42,6 @@
     </div>
   </div>
 </nav>
+<div>
+  <router-outlet></router-outlet>
+</div>
