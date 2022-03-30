@@ -2,8 +2,8 @@ package plateforme.back.dto;
 
 public interface ProjectDTO {
 	int getId();
-	String getNameProject();
+	String getName();
 	String getDescription();
-	byte[] getImageProjet();
-	String getNameCategorie();
+	String getImage();
+	String getCategory();
 }
