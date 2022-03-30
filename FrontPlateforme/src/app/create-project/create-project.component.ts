@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProjectService } from 'src/services/project.service';
-import {Project} from "../model/project.model";
-import {environment} from "../../environments/environment";
+import {ProjectService} from "../services/project.service";
+import {IProject} from "../entities/project-reference";
 
 @Component({
   selector: 'app-create-project',
@@ -12,32 +11,37 @@ import {environment} from "../../environments/environment";
 })
 export class CreateProjectComponent implements OnInit {
 
-  private project: Project = new Project();
+  private project: IProject;
 
   public form: FormGroup;
 
   private name = new FormControl('', [Validators.required]);
   private description = new FormControl('', [Validators.required]);
   private budget = new FormControl('', [Validators.required]);
+  private tags = new FormControl([]);
 
   constructor(private router: Router, private formBuilder: FormBuilder, private projectService: ProjectService) {
     this.form = formBuilder.group({
       name: this.name,
       description: this.description,
-      budget: this.budget
+      budget: this.budget,
+      tags: this.tags
     });
    }
 
   ngOnInit(): void {
   }
 
-  onSubmit(): void {
+  onSubmit(formValues: IProject): void {
     if (this.form.invalid) {
       return;
     }
-    console.log(this.form.value)
-    this.project = Object.assign(this.project, this.form.value);
-    this.projectService.createProject(this.project).subscribe();
+    formValues.categories = [];
+    for(let i in formValues.tags){
+      formValues.categories[i] = {name: ''};
+      formValues.categories[i].name = formValues.tags[i].value;
+    }
+    this.projectService.createProject(formValues).subscribe();
   }
 
 }

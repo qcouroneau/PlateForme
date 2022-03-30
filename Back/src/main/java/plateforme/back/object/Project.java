@@ -6,13 +6,9 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -28,7 +24,7 @@ public class Project implements Serializable {
 	public Project(ProjectForm projectForm) {
 		this.nameProject = projectForm.getName();
 		this.description = projectForm.getDescription();
-		this.projectCategory = new ProjectCategory();
+		this.budget = projectForm.getBudget();
 	}
 
 	@Id
@@ -43,13 +39,8 @@ public class Project implements Serializable {
 	@Column(name="description")
     private String description;
 
-	@Lob
-	@Column(name="image_projet")
-	private byte[] imageProjet;
-
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_project_category", nullable = false)
-    private ProjectCategory projectCategory;
+	@Column(name="budget")
+	private int budget;
 
 	public int getId() {
 		return id;
@@ -75,11 +66,11 @@ public class Project implements Serializable {
 		this.description = description;
 	}
 
-	public ProjectCategory getProjectCategory() {
-		return projectCategory;
+	public int getBudget() {
+		return budget;
 	}
 
-	public void setProjectCategory(ProjectCategory projectCategory) {
-		this.projectCategory = projectCategory;
+	public void setBudget(int budget) {
+		this.budget = budget;
 	}
 }

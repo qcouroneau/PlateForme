@@ -1,5 +1,7 @@
 package plateforme.back.object;
 
+import plateforme.back.form.ProjectCategoryForm;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -19,9 +21,8 @@ public class ProjectCategory implements Serializable {
 	 */
 	private static final long serialVersionUID = -5835538932185908182L;
 
-	public ProjectCategory(){
-		this.nameProjectCategory = "test";
-		this.description = "1";
+	public ProjectCategory(ProjectCategoryForm projectCategoryForm){
+		this.name = projectCategoryForm.getName();
 	}
 
 	@Id
@@ -29,6 +30,9 @@ public class ProjectCategory implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence")
     @Column(unique = true, nullable = false, updatable = false, name = "id")
     private int id;
+
+	@Column(name="name")
+	private String name;
 
 	public int getId() {
 		return id;
@@ -38,25 +42,11 @@ public class ProjectCategory implements Serializable {
 		this.id = id;
 	}
 
-	public String getNameProjectCategory() {
-		return nameProjectCategory;
+	public String getName() {
+		return name;
 	}
 
-	public void setNameProjectCategory(String nameProjectCategory) {
-		this.nameProjectCategory = nameProjectCategory;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	@Column(name="name_project_category")
-    private String nameProjectCategory;
-	
-	@Column(name="description")
-    private String description;
 }

@@ -3,7 +3,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "../app-routing.module";
 import { CreateProjectComponent } from "./create-project.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import {TagInputModule} from "ngx-chips";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [
@@ -14,6 +15,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         AppRoutingModule,
         FormsModule,
         ReactiveFormsModule,
+        TagInputModule,
+        BrowserAnimationsModule,
     ],
     providers: [],
     bootstrap: [CreateProjectComponent]

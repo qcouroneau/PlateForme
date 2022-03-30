@@ -9,7 +9,6 @@ import org.springframework.validation.annotation.Validated;
 import plateforme.back.dto.ProjectDTO;
 import plateforme.back.form.ProjectForm;
 import plateforme.back.object.Project;
-import plateforme.back.object.ProjectCategory;
 import plateforme.back.repository.ProjectRepository;
 
 @Service
@@ -38,10 +37,9 @@ public class ProjectService {
 	}
 
     public int createProject(@Validated ProjectForm project){
-        ProjectCategory projectCategory = this.projectCategoryService.createProjectCategory();
         Project createdProject = new Project(project);
-        createdProject.setProjectCategory(projectCategory);
         repository.save(createdProject);
+        this.projectCategoryService.createProjectCategory(project.getCategories(), createdProject);
         return createdProject.getId();
     }
 }

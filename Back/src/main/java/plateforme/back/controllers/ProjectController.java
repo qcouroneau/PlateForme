@@ -28,7 +28,9 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value="/create", method = RequestMethod.POST)
-	public int createProject(@RequestBody ProjectForm project) { return this.service.createProject(project); }
+	public int createProject(@RequestBody ProjectForm project) {
+		return this.service.createProject(project);
+	}
 
 	@GetMapping("/dto/getById/{id}")
 	public ProjectDTO getProjectDTOById(@PathVariable("id") final int id){

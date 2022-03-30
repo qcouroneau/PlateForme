@@ -1,15 +1,21 @@
 package plateforme.back.form;
 
 import com.sun.istack.NotNull;
-import plateforme.back.object.Project;
+
+import java.util.List;
 
 public class ProjectForm {
     @NotNull
     private String name;
-    @NotNull
-    private String description;
+
     @NotNull
     private int budget;
+
+    @NotNull
+    private String description;
+
+    @NotNull
+    private List<ProjectCategoryForm> categories;
 
     public String getName() {
         return name;
@@ -34,4 +40,13 @@ public class ProjectForm {
     public void setBudget(int budget) {
         this.budget = budget;
     }
+
+    public void setCategories(List<ProjectCategoryForm> categories) {
+        this.categories = categories;
+    }
+
+    public List<ProjectCategoryForm> getCategories() {
+        return categories;
+    }
+
 }

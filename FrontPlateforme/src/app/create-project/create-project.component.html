@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
   <label for="name">Name : </label>
   <input id="name" type="text" formControlName="name" required>
 
@@ -7,6 +7,8 @@
 
   <label for="budget">Budget : </label>
   <input id="budget" type="number" formControlName="budget" required>
+
+  <tag-input formControlName="tags"></tag-input>
 
   <button type="submit">
     Validate
