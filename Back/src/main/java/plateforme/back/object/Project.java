@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -41,6 +42,10 @@ public class Project implements Serializable {
 	
 	@Column(name="description")
     private String description;
+
+	@Lob
+	@Column(name="image_projet")
+	private byte[] imageProjet;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_project_category", nullable = false)

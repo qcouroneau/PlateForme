@@ -10,14 +10,14 @@ import { CreateProjectComponent } from './create-project/create-project.componen
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateProjectModule} from "./create-project/create-project.module";
+import { HomeModule } from './home/home.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     CreateProjectModule,
+    HomeModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
