@@ -23,6 +23,7 @@ export class ProjectService {
   }
 
   getByName(name: string): Observable<any> {
+    console.log(`${baseUrl}/dto/getByName/${name}`)
     return this.http.get(`${baseUrl}/dto/getByName/${name}`);
   }
 }
