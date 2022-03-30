@@ -23,20 +23,22 @@ export class DetailsProjectComponent implements OnInit {
   ngOnInit(): void {
     this.url = this.router.url.split("/");
     this.name = this.url[this.url.length - 1];
-    this.loadProject(this.name);
+    this.loadProject(this.formatNameForBdd(this.name));
   } 
+
+  formatNameForBdd(name: string) : string {
+    return name.split('_').join(' ');
+  }
 
   loadProject(name: string){
     this.sub= this.projectService.getByName(name).subscribe({
     next: project => {
         
-      this.project=project
-      console.log(this.project)
+      this.project=project;
+      console.log(this.project);
     },
     error: err => this.errorMessage = err
-    }
-      
-    )
+    })
     
   }
   
