@@ -124,9 +124,9 @@ ALTER TABLE plateform.project_user ADD CONSTRAINT project_tache_fk1 FOREIGN KEY 
 ALTER TABLE plateform.project_user ADD CONSTRAINT project_tache_fk2 FOREIGN KEY (id_user) REFERENCES plateform.plateform_user(id);
 
 INSERT INTO plateform.project_category
-(name_project_category, description)
-VALUES('Nature', 'Project en rapport avec l environnement');
+(name_project_category)
+VALUES('Nature');
 
 INSERT INTO plateform.project
-(name_project, description, image_projet, id_project_category)
-VALUES('Faire du bien aux arbres', 'XOXO', '\xDEADBEEF', 1);
+(name_project, image_projet, id_project_category)
+VALUES('Faire du bien aux arbres', '\xDEADBEEF', 1);
