@@ -11,8 +11,7 @@
   /*height: 500px; OLD*/
   /*margin-bottom: 60px; OLD*/
   /*max-width:1200px; THIS IS OPTIONAL (ANY SIZE YOU LIKE)*/
-  margin:0 auto 60px;
-  margin-top: 10em;
+  margin: 10em;
 }
 
 .carousel .item {
@@ -39,4 +38,13 @@
 .carousel-control-prev /*, .carousel-indicators */ {
   filter: invert(100%);
 }
-
+.text_carrousel{
+  background-color: black;
+  opacity:0.6;
+  font-weight: bold;
+  text-align: left;
+  width: 30%;
+}
+.text_carrousel:hover{
+  opacity: 0.85;
+}
