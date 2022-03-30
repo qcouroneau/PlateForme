@@ -1,7 +1,7 @@
 export interface IProjet {
     id: number,
-    nomProjet: string,
+    name: string,
     description: string,
-    imageProjet: any,
-    categorieProjet: string
+    image: string,
+    category: string
 }
