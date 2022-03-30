@@ -1,12 +1,12 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <label for="name">Name : </label>
-  <input id="name" type="text" formControlName="name">
+  <input id="name" type="text" formControlName="name" required>
 
   <label for="description">Description : </label>
-  <input id="description" type="text" formControlName="description">
+  <input id="description" type="text" formControlName="description" required>
 
   <label for="budget">Budget : </label>
-  <input id="budget" type="number" formControlName="budget">
+  <input id="budget" type="number" formControlName="budget" required>
 
   <button type="submit">
     Validate

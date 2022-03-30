@@ -2,11 +2,10 @@ package plateforme.back.controllers;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import plateforme.back.dto.ProjectDTO;
+import plateforme.back.form.ProjectForm;
 import plateforme.back.service.ProjectService;
 
 @RestController
@@ -23,4 +22,7 @@ public class ProjectController {
 	public List<ProjectDTO> getAllProjectDTO(){
 		return this.service.getAllProjectDTO();
 	}
+
+	@RequestMapping(value="/create", method = RequestMethod.POST)
+	public int createProject(@RequestBody ProjectForm project) { return this.service.createProject(project); }
 }

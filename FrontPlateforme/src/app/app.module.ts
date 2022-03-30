@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CreateProjectModule} from "./create-project/create-project.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -24,6 +25,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    CreateProjectModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

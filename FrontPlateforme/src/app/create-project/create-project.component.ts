@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/services/project.service';
 import {Project} from "../model/project.model";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-create-project',
@@ -11,7 +12,7 @@ import {Project} from "../model/project.model";
 })
 export class CreateProjectComponent implements OnInit {
 
-  private project: Project | undefined;
+  private project: Project = new Project();
 
   public form: FormGroup;
 
@@ -31,9 +32,12 @@ export class CreateProjectComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.project = Object.assign(this.project, this.form.value)
-    console.log(this.project);
-
+    if (this.form.invalid) {
+      return;
+    }
+    console.log(this.form.value)
+    this.project = Object.assign(this.project, this.form.value);
+    this.projectService.createProject(this.project).subscribe();
   }
 
 }
