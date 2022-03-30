@@ -6,10 +6,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent } from './header/header.component';
 import {HeaderModule} from "./header/header.module";
 import {HomeModule} from "./home/home.module";
-import { HomeModule } from './home/home.module';
 import { CreateProjectModule } from './create-project/create-project.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -17,13 +15,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 @NgModule({
   declarations: [
-    AppComponent,
-    CreateProjectComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CreateProjectModule,
     HeaderModule,
     HomeModule,
     TranslateModule.forRoot({

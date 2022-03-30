@@ -7,10 +7,10 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FrontPlateforme';
-  
+  title = 'FrontPlateform';
+
   constructor(translate: TranslateService) {
-    
+
     translate.addLangs(['en', 'fr']);
     translate.setDefaultLang('en');
 
