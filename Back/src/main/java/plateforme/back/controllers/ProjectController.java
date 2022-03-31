@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import plateforme.back.dto.ProjectDTO;
 import plateforme.back.form.ProjectForm;
+import plateforme.back.object.Project;
 import plateforme.back.service.ProjectService;
 
 @RestController
@@ -28,7 +29,7 @@ public class ProjectController {
 	}
 
 	@RequestMapping(value="/create", method = RequestMethod.POST)
-	public int createProject(@RequestBody ProjectForm project) {
+	public Project createProject(@RequestBody ProjectForm project) {
 		return this.service.createProject(project);
 	}
 

@@ -72,7 +72,7 @@ CREATE TABLE plateform.project_category (
 
 CREATE TABLE plateform.project (
 	id serial NOT NULL,
-	name_project varchar NOT NULL,
+	name varchar NOT NULL,
 	description varchar NOT NULL,
 	budget int8 NOT NULL,
 	CONSTRAINT project_pkey PRIMARY KEY (id)
@@ -130,5 +130,5 @@ INSERT INTO plateform.project_category
 VALUES('Nature');
 
 INSERT INTO plateform.project
-(name_project, description, budget)
+(name, description, budget)
 VALUES('Faire du bien aux arbres', 'test', 1);

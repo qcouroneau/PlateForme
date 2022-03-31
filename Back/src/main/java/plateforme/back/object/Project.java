@@ -22,7 +22,7 @@ public class Project implements Serializable {
 	private static final long serialVersionUID = 2527428440912842930L;
 
 	public Project(ProjectForm projectForm) {
-		this.nameProject = projectForm.getName();
+		this.name = projectForm.getName();
 		this.description = projectForm.getDescription();
 		this.budget = projectForm.getBudget();
 	}
@@ -33,8 +33,8 @@ public class Project implements Serializable {
     @Column(unique = true, nullable = false, updatable = false, name = "id")
     private int id;
 	
-	@Column(name="name_project")
-    private String nameProject;
+	@Column(name="name")
+    private String name;
 	
 	@Column(name="description")
     private String description;
@@ -50,12 +50,12 @@ public class Project implements Serializable {
 		this.id = id;
 	}
 
-	public String getNameProject() {
-		return nameProject;
+	public String getName() {
+		return name;
 	}
 
-	public void setNameProject(String nameProject) {
-		this.nameProject = nameProject;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDescription() {

@@ -42,7 +42,15 @@ export class CreateProjectComponent implements OnInit {
       formValues.categories[i].name = formValues.tags[i].value;
     }
     formValues.name = formValues.name.trim();
-    this.projectService.createProject(formValues).subscribe();
+    this.projectService.createProject(formValues).subscribe({
+      next: project => {
+        if(project) {
+          const technicalName = project.name.replace(' ', '_');
+          this.router.navigate(['/projet', technicalName]);
+        } else {
+        }
+      }
+    });
   }
 
 }

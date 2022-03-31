@@ -27,6 +27,6 @@ export class ProjectService {
   }
 
   public createProject(project: IProject){
-    return this.http.post(environment.apiUrl + urls.project.create, project);
+    return this.http.post<IProject>(environment.apiUrl + urls.project.create, project);
   }
 }
