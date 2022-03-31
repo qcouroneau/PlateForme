@@ -13,6 +13,7 @@ CREATE TABLE plateform.plateform_user (
 CREATE TABLE plateform.skill_category (
 	id serial NOT NULL,
 	name_skill_category varchar NOT null,
+	description varchar NOT null,
 	CONSTRAINT skill_category_pkey PRIMARY KEY (id)
 );
 
@@ -39,6 +40,7 @@ ALTER TABLE plateform.user_skill ADD CONSTRAINT user_skill_fk2 FOREIGN KEY (id_s
 CREATE TABLE plateform.tache_category (
 	id serial NOT NULL,
 	name_tache_category varchar NOT null,
+	description varchar NOT null,
 	CONSTRAINT tache_category_pkey PRIMARY KEY (id)
 );
 
@@ -64,20 +66,20 @@ ALTER TABLE plateform.tache_skill ADD CONSTRAINT tache_skill_fk2 FOREIGN KEY (id
 
 CREATE TABLE plateform.project_category (
 	id serial NOT NULL,
-	name_project_category varchar NOT null,
+	name varchar NOT null,
 	CONSTRAINT project_category_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE plateform.project (
 	id serial NOT NULL,
-	name_project varchar NOT NULL,
+	name varchar NOT NULL,
 	description varchar NOT NULL,
-	image_project varchar NULL,
+	budget int8 NOT NULL,
 	CONSTRAINT project_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE plateform.project_project_category (
-	id serial NOT NULL,	
+	id serial NOT NULL,
 	id_project int4 NOT null,
 	id_project_category int4 NOT null,
 	CONSTRAINT project_project_category_pkey PRIMARY KEY (id)
@@ -124,9 +126,9 @@ ALTER TABLE plateform.project_user ADD CONSTRAINT project_tache_fk1 FOREIGN KEY 
 ALTER TABLE plateform.project_user ADD CONSTRAINT project_tache_fk2 FOREIGN KEY (id_user) REFERENCES plateform.plateform_user(id);
 
 INSERT INTO plateform.project_category
-(name_project_category)
+(name)
 VALUES('Nature');
 
 INSERT INTO plateform.project
-(name_project, image_projet, id_project_category)
-VALUES('Faire du bien aux arbres', '\xDEADBEEF', 1);
+(name, description, budget)
+VALUES('Faire du bien aux arbres', 'test', 1);
