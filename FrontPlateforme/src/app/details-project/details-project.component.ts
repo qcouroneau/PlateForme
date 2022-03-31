@@ -35,7 +35,7 @@ export class DetailsProjectComponent implements OnInit {
     next: project => {
         
       this.project=project;
-      console.log(this.project);
+
     },
     error: err => this.errorMessage = err
     })
