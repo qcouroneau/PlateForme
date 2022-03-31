@@ -12,26 +12,29 @@ import plateforme.back.object.Project;
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
 
-	@Query(value = "SELECT p.id AS id, p.name_project AS nameProject, p.description AS description, pc.name AS nameCategorie "
+	@Query(value = "SELECT p.id AS id, p.name_project AS nameProject, p.description AS description, string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
 			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
 			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
-			+ "WHERE p.id = ?1"
+			+ "WHERE p.id = ?1 "
+			+ "GROUP BY 1;"
 			, nativeQuery = true)
 	ProjectDTO getDtoById(int idCampApp);
 
-	@Query(value = "SELECT p.id AS id, p.name_project AS nameProject, p.description AS description, pc.name AS nameCategorie "
+	@Query(value = "SELECT p.id AS id, p.name_project AS nameProject, p.description AS description,string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
 			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
 			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
+			+ "GROUP BY 1;"
 			, nativeQuery = true)
 	List<ProjectDTO> getAllDto();
 
-	@Query(value = "SELECT p.id AS id, p.name_project AS nameProject, p.description AS description, pc.name AS nameCategorie "
+	@Query(value = "SELECT p.id AS id, p.name_project AS nameProject, p.description AS description, string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
 			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
 			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
-			+ "WHERE p.name_project = ?1"
+			+ "WHERE p.name_project = ?1 "
+			+ "GROUP BY 1;"
 			, nativeQuery = true)
 	ProjectDTO getDtoByName(String name);
 }
