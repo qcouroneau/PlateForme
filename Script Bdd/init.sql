@@ -78,6 +78,15 @@ CREATE TABLE plateform.project (
 	CONSTRAINT project_pkey PRIMARY KEY (id)
 );
 
+CREATE TABLE plateform.project_project_category (
+	id serial NOT NULL,
+	id_project int4 NOT null,
+	id_project_category int4 NOT null,
+	CONSTRAINT project_project_category_pkey PRIMARY KEY (id)
+);
+
+ALTER TABLE plateform.project_project_category ADD CONSTRAINT project_fk1 FOREIGN KEY (id_project) REFERENCES plateform.project(id);
+ALTER TABLE plateform.project_project_category ADD CONSTRAINT project_fk2 FOREIGN KEY (id_project_category) REFERENCES plateform.project_category(id);
 
 CREATE TABLE plateform.tag (
 	id serial NOT NULL,
@@ -122,14 +131,4 @@ VALUES('Nature');
 
 INSERT INTO plateform.project
 (name_project, description, budget)
-VALUES('Faire du bien aux arbres', 1);
-
-CREATE TABLE plateform.project_project_category (
-	id serial NOT NULL,	
-	id_project int4 NOT null,
-	id_project_category int4 NOT null,
-	CONSTRAINT project_project_category_pkey PRIMARY KEY (id)
-);
-
-ALTER TABLE plateform.project_project_category ADD CONSTRAINT project_project_category_fk1 FOREIGN KEY (id_project) REFERENCES plateform.project(id);
-ALTER TABLE plateform.project_project_category ADD CONSTRAINT project_project_category_fk2 FOREIGN KEY (id_project_category) REFERENCES plateform.project_category(id);
+VALUES('Faire du bien aux arbres', 'test', 1);
