@@ -37,9 +37,16 @@ public class ProjectService {
 	}
 
     public int createProject(@Validated ProjectForm project){
+        if (!isProjectNameUnique(project.getName())){
+            return -1;
+        }
         Project createdProject = new Project(project);
         repository.save(createdProject);
         this.projectCategoryService.createProjectCategory(project.getCategories(), createdProject);
         return createdProject.getId();
+    }
+
+    private boolean isProjectNameUnique(String name){
+        return this.repository.getDtoByName(name) == null;
     }
 }

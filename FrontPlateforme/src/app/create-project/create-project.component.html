@@ -6,7 +6,7 @@
   <input id="description" type="text" formControlName="description" required>
 
   <label for="budget">Budget : </label>
-  <input id="budget" type="number" formControlName="budget" required>
+  <input id="budget" type="number" formControlName="budget" min="0" oninput="this.value = this.value > 0 ? this.value : null" required>
 
   <tag-input formControlName="tags"></tag-input>
 
