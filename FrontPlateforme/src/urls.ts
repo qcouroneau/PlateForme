@@ -3,8 +3,8 @@ export const urls = {
     create: '/project/create',
     get: {
       all: '/project/dto',
-      byId: '/project/dto/getById',
-      byName: '/project/dto/getByName'
+      byId: '/project/dto/getById/',
+      byName: '/project/dto/getByName/'
     },
   }
 }

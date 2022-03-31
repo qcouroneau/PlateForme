@@ -273,6 +273,11 @@ buildNumber.properties
 .history
 .ionide
 
+# Custom
+
+application.properties
+package-lock.json
+
 # Support for Project snippet scope
 
 # End of https://www.toptal.com/developers/gitignore/api/angular,java,maven,intellij,eclipse,visualstudiocode

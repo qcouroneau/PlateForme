@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IProjet } from '../entities/projet-reference';
-import { ProjectService } from '../service/project-service';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-details-project',

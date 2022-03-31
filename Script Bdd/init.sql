@@ -179,5 +179,3 @@ VALUES(6, 1);
 INSERT INTO plateform.project_project_category
 (id_project, id_project_category)
 VALUES(7, 1);
-(name, description, budget)
-VALUES('Faire du bien aux arbres', 'test', 1);

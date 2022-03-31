@@ -28,7 +28,7 @@ public class ProjectController {
 		return this.service.getAllProjectDTO();
 	}
 
-	@RequestMapping(value="/create", method = RequestMethod.POST)
+	@PostMapping(value="/create")
 	public Project createProject(@RequestBody ProjectForm project) {
 		return this.service.createProject(project);
 	}
