@@ -1,4 +1,3 @@
-
 <div class="container-fluid" id="carouselHome">
   <div id="carousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -65,3 +64,11 @@
   <p>la fistinière</p>
   <p>San Francisco</p>
 </div>
+
+<button [routerLink]="['/newproject']"> 
+    Create new project
+</button>
+
+<button [routerLink] = "['/project', name]">
+    routeDetailProjet
+</button>

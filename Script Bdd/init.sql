@@ -13,6 +13,7 @@ CREATE TABLE plateform.plateform_user (
 CREATE TABLE plateform.skill_category (
 	id serial NOT NULL,
 	name_skill_category varchar NOT null,
+	description varchar NOT null,
 	CONSTRAINT skill_category_pkey PRIMARY KEY (id)
 );
 
@@ -39,6 +40,7 @@ ALTER TABLE plateform.user_skill ADD CONSTRAINT user_skill_fk2 FOREIGN KEY (id_s
 CREATE TABLE plateform.tache_category (
 	id serial NOT NULL,
 	name_tache_category varchar NOT null,
+	description varchar NOT null,
 	CONSTRAINT tache_category_pkey PRIMARY KEY (id)
 );
 
@@ -73,11 +75,12 @@ CREATE TABLE plateform.project (
 	name varchar UNIQUE NOT NULL,
 	description varchar NOT NULL,
 	image varchar NULL,
+	budget int8 NOT NULL,
 	CONSTRAINT project_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE plateform.project_project_category (
-	id serial NOT NULL,	
+	id serial NOT NULL,
 	id_project int4 NOT null,
 	id_project_category int4 NOT null,
 	CONSTRAINT project_project_category_pkey PRIMARY KEY (id)
@@ -128,32 +131,32 @@ INSERT INTO plateform.project_category
 VALUES('Nature');
 
 INSERT INTO plateform.project
-(name, description, image)
-VALUES('Faire du bien aux arbres', 'XOXO', 'https://picsum.photos/id/237/200/300');
+(name, description, image, budget)
+VALUES('Faire du bien aux arbres', 'XOXO', 'https://picsum.photos/id/237/200/300', 50);
 
 INSERT INTO plateform.project
-(name, description, image)
-VALUES('Projet 2', 'Oui', 'https://picsum.photos/id/236/200/300');
+(name, description, image, budget)
+VALUES('Projet 2', 'Oui', 'https://picsum.photos/id/236/200/300', 50);
 
 INSERT INTO plateform.project
-(name, description, image)
-VALUES('Projet 3', 'Projet de type sympathique', 'https://picsum.photos/id/100/200/300');
+(name, description, image, budget)
+VALUES('Projet 3', 'Projet de type sympathique', 'https://picsum.photos/id/100/200/300', 50);
 
 INSERT INTO plateform.project
-(name, description, image)
-VALUES('Projet 4', 'NON ONON', 'https://picsum.photos/id/101/200/300');
+(name, description, image, budget)
+VALUES('Projet 4', 'NON ONON', 'https://picsum.photos/id/101/200/300', 50);
 
 INSERT INTO plateform.project
-(name, description, image)
-VALUES('Projet 5', 'sdvcqgdche', 'https://picsum.photos/id/102/200/300');
+(name, description, image, budget)
+VALUES('Projet 5', 'sdvcqgdche', 'https://picsum.photos/id/102/200/300', 50);
 
 INSERT INTO plateform.project
-(name, description, image)
-VALUES('Projet 6', 'd,fzjdkfbefhe', 'https://picsum.photos/id/103/200/300');
+(name, description, image, budget)
+VALUES('Projet 6', 'd,fzjdkfbefhe', 'https://picsum.photos/id/103/200/300', 50);
 
 INSERT INTO plateform.project
-(name, description, image)
-VALUES('Projet 7', 'd,fzjdkfbefhe', 'https://picsum.photos/id/104/200/300');
+(name, description, image, budget)
+VALUES('Projet 7', 'd,fzjdkfbefhe', 'https://picsum.photos/id/104/200/300', 50);
 
 INSERT INTO plateform.project_project_category
 (id_project, id_project_category)
@@ -176,3 +179,6 @@ VALUES(6, 1);
 INSERT INTO plateform.project_project_category
 (id_project, id_project_category)
 VALUES(7, 1);
+=======
+(name, description, budget)
+VALUES('Faire du bien aux arbres', 'test', 1);
