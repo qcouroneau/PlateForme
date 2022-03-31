@@ -5,5 +5,6 @@ public interface ProjectDTO {
 	String getName();
 	String getDescription();
 	String getImage();
+	int getBudget();
 	CategoryDTO[] getCategories();
 }

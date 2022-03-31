@@ -38,6 +38,10 @@ public class Project implements Serializable {
 	
 	@Column(name="description")
     private String description;
+	
+	@Lob
+	@Column(name="image_project")
+	private String imageProject;
 
 	@Column(name="budget")
 	private int budget;

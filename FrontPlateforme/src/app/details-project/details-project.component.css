@@ -1,0 +1,55 @@
+.e614_2974 { 
+	color:rgba(12.006249949336052, 12.225655876100063, 12.750000189989805, 1);
+	width:262px;
+	height:32px;
+	position:absolute;
+	left:249px;
+	top:32px;
+	font-family:Poppins;
+	text-align:left;
+	font-size:50px;
+	letter-spacing:0;
+	line-height:px;
+}
+
+.e614_2976 { 
+	color:rgba(12.006249949336052, 12.225655876100063, 12.750000189989805, 1);
+	width:283px;
+	height:32px;
+	position:absolute;
+	left:282.5px;
+	top:61.5px;
+	font-family:Poppins;
+	text-align:left;
+	font-size:50px;
+	letter-spacing:0;
+	line-height:px;
+}
+
+
+
+.card:hover{
+	transform: scale(1.05);
+	box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06) ;
+	opacity: 0.7;
+}
+
+.card-title{
+	margin-top: 150px;
+	margin-left: 250px;
+	
+	font-size:60px;
+}
+
+.card-desc{
+	margin-top: 50px;
+	margin-left: 250px;
+	font-size: 20px;
+
+}
+
+.card-cat{
+	margin-left: 250px;
+	font-size : 20px;
+
+}

@@ -12,7 +12,7 @@ import plateforme.back.object.Project;
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
 
-	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description, string_agg(pc.name,', ') AS nameCategorie "
+	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description, p.image_project as image, string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
 			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
 			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
@@ -21,7 +21,7 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
 			, nativeQuery = true)
 	ProjectDTO getDtoById(int idCampApp);
 
-	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description,string_agg(pc.name,', ') AS nameCategorie "
+	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description, p.image_project as image, string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
 			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
 			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
@@ -29,7 +29,7 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
 			, nativeQuery = true)
 	List<ProjectDTO> getAllDto();
 
-	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description, string_agg(pc.name,', ') AS nameCategorie "
+	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description, p.image_project as image, string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
 			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
 			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
