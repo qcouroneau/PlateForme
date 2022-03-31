@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IProjet } from '../entities/projet-reference';
-import { ProjectService } from '../service/project-service';
+import { IProject } from '../entities/project-reference';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   public name : string = "";
 
   sub!: Subscription;
-  projects: IProjet[] = [];
+  projects: IProject[] = [];
   errorMessage = 'Erreur lors du chargement';
 
   constructor(private router: Router,
