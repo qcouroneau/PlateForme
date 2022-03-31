@@ -44,43 +44,9 @@
 <div class="card-group container" id="card-newest">
   <h1>newest projects</h1>
   <div class="row justify-content-md-center">
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img6.acsta.net/c_310_420/pictures/21/10/18/09/57/1868139.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://media.senscritique.com/media/000018573383/325/parasite.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-  </div>
-  <div class="row justify-content-md-center">
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img6.acsta.net/c_310_420/pictures/21/10/18/09/57/1868139.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://media.senscritique.com/media/000018573383/325/parasite.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
+    <div class="card text-white col-lg-2" *ngFor="let project of projects">
+        <img [src]="project.image" class="card-img" alt="...">
+        <p>{{ project.image }}</p>
     </div>
   </div>
 </div>
@@ -89,44 +55,6 @@
 <div class="card-group container" id="card-trend">
   <h1>tendencies</h1>
   <div class="row justify-content-md-center">
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img6.acsta.net/c_310_420/pictures/21/10/18/09/57/1868139.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://media.senscritique.com/media/000018573383/325/parasite.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-  </div>
-  <div class="row justify-content-md-center">
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img6.acsta.net/c_310_420/pictures/21/10/18/09/57/1868139.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://media.senscritique.com/media/000018573383/325/parasite.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
-    <div class="card text-white col-lg-2">
-      <img src="https://fr.web.img4.acsta.net/c_310_420/pictures/22/01/18/10/13/5983633.jpg" class="card-img" alt="...">
-    </div>
   </div>
 </div>
 

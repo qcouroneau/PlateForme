@@ -64,15 +64,15 @@ ALTER TABLE plateform.tache_skill ADD CONSTRAINT tache_skill_fk2 FOREIGN KEY (id
 
 CREATE TABLE plateform.project_category (
 	id serial NOT NULL,
-	name_project_category varchar NOT null,
+	name varchar NOT null,
 	CONSTRAINT project_category_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE plateform.project (
 	id serial NOT NULL,
-	name_project varchar NOT NULL,
+	name varchar UNIQUE NOT NULL,
 	description varchar NOT NULL,
-	image_project varchar NULL,
+	image varchar NULL,
 	CONSTRAINT project_pkey PRIMARY KEY (id)
 );
 
@@ -124,9 +124,55 @@ ALTER TABLE plateform.project_user ADD CONSTRAINT project_tache_fk1 FOREIGN KEY 
 ALTER TABLE plateform.project_user ADD CONSTRAINT project_tache_fk2 FOREIGN KEY (id_user) REFERENCES plateform.plateform_user(id);
 
 INSERT INTO plateform.project_category
-(name_project_category)
+(name)
 VALUES('Nature');
 
 INSERT INTO plateform.project
-(name_project, image_projet, id_project_category)
-VALUES('Faire du bien aux arbres', '\xDEADBEEF', 1);
+(name, description, image)
+VALUES('Faire du bien aux arbres', 'XOXO', 'https://picsum.photos/id/237/200/300');
+
+INSERT INTO plateform.project
+(name, description, image)
+VALUES('Projet 2', 'Oui', 'https://picsum.photos/id/236/200/300');
+
+INSERT INTO plateform.project
+(name, description, image)
+VALUES('Projet 3', 'Projet de type sympathique', 'https://picsum.photos/id/100/200/300');
+
+INSERT INTO plateform.project
+(name, description, image)
+VALUES('Projet 4', 'NON ONON', 'https://picsum.photos/id/101/200/300');
+
+INSERT INTO plateform.project
+(name, description, image)
+VALUES('Projet 5', 'sdvcqgdche', 'https://picsum.photos/id/102/200/300');
+
+INSERT INTO plateform.project
+(name, description, image)
+VALUES('Projet 6', 'd,fzjdkfbefhe', 'https://picsum.photos/id/103/200/300');
+
+INSERT INTO plateform.project
+(name, description, image)
+VALUES('Projet 7', 'd,fzjdkfbefhe', 'https://picsum.photos/id/104/200/300');
+
+INSERT INTO plateform.project_project_category
+(id_project, id_project_category)
+VALUES(1, 1);
+INSERT INTO plateform.project_project_category
+(id_project, id_project_category)
+VALUES(2, 1);
+INSERT INTO plateform.project_project_category
+(id_project, id_project_category)
+VALUES(3, 1);
+INSERT INTO plateform.project_project_category
+(id_project, id_project_category)
+VALUES(4, 1);
+INSERT INTO plateform.project_project_category
+(id_project, id_project_category)
+VALUES(5, 1);
+INSERT INTO plateform.project_project_category
+(id_project, id_project_category)
+VALUES(6, 1);
+INSERT INTO plateform.project_project_category
+(id_project, id_project_category)
+VALUES(7, 1);
