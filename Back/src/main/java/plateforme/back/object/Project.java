@@ -36,10 +36,10 @@ public class Project implements Serializable {
     private String description;
 	
 	@Lob
-	@Column(name="image_projet")
-	private byte[] imageProjet;
+	@Column(name="image_project")
+	private String imageProject;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_project_category", nullable = false)
-    private ProjectCategory projectCategory;
+	@Column(name="budget")
+	private int budget;
+
 }

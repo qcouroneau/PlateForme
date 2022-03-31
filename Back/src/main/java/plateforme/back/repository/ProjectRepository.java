@@ -25,9 +25,8 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
 			, nativeQuery = true)
 	List<ProjectDTO> getAllDto();
 
-	@Query(value = "SELECT p.id AS id, p.name_project AS name, p.description AS description, p.image_projet as image, pc.name_project_category AS category "
+	@Query(value = "SELECT p.id AS id, p.name_project AS name, p.description AS description, p.image_project as image"
 			+ "FROM plateform.project p "
-			+ "INNER JOIN plateform.project_category pc ON p.id_project_category = pc.id "
 			+ "WHERE p.name_project = ?1"
 			, nativeQuery = true)
 	ProjectDTO getDtoByName(String name);

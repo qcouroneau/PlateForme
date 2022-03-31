@@ -12,7 +12,7 @@ import { ProjectService } from '../service/project-service';
 export class DetailsProjectComponent implements OnInit {
   public url: string[] | null = null;
   public name = "";
-  public project: IProjet = {id: 0, category: "", image: "", description: "", name: "default"};
+  public project: IProjet = {id: 0, category: "", image: "https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/4/a/b/4abad696c9_50154894_materiau-noir-nanotube-carbone.jpg", description: "j'adore les moches", name: "default"};
   sub!:Subscription;
   errorMessage = 'Erreur lors du chargement';
 
