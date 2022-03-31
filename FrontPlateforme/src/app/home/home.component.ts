@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
     this.sub = this.project.getAll().subscribe({
       next: projects => {
           this.projects = projects;
+          console.log(this.projects);
         },
         error: err => this.errorMessage = err
       });
