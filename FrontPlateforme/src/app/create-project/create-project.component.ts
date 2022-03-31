@@ -45,7 +45,7 @@ export class CreateProjectComponent implements OnInit {
     this.projectService.createProject(formValues).subscribe({
       next: project => {
         if(project) {
-          const technicalName = project.name.replace(' ', '_');
+          const technicalName = project.name.split(' ').join('_');
           this.router.navigate(['/projet', technicalName]);
         } else {
         }
