@@ -23,7 +23,7 @@ public class UserSkill implements Serializable {
 	private static final long serialVersionUID = 314930865373655746L;
 
 	@Id
-    @SequenceGenerator(name = "pk_sequence", sequenceName = "user_skill_seq", allocationSize = 1)
+    @SequenceGenerator(name = "pk_sequence", sequenceName = "user_skill_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence")
     @Column(unique = true, nullable = false, updatable = false, name = "id")
     private int id;

@@ -2,9 +2,10 @@ package plateforme.back.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import plateforme.back.object.ProjectProjectCategory;
+
+import plateforme.back.object.Category;
 
 @Repository
-public interface ProjectProjectCategoryRepository extends JpaRepository<ProjectProjectCategory, Integer> {
+public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
 }

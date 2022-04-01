@@ -2,7 +2,8 @@ package plateforme.back.form;
 
 import com.sun.istack.NotNull;
 
-public class ProjectCategoryForm {
+public class CategoryForm {
+	
     @NotNull
     private String name;
 

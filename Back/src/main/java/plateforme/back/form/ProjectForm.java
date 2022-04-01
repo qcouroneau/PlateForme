@@ -5,6 +5,7 @@ import com.sun.istack.NotNull;
 import java.util.List;
 
 public class ProjectForm {
+	
     @NotNull
     private String name;
 
@@ -15,7 +16,7 @@ public class ProjectForm {
     private String description;
 
     @NotNull
-    private List<ProjectCategoryForm> categories;
+    private List<CategoryForm> categories;
 
     public String getName() {
         return name;
@@ -41,11 +42,11 @@ public class ProjectForm {
         this.budget = budget;
     }
 
-    public void setCategories(List<ProjectCategoryForm> categories) {
+    public void setCategories(List<CategoryForm> categories) {
         this.categories = categories;
     }
 
-    public List<ProjectCategoryForm> getCategories() {
+    public List<CategoryForm> getCategories() {
         return categories;
     }
 
