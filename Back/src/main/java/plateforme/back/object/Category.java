@@ -1,5 +1,6 @@
 package plateforme.back.object;
 
+import plateforme.back.form.CategoryForm;
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -11,25 +12,26 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity()
-@Table(name = "skill")
-public class Skill implements Serializable {
-
+@Table(name = "category")
+public class Category implements Serializable {
+	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -9049202098512262851L;
+	private static final long serialVersionUID = 2527428440912842930L;
+
+	public Category(CategoryForm categoryForm) {
+		this.name = categoryForm.getName();
+	}
 
 	@Id
-    @SequenceGenerator(name = "pk_sequence", sequenceName = "skill_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "pk_sequence", sequenceName = "category_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence")
     @Column(unique = true, nullable = false, updatable = false, name = "id")
     private int id;
 	
 	@Column(name="name")
     private String name;
-	
-	@Column(name="description")
-    private String description;
 
 	public int getId() {
 		return id;
@@ -46,13 +48,4 @@ public class Skill implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
 }
