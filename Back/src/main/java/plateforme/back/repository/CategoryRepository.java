@@ -8,4 +8,5 @@ import plateforme.back.object.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Integer> {
 
+	public Category getByName(String name);
 }

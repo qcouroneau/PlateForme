@@ -5,6 +5,7 @@ import { CreateProjectComponent } from "./create-project.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import {TagInputModule} from "ngx-chips";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
         ReactiveFormsModule,
         TagInputModule,
         BrowserAnimationsModule,
+        AutoCompleteModule
     ],
     providers: [],
     bootstrap: [CreateProjectComponent]

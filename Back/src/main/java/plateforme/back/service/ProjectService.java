@@ -16,10 +16,10 @@ public class ProjectService {
 
 	private final ProjectRepository repository;
 
-    private final CategoryService projectCategoryService;
+    private final ProjectCategoryService projectCategoryService;
 
     @Autowired
-    public ProjectService(final ProjectRepository repository, CategoryService projectCategoryService){
+    public ProjectService(final ProjectRepository repository, ProjectCategoryService projectCategoryService){
         this.repository = repository;
         this.projectCategoryService = projectCategoryService;
     }
@@ -33,7 +33,7 @@ public class ProjectService {
 	}
 
 	public ProjectDTO getProjectDTOByName(String name) {
-		return this.repository.getDtoByName(name);
+		return this.repository.findByName(name);
 	}
 
     public Project createProject(@Validated ProjectForm project){
@@ -42,11 +42,11 @@ public class ProjectService {
         }
         Project createdProject = new Project(project);
         repository.save(createdProject);
-        this.projectCategoryService.createProjectCategory(project.getCategories(), createdProject);
+        this.projectCategoryService.createAssociation(createdProject, project.getCategories());
         return createdProject;
     }
 
     private boolean isProjectNameUnique(String name){
-        return this.repository.getDtoByName(name) == null;
+        return this.repository.findByName(name) == null;
     }
 }

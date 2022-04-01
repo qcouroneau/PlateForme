@@ -7,8 +7,12 @@
 
   <label for="budget">Budget : </label>
   <input id="budget" type="number" formControlName="budget" min="0" oninput="this.value = this.value > 0 ? this.value : null" required>
+  
+  <span class="p-fluid">
+    <p-autoComplete  formControlName="categories" [suggestions]="filteredCategories" (completeMethod)="filterCategories($event)" field="name" [multiple]="true">
+    </p-autoComplete>
+  </span>
 
-  <tag-input formControlName="tags"></tag-input>
 
   <button type="submit">
     Validate
