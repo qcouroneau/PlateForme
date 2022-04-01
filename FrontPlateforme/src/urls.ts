@@ -6,5 +6,10 @@ export const urls = {
       byId: '/project/dto/getById/',
       byName: '/project/dto/getByName/'
     },
+  },
+  category: {
+    get: {
+      all: '/category/dto'
+    }
   }
 }
