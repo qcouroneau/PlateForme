@@ -19,6 +19,8 @@ public class Category implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2527428440912842930L;
+	
+	public Category() { }
 
 	public Category(CategoryForm categoryForm) {
 		this.name = categoryForm.getName();

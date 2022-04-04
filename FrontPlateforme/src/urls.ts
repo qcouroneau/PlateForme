@@ -21,5 +21,14 @@ export const urls = {
     get :{
       all: '/user/dto'
     }
+  },
+  category: {
+    get: {
+      all: '/category/dto'
+    }
+  },
+  image: {
+    create: '/image/create',
+    folder: '/project-photos/'
   }
 }

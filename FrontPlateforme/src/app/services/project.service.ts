@@ -1,6 +1,6 @@
 
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { IProject } from '../entities/project-reference';
 import {environment} from "../../environments/environment";
@@ -26,7 +26,7 @@ export class ProjectService {
     return this.http.get(environment.apiUrl + urls.project.get.byName + name);
   }
 
-  public createProject(project: IProject){
+  createProject(project: IProject): Observable<IProject> {
     return this.http.post<IProject>(environment.apiUrl + urls.project.create, project);
   }
 }

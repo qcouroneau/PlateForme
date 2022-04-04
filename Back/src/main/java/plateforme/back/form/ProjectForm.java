@@ -17,6 +17,8 @@ public class ProjectForm {
 
     @NotNull
     private List<CategoryForm> categories;
+    
+    private String imagePath;
 
     public String getName() {
         return name;
@@ -50,4 +52,11 @@ public class ProjectForm {
         return categories;
     }
 
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImage(String imagePath) {
+		this.imagePath = imagePath;
+	}
 }
