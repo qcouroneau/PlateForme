@@ -3,6 +3,7 @@ package plateforme.back.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,12 +31,12 @@ public class ProjectService {
         this.repository = repository;
     }
 
-	public List<ProjectDTO> getAllProjectDTO() {
-		return this.repository.getAllDto();
+	public List<Project> getAllProjectDTO() {
+		return this.repository.findAll().stream().map(Project.class::cast).collect(Collectors.toList());
 	}
 
 	public ProjectDTO getProjectDTOById(final int id) {
-		return this.repository.getDtoById(id);
+		return this.repository.findById(id);
 	}
 
 	public ProjectDTO getProjectDTOByName(String name) {

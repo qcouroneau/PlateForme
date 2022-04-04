@@ -2,8 +2,7 @@ package plateforme.back.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import plateforme.back.dto.SkillDTO;
-import plateforme.back.object.SkillCategory;
+import plateforme.back.object.Skill;
 import plateforme.back.repository.SkillRepository;
 
 import java.util.List;
@@ -13,15 +12,12 @@ public class SkillService {
 
     private final SkillRepository repository;
 
-    private final SkillCategoryService skillCategoryService;
-
     @Autowired
-    public SkillService(final SkillRepository repository, SkillCategoryService service){
+    public SkillService(final SkillRepository repository){
         this.repository = repository;
-        this.skillCategoryService = service;
     }
 
-    public List<SkillDTO> getAllDTO(){
-        return this.repository.getAllDTO();
+    public List<Skill> getAllDTO(){
+        return this.repository.findAll();
     }
 }

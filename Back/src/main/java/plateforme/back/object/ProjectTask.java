@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity()
 @Table(name = "project_task")
-public class ProjectTache implements Serializable {
+public class ProjectTask implements Serializable {
 
 	/**
 	 * 

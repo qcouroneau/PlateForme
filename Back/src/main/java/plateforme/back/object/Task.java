@@ -1,14 +1,25 @@
 package plateforme.back.object;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity()
 @Table(name = "task")
@@ -30,6 +41,18 @@ public class Task implements Serializable {
 	
 	@Column(name="description")
     private String description;
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="task_category", joinColumns = @JoinColumn(name = "id_task", referencedColumnName =  "id"), inverseJoinColumns = @JoinColumn(name = "id_category", referencedColumnName = "id"))
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private List<Category> categories = new ArrayList<>();
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="task_skill", joinColumns = @JoinColumn(name = "id_task", referencedColumnName =  "id"), inverseJoinColumns = @JoinColumn(name = "id_skill", referencedColumnName = "id"))
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private List<Skill> skills = new ArrayList<>();
 
 	public int getId() {
 		return id;
@@ -53,6 +76,22 @@ public class Task implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
 	}
 	
 }

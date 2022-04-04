@@ -3,7 +3,7 @@ package plateforme.back.controllers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import plateforme.back.dto.SkillDTO;
+import plateforme.back.object.Skill;
 import plateforme.back.service.SkillService;
 
 import java.util.List;
@@ -18,5 +18,5 @@ public class SkillController {
     public SkillController(SkillService service ) { this.service=service ; }
 
     @GetMapping("/dto")
-    public List<SkillDTO> getAllSkillDTO() { return this.service.getAllDTO(); }
+    public List<Skill> getAllSkillDTO() { return this.service.getAllDTO(); }
 }

@@ -5,6 +5,6 @@ import java.util.List;
 public interface TaskDTO {
     int getId();
     String getName();
-    List<CategoryDTO> getCategories();
     String getDescription();
+    List<CategoryDTO> getCategories();
 }
