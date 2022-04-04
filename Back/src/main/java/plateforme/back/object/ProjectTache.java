@@ -14,7 +14,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity()
-@Table(name = "project_task")
+@Table(name = "project_tache")
 public class ProjectTache implements Serializable {
 
 	/**
@@ -23,7 +23,7 @@ public class ProjectTache implements Serializable {
 	private static final long serialVersionUID = -8389053555524564314L;
 
 	@Id
-    @SequenceGenerator(name = "pk_sequence", sequenceName = "project_task_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "pk_sequence", sequenceName = "project_tache_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence")
     @Column(unique = true, nullable = false, updatable = false, name = "id")
     private int id;
@@ -33,8 +33,8 @@ public class ProjectTache implements Serializable {
     private Project project;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_task", nullable = false)
-    private Task tache;
+	@JoinColumn(name = "id_tache", nullable = false)
+    private Tache tache;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_user", nullable = false)

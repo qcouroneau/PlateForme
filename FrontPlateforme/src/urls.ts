@@ -6,20 +6,5 @@ export const urls = {
       byId: '/project/dto/getById/',
       byName: '/project/dto/getByName/'
     },
-  },
-  skill:{
-    get :{
-      all: '/skill/dto'
-    }
-  },
-  task:{
-    get :{
-      all: '/task/dto'
-    }
-  },
-  user:{
-    get :{
-      all: '/user/dto'
-    }
   }
 }

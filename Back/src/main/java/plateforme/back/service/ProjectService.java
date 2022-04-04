@@ -16,10 +16,10 @@ public class ProjectService {
 
 	private final ProjectRepository repository;
 
-    private final CategoryService projectCategoryService;
+    private final ProjectCategoryService projectCategoryService;
 
     @Autowired
-    public ProjectService(final ProjectRepository repository, CategoryService projectCategoryService){
+    public ProjectService(final ProjectRepository repository, ProjectCategoryService projectCategoryService){
         this.repository = repository;
         this.projectCategoryService = projectCategoryService;
     }
