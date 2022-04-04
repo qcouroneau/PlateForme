@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import plateforme.back.utils.ImageUtils;
 
+
 @Service
 public class ImageService {
     
@@ -16,8 +17,21 @@ public class ImageService {
     }
 
 	public String createImage(MultipartFile image) throws IOException {
-        String uploadDir = "project-photos/";
-        ImageUtils.saveFile(uploadDir, image.getOriginalFilename(), image);
-		return image.getOriginalFilename();
-	}
+        if(isImageValid(image)) {
+            String name = ImageUtils.generateRandomName(image.getOriginalFilename());
+            String uploadDir = "project-photos/";
+            ImageUtils.saveFile(uploadDir, name, image);
+            return name;
+        } else {
+            return "invalid image format";
+        }
+    }
+
+	private boolean isImageValid(MultipartFile image) {
+        if(!image.getContentType().matches("image/jpg|image/jpeg|image/png")){
+            return false;
+        }
+        return true;
+    }
+
 }
