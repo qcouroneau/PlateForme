@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { IProjet } from '../entities/projet-reference';
+import { IProject } from '../entities/project-reference';
 import { ProjectService } from '../services/project.service';
+import { environment } from 'src/environments/environment';
+import { urls } from 'src/urls';
 
 @Component({
   selector: 'app-details-project',
@@ -12,11 +14,12 @@ import { ProjectService } from '../services/project.service';
 export class DetailsProjectComponent implements OnInit {
   public url: string[] | null = null;
   public name = "";
-  public project: IProjet = {id: 0, category: "", image: "https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/4/a/b/4abad696c9_50154894_materiau-noir-nanotube-carbone.jpg", description: "j'adore les moches", name: "default"};
+  public project: IProject;
+  public projectImagePath: string;
   sub!:Subscription;
   errorMessage = 'Erreur lors du chargement';
 
-  constructor(private router: Router, private projectService:ProjectService) {
+  constructor(private router: Router, private projectService: ProjectService) {
     
    }
 
@@ -31,15 +34,13 @@ export class DetailsProjectComponent implements OnInit {
   }
 
   loadProject(name: string){
-    this.sub= this.projectService.getByName(name).subscribe({
-    next: project => {
-        
-      this.project=project;
-
-    },
-    error: err => this.errorMessage = err
-    })
-    
+    this.sub = this.projectService.getByName(name).subscribe({
+      next: project => {
+        this.project = project;
+        this.projectImagePath = environment.apiUrl + urls.image.folder +  project.imagePath;
+      },
+      error: err => this.errorMessage = err
+    });
   }
   
 

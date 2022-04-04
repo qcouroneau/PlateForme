@@ -6,7 +6,7 @@ public interface ProjectDTO {
 	int getId();
 	String getName();
 	String getDescription();
-	String getImage();
+	String getImagePath();
 	int getBudget();
 	List<CategoryDTO> getCategories();
 }

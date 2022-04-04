@@ -12,8 +12,9 @@ import { HomeModule } from './home/home.module';
 import { CreateProjectModule } from './create-project/create-project.module';
 import { DetailsProjectModule } from './details-project/details-project.module';
 
+
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 @NgModule({
   declarations: [

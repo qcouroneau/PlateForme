@@ -49,7 +49,7 @@ CREATE TABLE plateform.project (
 	id serial NOT NULL,
 	name varchar UNIQUE NOT NULL,
 	description varchar NOT NULL,
-	image varchar NULL,
+	image_path varchar NULL,
 	budget int8 NOT NULL,
 	CONSTRAINT project_pkey PRIMARY KEY (id)
 );
@@ -114,34 +114,43 @@ ALTER TABLE plateform.skill_category ADD CONSTRAINT skill_category_fk2 FOREIGN K
 INSERT INTO plateform.category
 (name)
 VALUES('Nature');
+INSERT INTO plateform.category
+(name)
+VALUES('Finance');
+INSERT INTO plateform.category
+(name)
+VALUES('Informatique');
+INSERT INTO plateform.category
+(name)
+VALUES('Communication');
 
 INSERT INTO plateform.project
-(name, description, image, budget)
-VALUES('Faire du bien aux arbres', 'XOXO', 'https://picsum.photos/id/237/200/300', 50);
+(name, description, budget)
+VALUES('Faire du bien aux arbres', 'XOXO', 50);
 
 INSERT INTO plateform.project
-(name, description, image, budget)
-VALUES('Projet 2', 'Oui', 'https://picsum.photos/id/236/200/300', 50);
+(name, description, budget)
+VALUES('Projet 2', 'Oui', 50);
 
 INSERT INTO plateform.project
-(name, description, image, budget)
-VALUES('Projet 3', 'Projet de type sympathique', 'https://picsum.photos/id/100/200/300', 50);
+(name, description, budget)
+VALUES('Projet 3', 'Projet de type sympathique', 50);
 
 INSERT INTO plateform.project
-(name, description, image, budget)
-VALUES('Projet 4', 'NON ONON', 'https://picsum.photos/id/101/200/300', 50);
+(name, description, budget)
+VALUES('Projet 4', 'NON ONON', 50);
 
 INSERT INTO plateform.project
-(name, description, image, budget)
-VALUES('Projet 5', 'sdvcqgdche', 'https://picsum.photos/id/102/200/300', 50);
+(name, description, budget)
+VALUES('Projet 5', 'sdvcqgdche', 50);
 
 INSERT INTO plateform.project
-(name, description, image, budget)
-VALUES('Projet 6', 'd,fzjdkfbefhe', 'https://picsum.photos/id/103/200/300', 50);
+(name, description, budget)
+VALUES('Projet 6', 'd,fzjdkfbefhe', 50);
 
 INSERT INTO plateform.project
-(name, description, image, budget)
-VALUES('Projet 7', 'd,fzjdkfbefhe', 'https://picsum.photos/id/104/200/300', 50);
+(name, description, budget)
+VALUES('Projet 7', 'd,fzjdkfbefhe', 50);
 
 INSERT INTO plateform.project_category
 (id_project, id_category)
