@@ -1,5 +1,27 @@
 {
-  "HOME": {
-    "TEST": "test-en"
+  "PROJECT": {
+    "CREATE": {
+      "TITLE": "Create your project",
+      "FIELD": {
+        "NAME": "Name *",
+        "DESCRIPTION": "Description *",
+        "BUDGET" : "Budget *",
+        "CATEGORY": "Categories *",
+        "IMAGE": "Image",
+        "IMAGE_BROWSE": "Browse"
+      },
+      "ERROR": {
+        "GENERIC": "This field is mandatory",
+        "NAME": "This name is already taken",
+        "CATEGORY": "Select at least one category",
+        "SUMMARY": "Error",
+        "DETAIL": "Your project could not be created. Please try again later.",
+        "INVALID_FILE_TYPE_SUMMARY": "Invalid file type : ",
+        "INVALID_FILE_TYPE_DETAIL": "Authorized file types are : jpeg, jpg and png",
+        "INVALID_FILE_SIZE_SUMMARY": "Invalid file size : ",
+        "INVALID_FILE_SIZE_DETAIL": "Your file exceeds the maximum allowed size of 1 Mo"
+      },
+      "SUBMIT": "Create your project"
+    }
   }
 }

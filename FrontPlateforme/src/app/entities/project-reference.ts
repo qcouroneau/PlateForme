@@ -5,6 +5,6 @@ export interface IProject {
     name: string,
     description: string,
     budget: number,
-    image: any,
+    imagePath: String,
     categories: ICategory[]
 }

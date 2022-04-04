@@ -28,7 +28,7 @@
 
 
   <div class="card bg text-white" >
-    <img class="card-img" src={{project.image}} width="100%" height="500px" alt="Card image" >
+    <img class="card-img" [src]="projectImagePath" width="100%" height="500px" alt="" >
     <div class="card-img-overlay">
       <h5 class="card-title">{{ project.name }}</h5>
       <p class="card-desc">{{ project.description }}</p>
