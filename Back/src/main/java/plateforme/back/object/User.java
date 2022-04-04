@@ -20,7 +20,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 584607093328770211L;
 	
 	@Id
-    @SequenceGenerator(name = "pk_sequence", sequenceName = "user_id_seq", allocationSize = 1)
+    @SequenceGenerator(name = "pk_sequence", sequenceName = "user_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pk_sequence")
     @Column(unique = true, nullable = false, updatable = false, name = "id")
     private int id;
@@ -31,6 +31,6 @@ public class User implements Serializable {
 	@Column(name="mail")
     private String mail;
 	
-	@Column(name="password")
-    private String password;
+	@Column(name="plateform_password")
+    private String plateformPassword;
 }
