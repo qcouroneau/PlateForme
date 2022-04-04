@@ -15,8 +15,8 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
 	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description, p.image as image, p.budget as budget, "
 			+ "string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
-			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
-			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
+			+ "LEFT JOIN plateform.project_category ppc ON p.id = ppc.id_project "
+			+ "INNER JOIN plateform.category pc ON pc.id = ppc.id_category "
 			+ "WHERE p.id = ?1 "
 			+ "GROUP BY 1;"
 			, nativeQuery = true)
@@ -25,8 +25,8 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
 	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description, p.image as image, p.budget as budget, "
 			+ "string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
-			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
-			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
+			+ "LEFT JOIN plateform.project_category ppc ON p.id = ppc.id_project "
+			+ "INNER JOIN plateform.category pc ON pc.id = ppc.id_category "
 			+ "GROUP BY 1;"
 			, nativeQuery = true)
 	List<ProjectDTO> getAllDto();
@@ -34,8 +34,8 @@ public interface ProjectRepository extends JpaRepository<Project, Integer> {
 	@Query(value = "SELECT p.id AS id, p.name AS name, p.description AS description, p.image as image, p.budget as budget, "
 			+ "string_agg(pc.name,', ') AS nameCategorie "
 			+ "FROM plateform.project p "
-			+ "LEFT JOIN plateform.project_project_category ppc ON p.id = ppc.id_project "
-			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_project_category "
+			+ "LEFT JOIN plateform.project_category ppc ON p.id = ppc.id_project "
+			+ "INNER JOIN plateform.project_category pc ON pc.id = ppc.id_category "
 			+ "WHERE p.name = ?1 "
 			+ "GROUP BY 1;"
 			, nativeQuery = true)
