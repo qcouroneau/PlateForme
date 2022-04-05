@@ -17,6 +17,12 @@ export class HomeComponent implements OnInit {
   errorMessage = 'Erreur lors du chargement';
   sortOrder: number;
   sortField: string;
+  display: boolean = false;
+
+  showDialog() {
+      this.display = true;
+  }
+
 
   constructor(private router: Router,
     private project: ProjectService) {

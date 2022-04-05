@@ -1,23 +1,41 @@
-x<div class="card-group container" id="card-trend">
-  <h1>tendencies</h1>
+<div class="grid grid-nogutter surface-section text-800">
+  <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+      <section>
+          <span class="block text-6xl font-bold mb-1">Create the projects </span>
+          <div class="text-6xl text-primary font-bold mb-3">your community deserve to see</div>
+          <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          
+          <button pButton pRipple label="Create project" type="button" class="mr-3 p-button-raised"></button>
+          
+      </section>
+  </div>
+  <div class="col-12 md:col-6 overflow-hidden">
+      <img src="https://www.daf-mag.fr/Assets/Img/BREVE/2020/12/355489/Quelle-methode-projet-votre-transformation--F.jpg" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+  </div>
+</div>
+
+
+
+
+
+
+<div class="card-group container" id="card-trend">
   <div class="card">
-    <p-dataView [value]="projects" [paginator]="true" [rows]="12" filterBy="name" layout="grid">
+    <p-dataView [value]="projects" [paginator]="false" [rows]="12" filterBy="name" layout="grid">
       <ng-template let-project pTemplate="gridItem">
-        <div class="p-col-12 md:col-4">
-          <div class="product-grid-item card">
-            <div class="product-grid-item-top">
+        
+          <div class="project-grid-item card">
+            <div class="project-grid-item-top">
             </div>
-            <div class="product-grid-item-content">
-              <img [src]="project.imagePath" />
-              <div class="product-name">{{project.name}}</div>
-              <div class="product-description">{{project.description}}</div>
-            </div>
-            <div class="product-grid-item-bottom">
-              <span class="product-price">${{project.budget}}</span>
-              <p-button icon="pi pi-shopping-cart"></p-button>
+            <div class="project-grid-item-content">
+              <img class="project-grid-item img"[src]="project.imagePath" (click)="showDialog()"/>
+             </div>
+            <div class="project-grid-item-bottom">
+              
+              
             </div>
           </div>
-        </div>
+        
       </ng-template>
     </p-dataView>
   </div>
@@ -30,6 +48,17 @@ x<div class="card-group container" id="card-trend">
   <p>la fistinière</p>
   <p>San Francisco</p>
 </div>
+
+
+
+<p-dialog header="Title" [(visible)]="display">
+  Content
+</p-dialog>
+
+<button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show"></button>
+
+
+
 
 <button [routerLink]="['/newproject']">
   Create new project

@@ -5,6 +5,7 @@ import { AppRoutingModule } from "../app-routing.module";
 import { HomeComponent } from "./home.component";
 import {DataViewModule} from 'primeng/dataview';
 import { ButtonModule } from "primeng/button";
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { ButtonModule } from "primeng/button";
         AppRoutingModule,
         RouterModule,
         DataViewModule,
-        ButtonModule
+        ButtonModule,
+        DialogModule
     ],
     providers: [],
     bootstrap: [HomeComponent]
