@@ -3,6 +3,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule } from "@angular/router";
 import { AppRoutingModule } from "../app-routing.module";
 import { HomeComponent } from "./home.component";
+import {DataViewModule} from 'primeng/dataview';
+import { ButtonModule } from "primeng/button";
 
 @NgModule({
     declarations: [
@@ -11,7 +13,9 @@ import { HomeComponent } from "./home.component";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        RouterModule
+        RouterModule,
+        DataViewModule,
+        ButtonModule
     ],
     providers: [],
     bootstrap: [HomeComponent]

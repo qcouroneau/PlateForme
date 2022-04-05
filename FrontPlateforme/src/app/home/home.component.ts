@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   sub!: Subscription;
   projects: IProject[] = [];
   errorMessage = 'Erreur lors du chargement';
+  sortOrder: number;
+  sortField: string;
 
   constructor(private router: Router,
     private project: ProjectService) {
