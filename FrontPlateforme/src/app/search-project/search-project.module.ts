@@ -8,6 +8,9 @@ import {ButtonModule} from 'primeng/button';
 import {DropdownModule} from "primeng/dropdown";
 import {RatingModule} from "primeng/rating";
 import {FormsModule} from "@angular/forms";
+import { AutoCompleteModule } from "primeng/autocomplete";
+import { InputTextModule } from "primeng/inputtext";
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     RouterModule,
     DataViewModule,
+    InputTextModule,
     ButtonModule,
+    AutoCompleteModule,
     DropdownModule,
     RatingModule,
     FormsModule,
