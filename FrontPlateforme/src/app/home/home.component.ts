@@ -18,9 +18,11 @@ export class HomeComponent implements OnInit {
   sortOrder: number;
   sortField: string;
   display: boolean = false;
+  selectedProject: IProject = {'id': 0, 'budget' : 0, 'name' : "", 'description': "", 'categories': [], 'imagePath' : ""};
 
-  showDialog() {
+  showDialog(selectedProject: IProject) {
       this.display = true;
+      this.selectedProject = selectedProject;
   }
 
 
