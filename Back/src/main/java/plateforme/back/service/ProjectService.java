@@ -6,10 +6,10 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 import plateforme.back.dto.ProjectDTO;
 import plateforme.back.form.CategoryForm;
 import plateforme.back.form.ProjectForm;
@@ -42,8 +42,8 @@ public class ProjectService {
 		return this.repository.findByName(name);
 	}
 
-    public Project createProject(@Validated ProjectForm project) throws IOException{
-        if (!isProjectNameUnique(project.getName())){
+    public Project createProject(ProjectForm project) throws IOException{
+        if (!isProjectNameUnique(project.getName()) || project.getBudget() < 0){
             return null;
         }
         Project createdProject = new Project(project);

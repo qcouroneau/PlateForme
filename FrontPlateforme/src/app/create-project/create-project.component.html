@@ -11,6 +11,9 @@
       <small *ngIf="submitted && !!createProjetControls['name'].errors?.['required']" id="name-help" class="p-error">
         {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
       </small>
+      <small *ngIf="submitted && !!createProjetControls['name'].errors?.['empty']" id="name-help" class="p-error">
+        {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
+      </small>
       <small *ngIf="submitted && nameTaken" id="name-help-taken" class="p-error">
         {{ 'PROJECT.CREATE.ERROR.NAMETAKEN' | translate}}
       </small>
@@ -35,6 +38,9 @@
       </textarea>
       <small *ngIf="submitted && !!createProjetControls['description'].errors?.['required']" id="description-help" class="p-error">
         {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
+      </small>
+      <small *ngIf="submitted && !!createProjetControls['name'].errors?.['empty']" id="name-help" class="p-error">
+        {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
       </small>
     </div>
       

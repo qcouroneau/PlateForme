@@ -17,9 +17,9 @@ export class CreateProjectComponent implements OnInit {
 
   form: FormGroup;
 
-  private name = new FormControl('', [Validators.required]);
-  private description = new FormControl('', [Validators.required]);
-  private budget = new FormControl('0', [Validators.required]);
+  private name = new FormControl('', [Validators.required, this.notEmptyValidator]);
+  private description = new FormControl('', [Validators.required, this.notEmptyValidator]);
+  private budget = new FormControl('0', [Validators.required, this.notEmptyValidator]);
   private categories = new FormControl([], [Validators.required, Validators.minLength(1)]);
   private image = new FormData();
 
@@ -94,7 +94,12 @@ export class CreateProjectComponent implements OnInit {
     return this.form.get('name').invalid && this.form.get('name').touched && this.form.get('name').dirty;
   }
 
-  public onImageUpload(event: any) {
+  private notEmptyValidator(control: FormControl) {
+    const isEmpty = (control.value || '').trim().length === 0;
+    return isEmpty ? { 'empty': true } : null;
+  }
+
+  onImageUpload(event: any) {
     let uploadedImage;
     for(let file of event.files) {
       uploadedImage= file;
