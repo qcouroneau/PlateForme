@@ -3,6 +3,10 @@ package plateforme.back.service;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,6 +14,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import plateforme.back.dto.ProjectDTO;
 import plateforme.back.form.CategoryForm;
 import plateforme.back.form.ProjectForm;
@@ -30,12 +35,12 @@ public class ProjectService {
         this.repository = repository;
     }
 
-	public List<ProjectDTO> getAllProjectDTO() {
-		return this.repository.getAllDto();
+	public List<Project> getAllProjectDTO() {
+		return this.repository.findAll().stream().map(Project.class::cast).collect(Collectors.toList());
 	}
 
 	public ProjectDTO getProjectDTOById(final int id) {
-		return this.repository.getDtoById(id);
+		return this.repository.findById(id);
 	}
 
 	public ProjectDTO getProjectDTOByName(String name) {

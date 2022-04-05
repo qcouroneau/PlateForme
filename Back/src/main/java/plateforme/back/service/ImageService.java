@@ -8,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import plateforme.back.utils.ImageUtils;
 
-
 @Service
 public class ImageService {
     
@@ -33,5 +32,4 @@ public class ImageService {
         }
         return true;
     }
-
 }
