@@ -113,7 +113,7 @@ export class CreateProjectComponent implements OnInit {
       return;
     }
     formValues.name = formValues.name.trim();
-    if(!!this.image.get('image')) {
+    if(this.image.get('image') != null) {
       this.imageService.saveFile(this.image).subscribe({
         next: image => {
           formValues.imagePath = image.path;
