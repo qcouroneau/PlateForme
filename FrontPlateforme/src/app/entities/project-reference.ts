@@ -1,4 +1,5 @@
 import { ICategory } from "./category-reference";
+import { ITask } from "./task-reference";
 
 export interface IProject {
     id: number,
@@ -6,5 +7,6 @@ export interface IProject {
     description: string,
     budget: number,
     imagePath: String,
-    categories: ICategory[]
+    categories: ICategory[],
+    tasks: ITask[]
 }

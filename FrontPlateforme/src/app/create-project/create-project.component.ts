@@ -7,6 +7,7 @@ import {IProject} from "../entities/project-reference";
 import { ICategory } from '../entities/category-reference';
 import { TranslateService } from '@ngx-translate/core';
 import { ImageService } from '../services/image.service';
+import { ITask } from '../entities/task-reference';
 
 @Component({
   selector: 'app-create-project',
@@ -22,6 +23,7 @@ export class CreateProjectComponent implements OnInit {
   private budget = new FormControl('0', [Validators.required]);
   private categories = new FormControl([], [Validators.required, Validators.minLength(1)]);
   private image = new FormData();
+  private tasks = new FormControl([]);
 
   filteredCategories: ICategory[];
 
@@ -45,13 +47,20 @@ export class CreateProjectComponent implements OnInit {
 
   chooseLabel: string = "";
 
+  createTask: string = "";
+
+  displayModal: boolean = false;
+
+  tmpTasks: ITask[] = []
+
   constructor(private router: Router, private formBuilder: FormBuilder, private projectService: ProjectService,
               private categoryService: CategoryService, private translate: TranslateService, private imageService: ImageService) {
     this.form = formBuilder.group({
       name: this.name,
       description: this.description,
       budget: this.budget,
-      categories: this.categories
+      categories: this.categories,
+      tasks: this.tasks
     });
    }
 
@@ -73,7 +82,8 @@ export class CreateProjectComponent implements OnInit {
     this.invalidFileTypeMessageDetail =  this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_TYPE_DETAIL');
     this.invalidFileSizeMessageSummary =  this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_SUMMARY');
     this.invalidFileSizeMessageDetail = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_DETAIL');
-    this.chooseLabel = this.translate.instant('PROJECT.CREATE.FIELD.IMAGE_BROWSE')
+    this.chooseLabel = this.translate.instant('PROJECT.CREATE.FIELD.IMAGE_BROWSE');
+    this.createTask = this.translate.instant('TASK.CREATE.TITLE')
   }
 
   filterCategories(event: any) {
@@ -107,6 +117,7 @@ export class CreateProjectComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
+
     formValues.name = formValues.name.trim();
     if(!!this.image.get('image')) {
       this.imageService.saveFile(this.image).subscribe({
@@ -134,6 +145,15 @@ export class CreateProjectComponent implements OnInit {
         this.submissionFailed = true;
       }
     });
+  }
+
+  onOpenModalTask(display: boolean) {
+    this.displayModal = display;
+  }
+
+  addNewTask(newTask: ITask) {
+    this.tmpTasks.push(newTask);
+    this.tasks.setValue(this.tmpTasks);
   }
 
   public get createProjetControls() { return this.form.controls }
