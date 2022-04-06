@@ -19,6 +19,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity()
@@ -55,9 +58,14 @@ public class Project implements Serializable {
 	private int budget;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@Fetch(value = FetchMode.SUBSELECT)
 	@JoinTable(name="project_category", joinColumns = @JoinColumn(name = "id_project", referencedColumnName =  "id"), inverseJoinColumns = @JoinColumn(name = "id_category", referencedColumnName = "id"))
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private List<Category> categories = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "project")
+	@Fetch(value = FetchMode.SUBSELECT)
+	private List<Task> tasks = new ArrayList<>();
 
 	@Column(name="image_path")
 	private String imagePath;
@@ -108,5 +116,13 @@ public class Project implements Serializable {
 
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
+	}
+
+	public List<Task> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
 	}
 }

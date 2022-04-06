@@ -3,8 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "../app-routing.module";
 import { DetailsProjectComponent } from "./details-project.component";
-
-
+import { TableModule } from 'primeng/table';
 
 @NgModule({
     declarations: [
@@ -13,7 +12,8 @@ import { DetailsProjectComponent } from "./details-project.component";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        TableModule
     ],
     providers: [],
     bootstrap: [DetailsProjectComponent]

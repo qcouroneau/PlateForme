@@ -4,6 +4,7 @@ export const urls = {
     get: {
       all: '/project/dto',
       byId: '/project/dto/getById/',
+      byIdWithTasks: '/project/getProjectDTOWithTasks/',
       byName: '/project/dto/getByName/'
     },
   },
@@ -14,7 +15,8 @@ export const urls = {
   },
   task:{
     get :{
-      all: '/task/dto'
+      all: '/task/dto',
+      byProjectId: '/task/getByIdProject/',
     }
   },
   user:{
