@@ -25,7 +25,7 @@ export class FormTaskComponent implements OnInit {
 
   submitted: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder) {
     this.form = formBuilder.group({
       name: this.name,
       description: this.description,
@@ -38,20 +38,21 @@ export class FormTaskComponent implements OnInit {
   }
 
   filterCategories(event: any) {
-    let filtered : any[] = [];
+    let filtered: any[] = [];
     let query = event.query;
 
-    for(let i = 0; i < this.initialCategories.length; i++) {
-        let category = this.initialCategories[i];
-        if (category.name.toLowerCase().startsWith(query.toLowerCase())) {
-            filtered.push(category);
-        }
+    for (let i = 0; i < this.initialCategories.length; i++) {
+      let category = this.initialCategories[i];
+      if (category.name.toLowerCase().startsWith(query.toLowerCase())) {
+        filtered.push(category);
+      }
     }
 
     this.filteredCategories = filtered;
   }
 
-  onSubmit(formValues: ITask){ 
+  onSubmit(formValues: ITask) {
+    console.log("got here ?");
     this.submitted = true;
     if (this.form.invalid) {
       return;
@@ -62,10 +63,8 @@ export class FormTaskComponent implements OnInit {
   }
 
   resetForm() {
+    this.submitted = false;
     this.form.reset();
-    Object.keys(this.form.controls).forEach(key => {
-      this.form.get(key).setErrors(null);
-    });
   }
 
   public get createTaskControls() { return this.form.controls }

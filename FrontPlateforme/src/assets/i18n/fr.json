@@ -29,7 +29,11 @@
     "NEW": "Ajouter une nouvelle tâche",
     "CREATE": {
       "TITLE": "Créer une tâche",
-      "SUBMIT": "Enregistrer"
+      "SUBMIT": "Enregistrer",
+      "ERROR": {
+        "SUMMARY": "Erreur",
+        "DETAIL": "Ajoutez au moins une tâche à votre projet."
+      }
     }
   }
 }

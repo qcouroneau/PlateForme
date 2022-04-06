@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ICategory } from 'src/app/entities/category-reference';
 import { ITask } from 'src/app/entities/task-reference';
+import { FormTaskComponent } from './form-task/form-task.component';
 
 @Component({
   selector: 'app-modal-task',
@@ -8,6 +9,9 @@ import { ITask } from 'src/app/entities/task-reference';
   styleUrls: ['./modal-task.component.css']
 })
 export class ModalTaskComponent implements OnInit {
+
+  @ViewChild(FormTaskComponent)
+  childForm: FormTaskComponent
 
   @Output() task: EventEmitter<ITask> = new EventEmitter<ITask>();
 
@@ -27,5 +31,9 @@ export class ModalTaskComponent implements OnInit {
   addNewTask(newTask: ITask) {
     this.task.emit(newTask);
     this.onOpenModalTask(false);
+  }
+
+  onHide() {
+    this.childForm.resetForm();
   }
 }

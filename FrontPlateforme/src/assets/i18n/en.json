@@ -29,7 +29,11 @@
     "NEW": "Add a new task",
     "CREATE": {
       "TITLE": "Create a task",
-      "SUBMIT": "Save"
+      "SUBMIT": "Save",
+      "ERROR": {
+        "SUMMARY": "Error",
+        "DETAIL": "Add at least one task to your project."
+      }
     }
   }
 }
