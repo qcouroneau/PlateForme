@@ -16,18 +16,18 @@
   </div>
   <div class="col-12 md:col-6 overflow-hidden">
     <img [src]="project.imagePath" alt="Image" class="md:ml-auto block md:h-full"
-      style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+      style="clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0 100%)">
   </div>
 </div>
-<br/>
+<br>
 <div class="card-group container" id="card-trend">
   <div class="card" *ngIf="project?.tasks">
     <p-table [value]="project.tasks" responsiveLayout="scroll">
       <ng-template pTemplate="header">
         <tr>
-          <th>Nom</th>
-          <th>description</th>
-          <th>Categorie</th>
+          <th>Tâche(s)</th>
+          <th>Description</th>
+          <th>Categorie(s)</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-task>
