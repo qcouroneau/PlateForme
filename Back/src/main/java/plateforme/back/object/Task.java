@@ -21,6 +21,8 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import plateforme.back.form.TaskForm;
+
 @Entity()
 @Table(name = "task")
 public class Task implements Serializable {
@@ -29,6 +31,12 @@ public class Task implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -7768287230870691285L;
+	
+	public Task(TaskForm task) {
+		this.name = task.getName();
+		this.description = task.getName();
+	}
+
 
 	@Id
     @SequenceGenerator(name = "pk_sequence", sequenceName = "task_id_seq", allocationSize = 1)

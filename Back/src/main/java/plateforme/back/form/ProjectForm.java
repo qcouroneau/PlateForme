@@ -20,6 +20,9 @@ public class ProjectForm {
     @NotNull
     private List<CategoryForm> categories;
     
+    @NotNull
+    private List<TaskForm> tasks;
+    
     private String imagePath;
 
     public String getName() {
@@ -58,7 +61,15 @@ public class ProjectForm {
 		return imagePath;
 	}
 
-	public void setImage(String imagePath) {
+	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+
+	public List<TaskForm> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<TaskForm> tasks) {
+		this.tasks = tasks;
 	}
 }

@@ -9,6 +9,9 @@ style="margin-right: 0;">
     <small *ngIf="submitted && !!createTaskControls['name'].errors?.['required']" id="name-help" class="p-error">
       {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
     </small>
+    <small *ngIf="submitted && !!createTaskControls['name'].errors?.['empty']" id="name-help-empty" class="p-error">
+      {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
+    </small>
   </div>
 
   <div class="field col-12">
@@ -19,6 +22,9 @@ style="margin-right: 0;">
     </textarea>
     <small *ngIf="submitted && !!createTaskControls['description'].errors?.['required']" id="description-help" class="p-error">
       {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
+    </small>
+    <small *ngIf="submitted && !!createTaskControls['description'].errors?.['empty']" id="description-help-empty" class="p-error">
+      {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
     </small>
   </div>
 

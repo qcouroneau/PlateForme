@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ICategory } from '../../../entities/category-reference';
 import { ITask } from '../../../entities/task-reference';
+import { validateNotEmpty } from '../../validators/empty.validator';
 
 @Component({
   selector: 'app-form-task',
@@ -16,8 +17,8 @@ export class FormTaskComponent implements OnInit {
 
   form: FormGroup
 
-  private name: FormControl = new FormControl('', [Validators.required]);
-  private description: FormControl = new FormControl('', [Validators.required]);
+  private name: FormControl = new FormControl('', [Validators.required, validateNotEmpty]);
+  private description: FormControl = new FormControl('', [Validators.required, validateNotEmpty]);
   private categories = new FormControl([], [Validators.required, Validators.minLength(1)]);
 
   filteredCategories: ICategory[];
