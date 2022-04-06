@@ -4,6 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "../app-routing.module";
 import { DetailsProjectComponent } from "./details-project.component";
 import { TableModule } from 'primeng/table';
+import { ListeModule } from "./liste/liste.module";
 
 @NgModule({
     declarations: [
@@ -13,10 +14,9 @@ import { TableModule } from 'primeng/table';
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-        TableModule
+        TableModule,
+        ListeModule
     ],
-    providers: [],
-    bootstrap: [DetailsProjectComponent]
+    providers: []
 })
-export class DetailsProjectModule
-{}
+export class DetailsProjectModule {}
