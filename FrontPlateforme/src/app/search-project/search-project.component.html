@@ -1,7 +1,7 @@
 <div class="card">
   <p-dataView
     #dv
-    [value]="projects"
+    [value]="showProjects"
     [paginator]="true"
     [rows]="9"
     filterBy="name"
@@ -26,12 +26,14 @@
           field="name"
           [multiple]="true"
           [dropdown]="true"
+          (onSelect)="selectCategoriesFilter($event)"
+          (onUnselect)="unselectCategoriesFilter($event)"
+          placeholder="add categories"
         ></p-autoComplete>
         <p-dropdown
           [options]="sortOptions"
-          [(ngModel)]="selectedOption"
           styleClass="mb-2 md:mb-0"
-          (onChange)="getProjectWithThisCatgeries()"
+          (onChange)="getProjectWithThisCatgeries($event)"
         ></p-dropdown>
         <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
       </div>
