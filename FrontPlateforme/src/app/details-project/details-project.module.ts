@@ -5,6 +5,7 @@ import { AppRoutingModule } from "../app-routing.module";
 import { DetailsProjectComponent } from "./details-project.component";
 import { TableModule } from 'primeng/table';
 import { ListeModule } from "./liste/liste.module";
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { ListeModule } from "./liste/liste.module";
         AppRoutingModule,
         FormsModule,
         TableModule,
-        ListeModule
+        ListeModule,
+        TagModule
     ],
     providers: []
 })
