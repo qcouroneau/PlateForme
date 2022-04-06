@@ -10,12 +10,15 @@ import { InputNumberModule } from "primeng/inputnumber";
 import { InputTextModule } from "primeng/inputtext";
 import { InputTextareaModule } from "primeng/inputtextarea";
 import { MessagesModule } from "primeng/messages";
-import { HttpLoaderFactory } from "../app.module";
-import { CreateTaskComponent } from "./create-task.component";
+import { DialogModule } from 'primeng/dialog';
+import { HttpLoaderFactory } from "../../app.module";
+import { FormTaskComponent } from "./form-task/form-task.component";
+import { ModalTaskComponent } from "./modal-task.component";
 
 @NgModule({
   declarations: [
-      CreateTaskComponent
+      ModalTaskComponent,
+      FormTaskComponent
   ],
   imports: [
       FormsModule,
@@ -28,6 +31,7 @@ import { CreateTaskComponent } from "./create-task.component";
       InputNumberModule,
       ButtonModule,
       MessagesModule,
+      DialogModule,
       TranslateModule.forRoot({
           loader: {
               provide: TranslateLoader,
@@ -36,8 +40,8 @@ import { CreateTaskComponent } from "./create-task.component";
           }
         })
   ],
-  exports: [CreateTaskComponent],
+  exports: [ModalTaskComponent],
   providers: [],
-  bootstrap: [CreateTaskComponent]
+  bootstrap: [ModalTaskComponent]
 })
-export class CreateTaskModule{}
+export class ModalTaskModule{}

@@ -15,8 +15,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import { HttpClient } from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpLoaderFactory } from "../app.module";
-import {DialogModule} from 'primeng/dialog';
-import { CreateTaskModule } from "../create-task/create-task.module";
+import { ModalTaskModule } from "../shared/modal-task/modal-task.module";
 
 @NgModule({
     declarations: [
@@ -36,8 +35,7 @@ import { CreateTaskModule } from "../create-task/create-task.module";
         ButtonModule,
         MessagesModule,
         FileUploadModule,
-        DialogModule,
-        CreateTaskModule,
+        ModalTaskModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

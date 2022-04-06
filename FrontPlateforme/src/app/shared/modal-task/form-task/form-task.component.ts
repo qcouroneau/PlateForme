@@ -1,17 +1,16 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ICategory } from '../entities/category-reference';
-import { ITask } from '../entities/task-reference';
+import { ICategory } from '../../../entities/category-reference';
+import { ITask } from '../../../entities/task-reference';
 
 @Component({
-  selector: 'app-create-task',
-  templateUrl: './create-task.component.html',
-  styleUrls: ['./create-task.component.css']
+  selector: 'app-form-task',
+  templateUrl: './form-task.component.html',
+  styleUrls: ['./form-task.component.css']
 })
-export class CreateTaskComponent implements OnInit {
+export class FormTaskComponent implements OnInit {
 
   @Output() task: EventEmitter<ITask> = new EventEmitter<ITask>();
-  @Output() displayTaskModal: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   @Input() initialCategories: ICategory[] = [];
 
@@ -58,7 +57,6 @@ export class CreateTaskComponent implements OnInit {
     }
 
     this.task.emit(formValues);
-    this.displayTaskModal.emit(false);
     this.resetForm();
   }
 

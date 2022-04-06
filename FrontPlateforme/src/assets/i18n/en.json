@@ -28,7 +28,7 @@
     "NEW": "Add a new task",
     "CREATE": {
       "TITLE": "Create a task",
-      "SUBMIT": "Create your task"
+      "SUBMIT": "Save"
     }
   }
 }

@@ -61,9 +61,7 @@
     </div>
 
     <div class="field col-12 flex justify-content-center">
-      <button type="button" class="button align-self-center p-button-rounded" (click)="onOpenModalTask(true)" pButton>
-        {{ 'TASK.NEW' | translate}}
-      </button>
+      <app-modal-task (task)="addNewTask($event)" [initialCategories]="initialCategories" [header]="createTask"></app-modal-task>
     </div>
 
     <button type="submit" class="button justify-self-center p-button-rounded" pButton>
@@ -74,8 +72,3 @@
 
   <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
 </div>
-
-<p-dialog [header]="createTask" [(visible)]="displayModal" [modal]="true" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}"
-[draggable]="false">
-  <app-create-task (displayTaskModal)="onOpenModalTask($event)" (task)="addNewTask($event)" [initialCategories]="initialCategories"></app-create-task>
-</p-dialog>

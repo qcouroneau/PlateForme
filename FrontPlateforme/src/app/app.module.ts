@@ -11,7 +11,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HomeModule } from './home/home.module';
 import { CreateProjectModule } from './create-project/create-project.module';
 import { DetailsProjectModule } from './details-project/details-project.module';
-import { CreateTaskModule } from './create-task/create-task.module';
+import { ModalTaskModule } from './shared/modal-task/modal-task.module';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     CreateProjectModule,
     DetailsProjectModule,
-    CreateTaskModule,
+    ModalTaskModule,
     HomeModule,
     TranslateModule.forRoot({
       loader: {

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {ProjectService} from "../services/project.service";
-import {CategoryService} from "../services/category.service";
-import {IProject} from "../entities/project-reference";
+import { ProjectService } from "../services/project.service";
+import { CategoryService } from "../services/category.service";
+import { IProject } from "../entities/project-reference";
 import { ICategory } from '../entities/category-reference';
 import { TranslateService } from '@ngx-translate/core';
 import { ImageService } from '../services/image.service';
@@ -49,9 +49,7 @@ export class CreateProjectComponent implements OnInit {
 
   createTask: string = "";
 
-  displayModal: boolean = false;
-
-  tmpTasks: ITask[] = []
+  private tmpTasks: ITask[] = [];
 
   constructor(private router: Router, private formBuilder: FormBuilder, private projectService: ProjectService,
               private categoryService: CategoryService, private translate: TranslateService, private imageService: ImageService) {
@@ -83,7 +81,7 @@ export class CreateProjectComponent implements OnInit {
     this.invalidFileSizeMessageSummary =  this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_SUMMARY');
     this.invalidFileSizeMessageDetail = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_DETAIL');
     this.chooseLabel = this.translate.instant('PROJECT.CREATE.FIELD.IMAGE_BROWSE');
-    this.createTask = this.translate.instant('TASK.CREATE.TITLE')
+    this.createTask = this.translate.instant('TASK.CREATE.TITLE');
   }
 
   filterCategories(event: any) {
@@ -145,10 +143,6 @@ export class CreateProjectComponent implements OnInit {
         this.submissionFailed = true;
       }
     });
-  }
-
-  onOpenModalTask(display: boolean) {
-    this.displayModal = display;
   }
 
   addNewTask(newTask: ITask) {
