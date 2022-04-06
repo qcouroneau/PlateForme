@@ -35,7 +35,7 @@ public class ProjectController {
 	}
 
 	@GetMapping("/dto/getByName/{name}")
-	public ProjectDTO getProjectDTOByName(@PathVariable("name") final String name){
+	public Project getProjectDTOByName(@PathVariable("name") final String name){
 		return this.service.getProjectDTOByName(name);
 	}
 

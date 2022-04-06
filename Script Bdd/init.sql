@@ -28,12 +28,25 @@ CREATE TABLE plateform.user_skill (
 ALTER TABLE plateform.user_skill ADD CONSTRAINT user_skill_fk1 FOREIGN KEY (id_user) REFERENCES plateform.plateform_user(id);
 ALTER TABLE plateform.user_skill ADD CONSTRAINT user_skill_fk2 FOREIGN KEY (id_skill) REFERENCES plateform.skill(id);
 
+
+CREATE TABLE plateform.project (
+	id serial NOT NULL,
+	name varchar UNIQUE NOT NULL,
+	description varchar NOT NULL,
+	image_path varchar NULL,
+	budget int8 NOT NULL,
+	CONSTRAINT project_pkey PRIMARY KEY (id)
+);
+
 CREATE TABLE plateform.task (
 	id serial NOT NULL,
 	name varchar NOT NULL,
 	description varchar NOT NULL,
+	id_project int4,
 	CONSTRAINT task_pkey PRIMARY KEY (id)
 );
+
+ALTER TABLE plateform.task ADD CONSTRAINT user_skill_fk FOREIGN KEY (id_project) REFERENCES plateform.project(id);
 
 CREATE TABLE plateform.task_skill (
 	id serial NOT NULL,	
@@ -45,14 +58,6 @@ CREATE TABLE plateform.task_skill (
 ALTER TABLE plateform.task_skill ADD CONSTRAINT task_skill_fk1 FOREIGN KEY (id_task) REFERENCES plateform.task(id);
 ALTER TABLE plateform.task_skill ADD CONSTRAINT task_skill_fk2 FOREIGN KEY (id_skill) REFERENCES plateform.skill(id);
 
-CREATE TABLE plateform.project (
-	id serial NOT NULL,
-	name varchar UNIQUE NOT NULL,
-	description varchar NOT NULL,
-	image_path varchar NULL,
-	budget int8 NOT NULL,
-	CONSTRAINT project_pkey PRIMARY KEY (id)
-);
 
 CREATE TABLE plateform.project_task (
 	id serial NOT NULL,	
@@ -173,3 +178,7 @@ VALUES(6, 1);
 INSERT INTO plateform.project_category
 (id_project, id_category)
 VALUES(7, 1);
+
+INSERT INTO plateform.task
+(name, description, id_project)
+VALUES('Développement du front', 'Code CSS et HTML', 2);

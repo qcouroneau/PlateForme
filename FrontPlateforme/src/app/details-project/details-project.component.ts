@@ -41,8 +41,5 @@ export class DetailsProjectComponent implements OnInit {
       },
       error: err => this.errorMessage = err
     });
-  }
-  
-
-  
+  } 
 }

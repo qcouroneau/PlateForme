@@ -6,7 +6,6 @@ import { IProject } from '../entities/project-reference';
 import {environment} from "../../environments/environment";
 import {urls} from "../../urls";
 
-
 @Injectable({
   providedIn: 'root'
 })

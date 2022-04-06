@@ -1,39 +1,22 @@
-
-<!--
-
-<link rel="stylesheet" href="details-project.component.css">
-<p>details-project works!</p>
-<div>
-    <p class="e614_2974">{{ project.name }}
-     class="description"> {{ project.description }}
-    <img class="imgbandeau" src = {{project.image}}  />
-    </p>
-
+<div *ngIf="project?.tasks">
+  <p-table [value]="project.tasks" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nom</th>
+        <th>description</th>
+        <th>Categorie</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-task>
+      <tr>
+        <td>{{task.name}}</td>
+        <td>{{task.description}}</td>
+        <td>
+          <div *ngFor="let category of task.categories;">
+            {{category.name}}
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
-
-
-<div>
-
-
-<img class="card text-white mb-3"  src={{project.image}} style="max-width: 18rem;">
-    
-    <div class="card-body">
-        <img class="card-img" alt="Card image">
-      <h5 class="card-title">Secondary card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
--->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-
-
-  <div class="card bg text-white" >
-    <img class="card-img" [src]="projectImagePath" width="100%" height="500px" alt="" >
-    <div class="card-img-overlay">
-      <h5 class="card-title">{{ project.name }}</h5>
-      <p class="card-desc">{{ project.description }}</p>
-      <p class="card-cat">Last updated 3 mins ago</p>
-    </div>
-  </div>
-
-
