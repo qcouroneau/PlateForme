@@ -21,7 +21,7 @@ export class CreateProjectComponent implements OnInit {
 
   private name = new FormControl('', [Validators.required, validateNotEmpty]);
   private description = new FormControl('', [Validators.required, validateNotEmpty]);
-  private budget = new FormControl('0', [Validators.required, validateNotEmpty]);
+  private budget = new FormControl('0', [Validators.required]);
   private categories = new FormControl([], [Validators.required, Validators.minLength(1)]);
   private image = new FormData();
   private tasks = new FormControl([]);

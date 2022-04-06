@@ -50,7 +50,7 @@ public class ProjectService {
         List<Category> categories = this.categoryService.persistCategories(project.getCategories());
         createdProject.setCategories(categories);
         repository.save(createdProject);
-        this.taskService.createTasks(project.getTasks(), createdProject.getId());
+        this.taskService.createTasks(project.getTasks(), createdProject);
         return createdProject;
     }
 

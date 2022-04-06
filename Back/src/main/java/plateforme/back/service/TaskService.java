@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import plateforme.back.form.TaskForm;
 import plateforme.back.object.Category;
+import plateforme.back.object.Project;
 import plateforme.back.object.Task;
 import plateforme.back.repository.TaskRepository;
 
@@ -28,12 +29,12 @@ public class TaskService {
         return this.repository.findAll();
     }
 
-	public void createTasks(List<TaskForm> tasks, int projectId) {
+	public void createTasks(List<TaskForm> tasks, Project project) {
         for(TaskForm task : tasks) {
         	Task createdTask = new Task(task);
             List<Category> categories = this.categoryService.persistCategories(task.getCategories());
             createdTask.setCategories(categories);
-//        	createdTask.setIdProject(projectId);
+        	createdTask.setProject(project);
         	repository.save(createdTask);
         }
 	}
