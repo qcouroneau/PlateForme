@@ -12,6 +12,7 @@
       },
       "ERROR": {
         "GENERIC": "Ce champ est obligatoire",
+        "EMPTY": "Ce champ ne peut pas être vide",
         "NAME": "Ce nom est déjà pris",
         "CATEGORY": "Sélectionnez au moins une catégorie",
         "SUMMARY": "Erreur",

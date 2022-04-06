@@ -8,15 +8,20 @@
       <input id="name" type="text" formControlName="name" class="form-control inputfield w-full"
         [ngClass]="{ 'is-invalid' : submitted && createProjetControls['name'].errors }" style="height: 42px"
         pInputText required>
-      <small *ngIf="submitted && !!createProjetControls['name'].errors?.['required']" id="name-help" class="p-error">
+      <small *ngIf="submitted && !!createProjetControls['name'].errors?.['required']; else empty" e id="name-help" class="p-error">
         {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
       </small>
+      <ng-template #empty>
+        <small *ngIf="submitted && !!createProjetControls['name'].errors?.['empty']" id="name-help-empty" class="p-error">
+          {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
+        </small>
+      </ng-template>
       <small *ngIf="submitted && nameTaken" id="name-help-taken" class="p-error">
-        {{ 'PROJECT.CREATE.ERROR.NAMETAKEN' | translate}}
+        {{ 'PROJECT.CREATE.ERROR.NAME' | translate}}
       </small>
     </div>
     
-    <div class="field col-12 md:col-2">
+    <div class="field col-12 md:col-2 p-fluid">
       <label for="budget">{{ 'PROJECT.CREATE.FIELD.BUDGET' | translate}}</label>
       <p-inputNumber id="budget" type="number" formControlName="budget" [min]="0" class="inputfield w-full"
         [showButtons]="false"
@@ -33,9 +38,14 @@
         [rows]="5" [cols]="30"
         [ngClass]="{ 'is-invalid' : submitted && createProjetControls['description'].errors }" pInputTextArea required>
       </textarea>
-      <small *ngIf="submitted && !!createProjetControls['description'].errors?.['required']" id="description-help" class="p-error">
+      <small *ngIf="submitted && !!createProjetControls['description'].errors?.['required']; else empty" e id="description-help" class="p-error">
         {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
       </small>
+      <ng-template #empty>
+        <small *ngIf="submitted && !!createProjetControls['description'].errors?.['empty']" id="description-help-empty" class="p-error">
+          {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
+        </small>
+      </ng-template>
     </div>
       
     <div class="field col-12 p-fluid">
