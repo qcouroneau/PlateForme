@@ -33,15 +33,18 @@
              </div>
              <p-dialog [header]="selectedProject.name" [(visible)]="display" [modal]="true">
                 <img class='img-overlay' [src]="selectedProject.imagePath"/> 
-              
               <p>
                 {{selectedProject.description}}
               </p>
+        
+              <p-tag styleClass="p-mr-2" *ngFor="let category of selectedProject.categories;">
+                {{category.name}}
+              </p-tag>
               <p>
                 {{selectedProject.budget}}
               </p>
               <p>
-                <button pButton pRipple label="Voir le projet" type="button" class="mr-3 p-button-raised" [routerLink]="['/detail-project']"></button>
+                <button pButton pRipple label="Voir le projet" type="button" class="mr-3 p-button-raised" [routerLink]="['/project',project.name]"></button>
               </p>
             </p-dialog>
               <div class="project-grid-item-bottom">              

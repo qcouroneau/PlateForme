@@ -6,6 +6,7 @@ import { HomeComponent } from "./home.component";
 import {DataViewModule} from 'primeng/dataview';
 import { ButtonModule } from "primeng/button";
 import {DialogModule} from 'primeng/dialog';
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import {DialogModule} from 'primeng/dialog';
         RouterModule,
         DataViewModule,
         ButtonModule,
-        DialogModule
+        DialogModule,
+        TagModule
     ],
     providers: [],
     bootstrap: [HomeComponent]
