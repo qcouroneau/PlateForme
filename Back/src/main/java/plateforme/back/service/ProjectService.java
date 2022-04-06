@@ -2,12 +2,9 @@ package plateforme.back.service;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import plateforme.back.dto.ProjectDTO;
 import plateforme.back.form.ProjectForm;
 import plateforme.back.object.Category;
 import plateforme.back.object.Project;
@@ -31,10 +28,10 @@ public class ProjectService {
     }
 
 	public List<Project> getAllProjectDTO() {
-		return this.repository.findAll().stream().map(Project.class::cast).collect(Collectors.toList());
+		return this.repository.findAll();
 	}
 
-	public ProjectDTO getProjectDTOById(final int id) {
+	public Project getProjectDTOById(final int id) {
 		return this.repository.findById(id);
 	}
 

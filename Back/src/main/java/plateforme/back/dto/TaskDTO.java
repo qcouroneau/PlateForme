@@ -2,9 +2,46 @@ package plateforme.back.dto;
 
 import java.util.List;
 
-public interface TaskDTO {
-    int getId();
-    String getName();
-    String getDescription();
-    List<CategoryDTO> getCategories();
+public class TaskDTO {
+	
+	private int id;
+	
+	private String name;
+	
+	private String description;
+	
+	private List<CategoryDTO> categories;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public List<CategoryDTO> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<CategoryDTO> categories) {
+		this.categories = categories;
+	}
+	
 }
