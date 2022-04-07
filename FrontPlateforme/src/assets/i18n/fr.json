@@ -13,6 +13,7 @@
       "ERROR": {
         "GENERIC": "Ce champ est obligatoire",
         "EMPTY": "Ce champ ne peut pas être vide",
+        "UNDERSCORE": "Le nom ne peut pas contenir le caractère suivant : '_'",
         "NAME": "Ce nom est déjà pris",
         "CATEGORY": "Sélectionnez au moins une catégorie",
         "SUMMARY": "Erreur",
