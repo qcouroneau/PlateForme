@@ -18,6 +18,9 @@
           {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
         </small>
       </ng-template>
+      <small *ngIf="!!createProjetControls['name'].errors?.['pattern']" id="name-help-pattern" class="p-error">
+        {{ 'PROJECT.CREATE.ERROR.UNDERSCORE' | translate}}
+      </small>
       <small *ngIf="submitted && nameTaken" id="name-help-taken" class="p-error">
         {{ 'PROJECT.CREATE.ERROR.NAME' | translate}}
       </small>

@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "../app-routing.module";
 import { DetailsProjectComponent } from "./details-project.component";
 import { TableModule } from 'primeng/table';
-import { ListeModule } from "./liste/liste.module";
+import { ListeModule } from "../shared/liste/liste.module";
 import { TagModule } from 'primeng/tag';
 
 @NgModule({

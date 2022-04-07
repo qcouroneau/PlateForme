@@ -5,7 +5,7 @@
       "FIELD": {
         "NAME": "Nom *",
         "DESCRIPTION": "Description *",
-        "BUDGET" : "Budget *",
+        "BUDGET": "Budget *",
         "CATEGORY": "Categories *",
         "IMAGE": "Image",
         "IMAGE_BROWSE": "Parcourir"
@@ -13,6 +13,7 @@
       "ERROR": {
         "GENERIC": "Ce champ est obligatoire",
         "EMPTY": "Ce champ ne peut pas être vide",
+        "UNDERSCORE": "Le nom ne peut pas contenir le caractère suivant : '_'",
         "NAME": "Ce nom est déjà pris",
         "CATEGORY": "Sélectionnez au moins une catégorie",
         "SUMMARY": "Erreur",
@@ -40,7 +41,19 @@
         "DETAIL": "Ajoutez au moins une tâche à votre projet."
       }
     }
-  };
+  },
+    "ATTRIBUTES": {
+      "NAME": "Tâche(s)",
+      "DESCRIPTION": "Description",
+      "BUDGET": "Budget",
+      "CATEGORY": "Categorie(s)",
+      "IMAGE": "Image",
+      "STATE": {
+        "STATE": "Etat",
+        "TODO": "A Faire",
+        "DONE": "Terminée"
+      }
+    },
   "HOME" : {
     "TITLE" : "Crée le projet",
     "TITLE2": "Que ta communauté mérite",
