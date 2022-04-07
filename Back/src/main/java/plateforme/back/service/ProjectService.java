@@ -39,7 +39,7 @@ public class ProjectService {
 		return this.repository.findById(id);
 	}
 
-	public ProjectDTO getProjectDTOByName(String name) {
+	public Project getProjectDTOByName(String name) {
 		return this.repository.findByName(name);
 	}
 

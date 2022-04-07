@@ -28,12 +28,26 @@ CREATE TABLE plateform.user_skill (
 ALTER TABLE plateform.user_skill ADD CONSTRAINT user_skill_fk1 FOREIGN KEY (id_user) REFERENCES plateform.plateform_user(id);
 ALTER TABLE plateform.user_skill ADD CONSTRAINT user_skill_fk2 FOREIGN KEY (id_skill) REFERENCES plateform.skill(id);
 
+
+CREATE TABLE plateform.project (
+	id serial NOT NULL,
+	name varchar UNIQUE NOT NULL,
+	description varchar NOT NULL,
+	image_path varchar NULL,
+	budget int8 NOT NULL,
+	CONSTRAINT project_pkey PRIMARY KEY (id)
+);
+
 CREATE TABLE plateform.task (
 	id serial NOT NULL,
 	name varchar NOT NULL,
 	description varchar NOT NULL,
+	id_project int4,
+	done BOOLEAN,
 	CONSTRAINT task_pkey PRIMARY KEY (id)
 );
+
+ALTER TABLE plateform.task ADD CONSTRAINT user_skill_fk FOREIGN KEY (id_project) REFERENCES plateform.project(id);
 
 CREATE TABLE plateform.task_skill (
 	id serial NOT NULL,	
@@ -45,14 +59,6 @@ CREATE TABLE plateform.task_skill (
 ALTER TABLE plateform.task_skill ADD CONSTRAINT task_skill_fk1 FOREIGN KEY (id_task) REFERENCES plateform.task(id);
 ALTER TABLE plateform.task_skill ADD CONSTRAINT task_skill_fk2 FOREIGN KEY (id_skill) REFERENCES plateform.skill(id);
 
-CREATE TABLE plateform.project (
-	id serial NOT NULL,
-	name varchar UNIQUE NOT NULL,
-	description varchar NOT NULL,
-	image_path varchar NULL,
-	budget int8 NOT NULL,
-	CONSTRAINT project_pkey PRIMARY KEY (id)
-);
 
 CREATE TABLE plateform.project_task (
 	id serial NOT NULL,	
@@ -123,6 +129,18 @@ VALUES('Informatique');
 INSERT INTO plateform.category
 (name)
 VALUES('Communication');
+INSERT INTO plateform.category
+(name)
+VALUES('Développement');
+INSERT INTO plateform.category
+(name)
+VALUES('travail manuel');
+INSERT INTO plateform.category
+(name)
+VALUES('Cuisine');
+INSERT INTO plateform.category
+(name)
+VALUES('Four tout');
 
 INSERT INTO plateform.project
 (name, description, budget, image_path)
@@ -152,8 +170,6 @@ INSERT INTO plateform.project
 (name, description, budget, image_path)
 VALUES('Projet 7', 'd,fzjdkfbefhe', 50, 'https://picsum.photos/id/237/200/300');
 
-
-
 INSERT INTO plateform.project_category
 (id_project, id_category)
 VALUES(1, 1);
@@ -175,3 +191,47 @@ VALUES(6, 1);
 INSERT INTO plateform.project_category
 (id_project, id_category)
 VALUES(7, 1);
+
+INSERT INTO plateform.task
+(name, description, id_project, done)
+VALUES('Développement du front', 'Code CSS et HTML', 1, false);
+INSERT INTO plateform.task
+(name, description, id_project, done)
+VALUES('Développement du Back', 'Code Java J2EE', 1, false);
+INSERT INTO plateform.task
+(name, description, id_project, done)
+VALUES('Développement du front', 'Code CSS et HTML', 2, false);
+INSERT INTO plateform.task
+(name, description, id_project, done)
+VALUES('Développement du Back', 'Code Java J2EE', 2, false);
+INSERT INTO plateform.task
+(name, description, id_project, done)
+VALUES('Ceuillir des champignons', 'A la main', 3, false);
+INSERT INTO plateform.task
+(name, description, id_project, done)
+VALUES('Les manger', 'Après les avoirs cuits', 3, false);
+INSERT INTO plateform.task
+(name, description, id_project, done)
+VALUES('Jsais pas', '??', 3, false);
+
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(5,1);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(5,2);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(5,3);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(5,4);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(6,5);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(7,6);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(8,7);

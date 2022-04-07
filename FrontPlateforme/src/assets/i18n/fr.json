@@ -1,11 +1,11 @@
 {
   "PROJECT": {
     "CREATE": {
-      "TITLE": "Créer votre projet",
+      "TITLE": "Créer un projet",
       "FIELD": {
         "NAME": "Nom *",
         "DESCRIPTION": "Description *",
-        "BUDGET" : "Budget *",
+        "BUDGET": "Budget *",
         "CATEGORY": "Categories *",
         "IMAGE": "Image",
         "IMAGE_BROWSE": "Parcourir"
@@ -31,6 +31,19 @@
       }
     }
   },
+  "TASK": {
+    "ATTRIBUTES": {
+      "NAME": "Tâche(s)",
+      "DESCRIPTION": "Description",
+      "BUDGET": "Budget",
+      "CATEGORY": "Categorie(s)",
+      "IMAGE": "Image",
+      "STATE": {
+        "STATE": "Etat",
+        "TODO": "A Faire",
+        "DONE": "Terminée"
+      }
+    },
   "HOME" : {
     "TITLE" : "Crée le projet",
     "TITLE2": "Que ta communauté mérite",

@@ -10,6 +10,6 @@ import plateforme.back.object.Project;
 public interface ProjectRepository extends JpaRepository<Project, Integer> {
 
 	ProjectDTO findById(int id);
-	
-	ProjectDTO findByName(String name);
+		
+	Project findByName(String name);
 }

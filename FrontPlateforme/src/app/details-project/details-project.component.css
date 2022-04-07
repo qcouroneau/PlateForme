@@ -1,29 +1,29 @@
-.e614_2974 { 
+.e614_2974 {
 	color:rgba(12.006249949336052, 12.225655876100063, 12.750000189989805, 1);
 	width:262px;
 	height:32px;
 	position:absolute;
 	left:249px;
 	top:32px;
-	font-family:Poppins;
+  font-family: Poppins, serif;
 	text-align:left;
 	font-size:50px;
 	letter-spacing:0;
-	line-height:px;
+	line-height:1px;
 }
 
-.e614_2976 { 
+.e614_2976 {
 	color:rgba(12.006249949336052, 12.225655876100063, 12.750000189989805, 1);
 	width:283px;
 	height:32px;
 	position:absolute;
 	left:282.5px;
 	top:61.5px;
-	font-family:Poppins;
+	font-family:Poppins serif;
 	text-align:left;
 	font-size:50px;
 	letter-spacing:0;
-	line-height:px;
+	line-height:1px;
 }
 
 
@@ -37,7 +37,7 @@
 .card-title{
 	margin-top: 150px;
 	margin-left: 250px;
-	
+
 	font-size:60px;
 }
 
@@ -52,4 +52,15 @@
 	margin-left: 250px;
 	font-size : 20px;
 
+}
+
+.col-12 {
+  background-color: rgb(235, 235, 235);
+  min-height: 300px;
+  max-height : 300px;
+
+}
+
+.p-element {
+  margin: 7px ;
 }

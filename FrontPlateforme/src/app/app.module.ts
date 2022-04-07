@@ -13,7 +13,6 @@ import { CreateProjectModule } from './create-project/create-project.module';
 import { DetailsProjectModule } from './details-project/details-project.module';
 import { SearchProjectModule } from './search-project/search-project.module';
 
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
