@@ -21,9 +21,9 @@ export class CreateProjectComponent implements OnInit {
 
   form: FormGroup;
 
-  private name = new FormControl('', [Validators.required,  this.notEmptyValidator, Validators.pattern('[^_]')]);
-  private description = new FormControl('', [Validators.required, this.notEmptyValidator]);
-  private budget = new FormControl('0', [Validators.required, this.notEmptyValidator]);
+  private name = new FormControl('', [Validators.required,  validateNotEmpty, Validators.pattern(/^[^_]+$/)]);
+  private description = new FormControl('', [Validators.required, validateNotEmpty]);
+  private budget = new FormControl('0', [Validators.required, validateNotEmpty]);
   private categories = new FormControl([], [Validators.required, Validators.minLength(1)]);
   private image = new FormData();
   private tasks = new FormControl([], [Validators.required, Validators.minLength(1)]);
@@ -123,6 +123,7 @@ export class CreateProjectComponent implements OnInit {
 
   onSubmit(formValues: IProject): void {
     this.submitted = true;
+    console.log(this.form.controls);
     if (this.form.invalid) {
       return;
     }
@@ -138,6 +139,8 @@ export class CreateProjectComponent implements OnInit {
     } else {
       this.createProject(formValues);
     }
+
+
   }
 
   private createProject(formValues: IProject) {
