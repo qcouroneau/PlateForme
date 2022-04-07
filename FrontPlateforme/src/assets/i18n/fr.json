@@ -22,7 +22,12 @@
         "INVALID_FILE_SIZE_SUMMARY": "Taille de fichier invalide : ",
         "INVALID_FILE_SIZE_DETAIL": "La taille de votre fichier excède la taille limite de 1Mo"
       },
-      "SUBMIT": "Créer votre projet"
+      "SUBMIT": "Créer votre projet",
+      "SEARCH": {
+        "NAME": "Nom du projet",
+        "CATEGORY_FILTER": "Catégories projet",
+        "GO_TO_PROJECT": "Aller sur la page projet"
+      }
     }
   },
   "HOME" : {

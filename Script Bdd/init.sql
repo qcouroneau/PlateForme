@@ -152,6 +152,8 @@ INSERT INTO plateform.project
 (name, description, budget, image_path)
 VALUES('Projet 7', 'd,fzjdkfbefhe', 50, 'https://picsum.photos/id/237/200/300');
 
+
+
 INSERT INTO plateform.project_category
 (id_project, id_category)
 VALUES(1, 1);
