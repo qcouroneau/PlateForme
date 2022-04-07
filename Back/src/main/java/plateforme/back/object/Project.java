@@ -9,7 +9,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -58,8 +57,8 @@ public class Project implements Serializable {
 	@Column(name="budget")
 	private int budget;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
-  @Fetch(value = FetchMode.SUBSELECT)
+	@ManyToMany(cascade = CascadeType.ALL)
+	@Fetch(value = FetchMode.SUBSELECT)
 	@JoinTable(name="project_category", joinColumns = @JoinColumn(name = "id_project", referencedColumnName =  "id"), inverseJoinColumns = @JoinColumn(name = "id_category", referencedColumnName = "id"))
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private List<Category> categories = new ArrayList<>();
