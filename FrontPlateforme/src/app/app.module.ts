@@ -7,6 +7,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HeaderModule} from "./header/header.module";
+import {FooterModule} from "./footer/footer.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HomeModule } from './home/home.module';
 import { CreateProjectModule } from './create-project/create-project.module';
@@ -25,6 +26,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
+    FooterModule,
     FormsModule,
     ReactiveFormsModule,
     CreateProjectModule,
