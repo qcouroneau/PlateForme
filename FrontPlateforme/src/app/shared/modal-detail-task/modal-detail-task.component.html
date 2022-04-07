@@ -1,5 +1,5 @@
 <p-dialog [header]="selectedTask.name" [(visible)]="displayModal" (onHide)="onHide()">
-    <p>Description :</p>
+    <p>{{ 'TASK.ATTRIBUTES.DESCRIPTION' | translate}}</p>
     <div class="field col-12">
         <label for="description">{{ selectedTask.description }}</label>
     </div>

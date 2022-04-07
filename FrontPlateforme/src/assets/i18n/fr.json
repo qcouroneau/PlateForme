@@ -1,11 +1,10 @@
 {
   "PROJECT": {
     "CREATE": {
-      "TITLE": "Créer votre projet",
       "FIELD": {
         "NAME": "Nom *",
         "DESCRIPTION": "Description *",
-        "BUDGET" : "Budget *",
+        "BUDGET": "Budget *",
         "CATEGORY": "Categories *",
         "IMAGE": "Image",
         "IMAGE_BROWSE": "Parcourir"
@@ -22,6 +21,20 @@
         "INVALID_FILE_SIZE_DETAIL": "La taille de votre fichier excède la taille limite de 1Mo"
       },
       "SUBMIT": "Créer votre projet"
+    }
+  },
+  "TASK": {
+    "ATTRIBUTES": {
+      "NAME": "Tâche(s)",
+      "DESCRIPTION": "Description",
+      "BUDGET": "Budget",
+      "CATEGORY": "Categorie(s)",
+      "IMAGE": "Image",
+      "STATE": {
+        "STATE": "Etat",
+        "TODO": "A Faire",
+        "DONE": "Terminée"
+      }
     }
   }
 }

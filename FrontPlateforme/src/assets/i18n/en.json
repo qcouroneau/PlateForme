@@ -23,5 +23,18 @@
       },
       "SUBMIT": "Create your project"
     }
-  }
+  },
+  "TASK": {
+    "ATTRIBUTES": {
+      "NAME": "Task(s)",
+      "DESCRIPTION": "Description",
+      "BUDGET": "Budget",
+      "CATEGORY": "Categories",
+      "IMAGE": "Image",
+      "STATE": {
+        "STATE": "State",
+        "TODO": "To do",
+        "DONE": "Done"
+      }
+    }
 }

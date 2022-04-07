@@ -3,10 +3,10 @@
       <p-table [value]="project.tasks" responsiveLayout="scroll">
         <ng-template pTemplate="header">
           <tr>
-            <th>Tâche(s)</th>
-            <th>Description</th>
-            <th>Categorie(s)</th>
-            <th>Etat</th>
+            <th>{{ 'TASK.ATTRIBUTES.NAME' | translate}}</th>
+            <th>{{ 'TASK.ATTRIBUTES.DESCRIPTION' | translate}}</th>
+            <th>{{ 'TASK.ATTRIBUTES.CATEGORY' | translate}}</th>
+            <th>{{ 'TASK.ATTRIBUTES.STATE.STATE' | translate}}</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-task>
@@ -21,11 +21,11 @@
             <td (click)="openModal(task)">
               <div *ngIf="task.done; else elseBlock">
                 <span [class]="'product-badge status-' + task.done">
-                Terminée
+                  {{ 'TASK.ATTRIBUTES.STATE.DONE' | translate}}
               </span>
               </div>
               <ng-template #elseBlock>
-                A faire
+                {{ 'TASK.ATTRIBUTES.STATE.TODO' | translate}}
               </ng-template>
             </td>
           </tr>
