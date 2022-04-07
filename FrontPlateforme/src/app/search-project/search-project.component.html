@@ -18,6 +18,7 @@
             pInputText
             [placeholder]="searchProjectName"
             (input)="dv.filter($any($event.target).value)"
+            data-test-id="input-name"
           />
         </span>
         <p-autoComplete
@@ -29,11 +30,13 @@
           (onSelect)="selectCategoriesFilter($event)"
           (onUnselect)="unselectCategoriesFilter($event)"
           [placeholder]="searchByCategories"
+          data-test-id="category-filter"
         ></p-autoComplete>
         <p-dropdown
           [options]="sortOptions"
           styleClass="mb-2 md:mb-0"
           (onChange)="getProjectWithThisCatgeries($event)"
+          data-test-id="query-option"
         ></p-dropdown>
         <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
       </div>
