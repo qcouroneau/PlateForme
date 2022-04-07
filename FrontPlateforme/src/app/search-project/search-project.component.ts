@@ -5,7 +5,9 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ICategory } from '../entities/category-reference';
 import { CategoryService } from '../services/category.service';
-import { ThisReceiver } from '@angular/compiler';
+import { TranslateService } from '@ngx-translate/core';
+import { environment } from 'src/environments/environment';
+import { urls } from 'src/urls';
 
 interface queryOption {
   label: string;
@@ -18,7 +20,7 @@ interface queryOption {
   styleUrls: ['./search-project.component.css'],
 })
 export class SearchProjectComponent implements OnInit {
-  public name: string = '';
+  name: string = '';
   sub!: Subscription;
   projects: IProject[] = [];
   showProjects: IProject[] = [];
@@ -34,8 +36,13 @@ export class SearchProjectComponent implements OnInit {
   constructor(
     private router: Router,
     private categoryService: CategoryService,
-    private project: ProjectService
+    private project: ProjectService,
+    private translate: TranslateService
   ) {}
+
+  searchProjectName: string = '';
+  searchByCategories: string = '';
+  goToButton: string = '';
 
   ngOnInit(): void {
     this.sortOptions = [
@@ -46,6 +53,7 @@ export class SearchProjectComponent implements OnInit {
     this.categoryService.getAll().subscribe({
       next: (categories) => {
         this.initialCategories = categories;
+        this.placeHolderTranslations();
       },
     });
 
@@ -53,9 +61,21 @@ export class SearchProjectComponent implements OnInit {
     this.loadProjects();
   }
 
+  placeHolderTranslations() {
+    this.searchProjectName = this.translate.instant('PROJECT.SEARCH.NAME');
+    this.searchByCategories = this.translate.instant(
+      'PROJECT.SEARCH.CATEGORY_FILTER'
+    );
+    this.goToButton = this.translate.instant('PROJECT.SEARCH.GO_TO_PROJECT');
+  }
+
   loadProjects(): void {
     this.sub = this.project.getAll().subscribe({
       next: (projects) => {
+        projects.map((project: { imagePath: string }) => {
+          project.imagePath =
+            environment.apiUrl + urls.image.folder + project.imagePath;
+        });
         this.projects = projects;
         this.showProjects = projects;
       },
@@ -91,7 +111,7 @@ export class SearchProjectComponent implements OnInit {
   }
 
   onFilterChange() {
-    console.log(this.projects);
+    var haveToAdd = false;
     this.showProjects = [];
     if (this.selectedCategoriesFilter.length != 0) {
       if (this.selectedOption.value == this.sortOptions[0].value) {
@@ -99,26 +119,26 @@ export class SearchProjectComponent implements OnInit {
           this.selectedCategoriesFilter.forEach((category) => {
             project.categories.forEach((projectCategory) => {
               if (category.name == projectCategory.name) {
-                this.showProjects.push(project);
+                haveToAdd = true;
               }
             });
           });
+          if (haveToAdd) this.showProjects.push(project);
         });
       } else {
-        var haveToHad = false;
         this.projects.forEach((project) => {
           project.categories.forEach((projectCategory) => {
             this.selectedCategoriesFilter.forEach((category) => {
               if (projectCategory.name == category.name) {
-                haveToHad = true;
+                haveToAdd = true;
               } else {
-                haveToHad = false;
+                haveToAdd = false;
               }
             });
-            if (haveToHad) {
+            if (haveToAdd) {
               this.showProjects.push(project);
             }
-            haveToHad = false;
+            haveToAdd = false;
           });
         });
       }
@@ -128,11 +148,10 @@ export class SearchProjectComponent implements OnInit {
   }
 
   getProjectWithThisCatgeries(event: any) {
-    if (event.value == this.sortOptions[0].value) {
-      this.selectedOption = this.sortOptions[0];
-    } else {
-      this.selectedOption = this.sortOptions[1];
-    }
+    this.selectedOption =
+      event.value == this.sortOptions[0].value
+        ? this.sortOptions[0]
+        : this.sortOptions[1];
     this.onFilterChange();
   }
 }

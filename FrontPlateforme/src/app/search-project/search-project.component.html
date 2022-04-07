@@ -16,7 +16,7 @@
           <input
             type="search"
             pInputText
-            placeholder="Search by Name"
+            [placeholder]="searchProjectName"
             (input)="dv.filter($any($event.target).value)"
           />
         </span>
@@ -28,7 +28,7 @@
           [dropdown]="true"
           (onSelect)="selectCategoriesFilter($event)"
           (onUnselect)="unselectCategoriesFilter($event)"
-          placeholder="add categories"
+          [placeholder]="searchByCategories"
         ></p-autoComplete>
         <p-dropdown
           [options]="sortOptions"
@@ -45,6 +45,7 @@
           <div class="product-list-detail">
             <div class="product-name">{{ project.name }}</div>
             <div class="product-description">{{ project.description }}</div>
+            <div>{{project.imagePath}}</div>
           </div>
           <div class="product-list-action">
             <span class="product-price">{{ project.budget }}</span>
@@ -67,7 +68,7 @@
             <div class="product-description">{{ project.description }}</div>
             <p-button
               icon="pi pi-arrow-right"
-              label="Go to project"
+              [label]= "goToButton"
               [routerLink]="['/project', project.name]"
             ></p-button>
           </div>
