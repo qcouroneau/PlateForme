@@ -125,32 +125,32 @@ INSERT INTO plateform.category
 VALUES('Communication');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Faire du bien aux arbres', 'XOXO', 50);
+(name, description, budget, image_path)
+VALUES('Faire du bien aux arbres', 'XOXO', 50, 'https://picsum.photos/id/237/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 2', 'Oui', 50);
+(name, description, budget, image_path)
+VALUES('Projet 2', 'Oui', 50, 'https://picsum.photos/id/237/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 3', 'Projet de type sympathique', 50);
+(name, description, budget, image_path)
+VALUES('Projet 3', 'Projet de type sympathique', 50, 'https://picsum.photos/id/237/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 4', 'NON ONON', 50);
+(name, description, budget, image_path)
+VALUES('Projet 4', 'NON ONON', 50, 'https://picsum.photos/id/237/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 5', 'sdvcqgdche', 50);
+(name, description, budget, image_path)
+VALUES('Projet 5', 'sdvcqgdche', 50, 'https://picsum.photos/id/237/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 6', 'd,fzjdkfbefhe', 50);
+(name, description, budget, image_path)
+VALUES('Projet 6', 'd,fzjdkfbefhe', 50, 'https://picsum.photos/id/237/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 7', 'd,fzjdkfbefhe', 50);
+(name, description, budget, image_path)
+VALUES('Projet 7', 'd,fzjdkfbefhe', 50, 'https://picsum.photos/id/237/200/300');
 
 
 

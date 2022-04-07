@@ -1,59 +1,59 @@
-<div class="container-fluid" id="carouselHome">
-  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://static.latribune.fr/diaporama_big_page/459901/dubai.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block text_carrousel">
-          <p>First slide label</p>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://m.media-amazon.com/images/I/81NgufL4J5L._AC_SL1280_.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block text_carrousel">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://cdn.store-factory.com/www.ma-boite-a-musique.com/content/product_9416477hd.jpg?v=1524263350" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+
+<div class="grid grid-nogutter surface-section text-800">
+  <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+      <section>
+          <span class="block text-6xl font-bold mb-1">{{ 'HOME.TITLE' | translate}}</span>
+          <div class="text-6xl text-primary font-bold mb-3">{{ 'HOME.TITLE2' | translate}}</div>
+          <p class="mt-0 mb-4 text-700 line-height-3">{{ 'HOME.DESC' | translate}}</p>
+          
+          <button pButton pRipple [label]="labelButton" type="button" class="mr-3 p-button-raised" [routerLink]="['/newproject']"></button>
+          
+      </section>
+  </div>
+  <div class="col-12 md:col-6 overflow-hidden">
+      <img src="https://www.daf-mag.fr/Assets/Img/BREVE/2020/12/355489/Quelle-methode-projet-votre-transformation--F.jpg" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
   </div>
 </div>
 
 
-<div class="card-group container" id="card-newest">
-  <h1>newest projects</h1>
-  <div class="row justify-content-md-center">
-    <div class="card text-white col-lg-2" *ngFor="let project of projects">
-        <img [src]="project.imagePath" class="card-img" alt="...">
-        <p>{{ project.imagePath }}</p>
-    </div>
-  </div>
-</div>
 
 
-<div class="card-group container" id="card-trend">
-  <h1>tendencies</h1>
-  <div class="row justify-content-md-center">
+
+
+<div class="card-group container"  id="card-trend">
+  <div class="card">
+    <p-dataView [value]="projects" [paginator]="true" [rows]="6" filterBy="name" layout="grid">
+      <ng-template let-project pTemplate="gridItem">
+        
+          <div class="project-grid-item card">
+            <div class="project-grid-item-top">
+            </div>
+            <div class="project-grid-item-content ">
+              <img class="project-grid-item img" [src]="project.imagePath" (click)="showDialog(project)"/>
+             </div>
+             <p-dialog [header]="selectedProject.name" [(visible)]="display" [modal]="true">
+                <img class='img-overlay' [src]="selectedProject.imagePath"/> 
+              <p>
+                {{selectedProject.description}}
+              </p>
+        
+              <p-tag styleClass="p-mr-2" *ngFor="let category of selectedProject.categories;">
+                {{category.name}}
+              </p-tag>
+              <p>
+                {{selectedProject.budget}}
+              </p>
+              <p>
+                <button pButton pRipple [label]="labelButton2" type="button" class="mr-3 p-button-raised" [routerLink]="['/project',project.name]"></button>
+              </p>
+            </p-dialog>
+              <div class="project-grid-item-bottom">              
+            </div>
+          </div>
+        
+      </ng-template>
+      
+    </p-dataView>
   </div>
 </div>
 
@@ -64,11 +64,3 @@
   <p>la fistinière</p>
   <p>San Francisco</p>
 </div>
-
-<button [routerLink]="['/newproject']"> 
-    Create new project
-</button>
-
-<button [routerLink] = "['/project', name]">
-    routeDetailProjet
-</button>

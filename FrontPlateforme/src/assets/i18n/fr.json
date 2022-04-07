@@ -29,5 +29,11 @@
         "GO_TO_PROJECT": "Aller sur la page projet"
       }
     }
+  },
+  "HOME" : {
+    "TITLE" : "Crée le projet",
+    "TITLE2": "Que ta communauté mérite",
+    "SEEPROJECT": "Voir le projet",
+    "DESC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   }
 }
