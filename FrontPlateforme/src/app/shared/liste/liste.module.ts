@@ -4,7 +4,7 @@ import { TableModule } from "primeng/table";
 import { AppRoutingModule } from "src/app/app-routing.module";
 import { ListeComponent } from "./liste.component";
 import { CheckboxModule } from 'primeng/checkbox';
-import { ModalDetailTaskModule } from "./modal-detail-task/modal-detail-task.module";
+import { ModalDetailTaskModule } from "../modal-detail-task/modal-detail-task.module";
 
 @NgModule({
     declarations: [

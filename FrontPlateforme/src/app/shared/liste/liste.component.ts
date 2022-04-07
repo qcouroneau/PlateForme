@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { IProject } from 'src/app/entities/project-reference';
 import { ITask } from 'src/app/entities/task-reference';
-import { ModalDetailTaskComponent } from './modal-detail-task/modal-detail-task.component';
+import { ModalDetailTaskComponent } from '../modal-detail-task/modal-detail-task.component';
 
 @Component({
   selector: 'app-liste',
