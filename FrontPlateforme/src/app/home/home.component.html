@@ -2,11 +2,11 @@
 <div class="grid grid-nogutter surface-section text-800">
   <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
       <section>
-          <span class="block text-6xl font-bold mb-1">Create the projects </span>
-          <div class="text-6xl text-primary font-bold mb-3">your community deserve to see</div>
-          <p class="mt-0 mb-4 text-700 line-height-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <span class="block text-6xl font-bold mb-1">{{ 'HOME.TITLE' | translate}}</span>
+          <div class="text-6xl text-primary font-bold mb-3">{{ 'HOME.TITLE2' | translate}}</div>
+          <p class="mt-0 mb-4 text-700 line-height-3">{{ 'HOME.DESC' | translate}}</p>
           
-          <button pButton pRipple label="Create project" type="button" class="mr-3 p-button-raised" [routerLink]="['/newproject']"></button>
+          <button pButton pRipple [label]="labelButton" type="button" class="mr-3 p-button-raised" [routerLink]="['/newproject']"></button>
           
       </section>
   </div>
@@ -44,7 +44,7 @@
                 {{selectedProject.budget}}
               </p>
               <p>
-                <button pButton pRipple label="Voir le projet" type="button" class="mr-3 p-button-raised" [routerLink]="['/project',project.name]"></button>
+                <button pButton pRipple [label]="labelButton2" type="button" class="mr-3 p-button-raised" [routerLink]="['/project',project.name]"></button>
               </p>
             </p-dialog>
               <div class="project-grid-item-bottom">              

@@ -3,32 +3,46 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IProject } from '../entities/project-reference';
 import { ProjectService } from '../services/project.service';
+import { environment } from 'src/environments/environment';
+import { urls } from 'src/urls';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  public name : string = "";
-
+  public name: string = '';
+  public url: string[] | null = null;
+  public projectImagePath: string;
   sub!: Subscription;
   projects: IProject[] = [];
   errorMessage = 'Erreur lors du chargement';
   sortOrder: number;
   sortField: string;
   display: boolean = false;
-  selectedProject: IProject = {'id': 0, 'budget' : 0, 'name' : "", 'description': "", 'categories': [], 'imagePath' : ""};
+  selectedProject: IProject = {
+    id: 0,
+    budget: 0,
+    name: '',
+    description: '',
+    categories: [],
+    imagePath: '',
+  };
+  labelButton: string = '';
+  labelButton2: string = '';
 
   showDialog(selectedProject: IProject) {
-      this.display = true;
-      this.selectedProject = selectedProject;
+    this.display = true;
+    this.selectedProject = selectedProject;
   }
 
-
-  constructor(private router: Router,
-    private project: ProjectService) {
-   }
+  constructor(
+    private router: Router,
+    private translate: TranslateService,
+    private project: ProjectService
+  ) {}
 
   ngOnInit(): void {
     this.loadProjects();
@@ -36,10 +50,20 @@ export class HomeComponent implements OnInit {
 
   loadProjects(): void {
     this.sub = this.project.getAll().subscribe({
-      next: projects => {
-          this.projects = projects;
-        },
-        error: err => this.errorMessage = err
-      });
+      next: (projects) => {
+        projects.map((project: { imagePath: string }) => {
+          project.imagePath =
+            environment.apiUrl + urls.image.folder + project.imagePath;
+        });
+        this.projects = projects;
+
+        this.loadHomeTranslation();
+      },
+      error: (err) => (this.errorMessage = err),
+    });
+  }
+  loadHomeTranslation(): void {
+    this.labelButton = this.translate.instant('PROJECT.CREATE.TITLE');
+    this.labelButton2 = this.translate.instant('HOME.SEEPROJECT');
   }
 }

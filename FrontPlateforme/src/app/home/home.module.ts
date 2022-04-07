@@ -7,7 +7,9 @@ import {DataViewModule} from 'primeng/dataview';
 import { ButtonModule } from "primeng/button";
 import {DialogModule} from 'primeng/dialog';
 import { TagModule } from 'primeng/tag';
-
+import { HttpClient } from "@angular/common/http";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { HttpLoaderFactory } from "../app.module";
 @NgModule({
     declarations: [
         HomeComponent
@@ -19,7 +21,14 @@ import { TagModule } from 'primeng/tag';
         DataViewModule,
         ButtonModule,
         DialogModule,
-        TagModule
+        TagModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+          })
     ],
     providers: [],
     bootstrap: [HomeComponent]
