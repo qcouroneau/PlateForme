@@ -81,6 +81,10 @@
       </app-modal-task>
     </div>
 
+    <div *ngIf="form.value.tasks.length !== 0" class="field col-12">
+      <app-liste [project]="form.value"></app-liste>
+    </div>
+
     <button type="submit" class="button justify-self-center p-button-rounded" pButton>
       {{ 'PROJECT.CREATE.SUBMIT' | translate}}
     </button>
@@ -89,6 +93,6 @@
 
   <p-messages *ngIf="submitted && !!createProjetControls['tasks'].errors?.['required']" [(value)]="errorMessageTask">
   </p-messages>
-  
+
   <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
 </div>
