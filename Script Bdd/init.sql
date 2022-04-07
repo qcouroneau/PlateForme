@@ -128,34 +128,46 @@ VALUES('Informatique');
 INSERT INTO plateform.category
 (name)
 VALUES('Communication');
+INSERT INTO plateform.category
+(name)
+VALUES('Développement');
+INSERT INTO plateform.category
+(name)
+VALUES('travail manuel');
+INSERT INTO plateform.category
+(name)
+VALUES('Cuisine');
+INSERT INTO plateform.category
+(name)
+VALUES('Four tout');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Faire du bien aux arbres', 'XOXO', 50);
+(name, description, budget, image_path)
+VALUES('Faire du bien aux arbres', 'XOXO', 50, 'https://picsum.photos/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 2', 'Oui', 50);
+(name, description, budget, image_path)
+VALUES('Projet 2', 'Oui', 50, 'https://picsum.photos/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 3', 'Projet de type sympathique', 50);
+(name, description, budget, image_path)
+VALUES('Projet 3', 'Projet de type sympathique', 50, 'https://picsum.photos/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 4', 'NON ONON', 50);
+(name, description, budget, image_path)
+VALUES('Projet 4', 'NON ONON', 50, 'https://picsum.photos/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 5', 'sdvcqgdche', 50);
+(name, description, budget, image_path)
+VALUES('Projet 5', 'sdvcqgdche', 50, 'https://picsum.photos/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 6', 'd,fzjdkfbefhe', 50);
+(name, description, budget, image_path)
+VALUES('Projet 6', 'd,fzjdkfbefhe', 50, 'https://picsum.photos/200/300');
 
 INSERT INTO plateform.project
-(name, description, budget)
-VALUES('Projet 7', 'd,fzjdkfbefhe', 50);
+(name, description, budget, image_path)
+VALUES('Projet 7', 'd,fzjdkfbefhe', 50, 'https://picsum.photos/200/300');
 
 INSERT INTO plateform.project_category
 (id_project, id_category)
@@ -181,4 +193,44 @@ VALUES(7, 1);
 
 INSERT INTO plateform.task
 (name, description, id_project)
+VALUES('Développement du front', 'Code CSS et HTML', 1);
+INSERT INTO plateform.task
+(name, description, id_project)
+VALUES('Développement du Back', 'Code Java J2EE', 1);
+INSERT INTO plateform.task
+(name, description, id_project)
 VALUES('Développement du front', 'Code CSS et HTML', 2);
+INSERT INTO plateform.task
+(name, description, id_project)
+VALUES('Développement du Back', 'Code Java J2EE', 2);
+INSERT INTO plateform.task
+(name, description, id_project)
+VALUES('Ceuillir des champignons', 'A la main', 3);
+INSERT INTO plateform.task
+(name, description, id_project)
+VALUES('Les manger', 'Après les avoirs cuits', 3);
+INSERT INTO plateform.task
+(name, description, id_project)
+VALUES('Jsais pas', '??', 3);
+
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(5,1);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(5,2);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(5,3);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(5,4);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(6,5);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(7,6);
+INSERT INTO plateform.task_category
+(id_category, id_task)
+VALUES(8,7);
