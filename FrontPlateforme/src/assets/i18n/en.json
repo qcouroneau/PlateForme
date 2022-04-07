@@ -40,8 +40,7 @@
         "SUMMARY": "Error",
         "DETAIL": "Add at least one task to your project."
       }
-    }
-  },
+    },
     "ATTRIBUTES": {
       "NAME": "Task(s)",
       "DESCRIPTION": "Description",
@@ -53,7 +52,8 @@
         "TODO": "To do",
         "DONE": "Done"
       }
-    },
+    }
+  },
   "HOME" : {
     "TITLE" : "Create the project",
     "TITLE2": "your community deserves to see",
