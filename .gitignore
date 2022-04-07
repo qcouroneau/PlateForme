@@ -283,3 +283,6 @@ Back/project-photos/*
 
 # End of https://www.toptal.com/developers/gitignore/api/angular,java,maven,intellij,eclipse,visualstudiocode
 Back/src/main/resources/application.properties
+
+
+application.properties
