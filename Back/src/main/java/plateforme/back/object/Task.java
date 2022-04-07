@@ -49,6 +49,9 @@ public class Task implements Serializable {
 	@JoinColumn(name = "id_project", nullable = false)
     private Project project;
 	
+	@Column(name="done")
+    private boolean done;
+	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name="task_category", joinColumns = @JoinColumn(name = "id_task", referencedColumnName =  "id"), inverseJoinColumns = @JoinColumn(name = "id_category", referencedColumnName = "id"))
@@ -91,6 +94,14 @@ public class Task implements Serializable {
 
 	public void setProject(Project project) {
 		this.project = project;
+	}
+	
+	public boolean isDone() {
+		return done;
+	}
+
+	public void setDone(boolean done) {
+		this.done = done;
 	}
 
 	public List<Category> getCategories() {

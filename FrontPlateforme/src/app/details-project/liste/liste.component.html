@@ -6,19 +6,34 @@
             <th>Tâche(s)</th>
             <th>Description</th>
             <th>Categorie(s)</th>
+            <th>Etat</th>
           </tr>
         </ng-template>
         <ng-template pTemplate="body" let-task>
           <tr>
-            <td>{{task.name}}</td>
-            <td>{{task.description}}</td>
-            <td>
+            <td (click)="openModal(task)">{{task.name}}</td>
+            <td (click)="openModal(task)">{{task.description}}</td>
+            <td (click)="openModal(task)">
               <div *ngFor="let category of task.categories;">
                 {{category.name}}
               </div>
+            </td>
+            <td (click)="openModal(task)">
+              <div *ngIf="task.done; else elseBlock">
+                <span [class]="'product-badge status-' + task.done">
+                Terminée
+              </span>
+              </div>
+              <ng-template #elseBlock>
+                A faire
+              </ng-template>
             </td>
           </tr>
         </ng-template>
       </p-table>
     </div>
+  </div>
+
+  <div class="field col-12 flex justify-content-center">
+    <app-modal-detail-task [selectedTask]="selectedTask"></app-modal-detail-task>
   </div>

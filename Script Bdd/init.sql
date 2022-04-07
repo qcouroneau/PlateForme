@@ -43,6 +43,7 @@ CREATE TABLE plateform.task (
 	name varchar NOT NULL,
 	description varchar NOT NULL,
 	id_project int4,
+	done BOOLEAN,
 	CONSTRAINT task_pkey PRIMARY KEY (id)
 );
 
@@ -192,26 +193,26 @@ INSERT INTO plateform.project_category
 VALUES(7, 1);
 
 INSERT INTO plateform.task
-(name, description, id_project)
-VALUES('Développement du front', 'Code CSS et HTML', 1);
+(name, description, id_project, done)
+VALUES('Développement du front', 'Code CSS et HTML', 1, false);
 INSERT INTO plateform.task
-(name, description, id_project)
-VALUES('Développement du Back', 'Code Java J2EE', 1);
+(name, description, id_project, done)
+VALUES('Développement du Back', 'Code Java J2EE', 1, false);
 INSERT INTO plateform.task
-(name, description, id_project)
-VALUES('Développement du front', 'Code CSS et HTML', 2);
+(name, description, id_project, done)
+VALUES('Développement du front', 'Code CSS et HTML', 2, false);
 INSERT INTO plateform.task
-(name, description, id_project)
-VALUES('Développement du Back', 'Code Java J2EE', 2);
+(name, description, id_project, done)
+VALUES('Développement du Back', 'Code Java J2EE', 2, false);
 INSERT INTO plateform.task
-(name, description, id_project)
-VALUES('Ceuillir des champignons', 'A la main', 3);
+(name, description, id_project, done)
+VALUES('Ceuillir des champignons', 'A la main', 3, false);
 INSERT INTO plateform.task
-(name, description, id_project)
-VALUES('Les manger', 'Après les avoirs cuits', 3);
+(name, description, id_project, done)
+VALUES('Les manger', 'Après les avoirs cuits', 3, false);
 INSERT INTO plateform.task
-(name, description, id_project)
-VALUES('Jsais pas', '??', 3);
+(name, description, id_project, done)
+VALUES('Jsais pas', '??', 3, false);
 
 INSERT INTO plateform.task_category
 (id_category, id_task)
