@@ -1,6 +1,7 @@
 {
   "PROJECT": {
     "CREATE": {
+      "TITLE": "Créer un projet",
       "FIELD": {
         "NAME": "Nom *",
         "DESCRIPTION": "Description *",
