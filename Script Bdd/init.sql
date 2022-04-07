@@ -152,6 +152,8 @@ INSERT INTO plateform.project
 (name, description, budget)
 VALUES('Projet 7', 'd,fzjdkfbefhe', 50);
 
+
+
 INSERT INTO plateform.project_category
 (id_project, id_category)
 VALUES(1, 1);

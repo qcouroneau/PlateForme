@@ -23,6 +23,11 @@
         "INVALID_FILE_SIZE_DETAIL": "Your file exceeds the maximum allowed size of 1 Mo"
       },
       "SUBMIT": "Create your project"
+    },
+    "SEARCH": {
+      "NAME": "Project Name",
+      "CATEGORY_FILTER": "Project Categories",
+      "GO_TO_PROJECT": "Go to project"
     }
   }
 }
