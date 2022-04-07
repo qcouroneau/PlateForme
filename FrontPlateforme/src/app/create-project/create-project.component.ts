@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {ProjectService} from "../services/project.service";
@@ -15,9 +15,11 @@ import { ImageService } from '../services/image.service';
 })
 export class CreateProjectComponent implements OnInit {
 
+  @Input() pattern: string | RegExp;
+
   form: FormGroup;
 
-  private name = new FormControl('', [Validators.required, this.notEmptyValidator]);
+  private name = new FormControl('', [Validators.required,  this.notEmptyValidator, Validators.pattern('[^_]')]);
   private description = new FormControl('', [Validators.required, this.notEmptyValidator]);
   private budget = new FormControl('0', [Validators.required, this.notEmptyValidator]);
   private categories = new FormControl([], [Validators.required, Validators.minLength(1)]);

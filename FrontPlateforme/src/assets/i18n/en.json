@@ -13,6 +13,7 @@
       "ERROR": {
         "GENERIC": "This field is mandatory",
         "EMPTY": "This field can't be empty",
+        "UNDERSCORE": "The name can't contain the following character : '_'",
         "NAME": "This name is already taken",
         "CATEGORY": "Select at least one category",
         "SUMMARY": "Error",
