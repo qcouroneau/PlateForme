@@ -4,15 +4,17 @@ import com.sun.istack.NotNull;
 
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+
 public class ProjectForm {
 	
-    @NotNull
+    @NotBlank
     private String name;
 
     @NotNull
     private int budget;
 
-    @NotNull
+    @NotBlank
     private String description;
 
     @NotNull

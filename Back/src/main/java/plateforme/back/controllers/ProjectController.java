@@ -3,6 +3,8 @@ package plateforme.back.controllers;
 import java.io.IOException;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +42,7 @@ public class ProjectController {
 	}
 
 	@PostMapping(value="/create")
-	public Project createProject(@RequestBody ProjectForm project) throws IOException {
+	public Project createProject(@Valid @RequestBody ProjectForm project) throws IOException {
 		return this.service.createProject(project);
 	}
 }

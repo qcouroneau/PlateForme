@@ -11,13 +11,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HomeModule } from './home/home.module';
 import { CreateProjectModule } from './create-project/create-project.module';
 import { DetailsProjectModule } from './details-project/details-project.module';
+import { SearchProjectModule } from './search-project/search-project.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CreateProjectModule,
     DetailsProjectModule,
     HomeModule,
+    SearchProjectModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
