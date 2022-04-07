@@ -1,15 +1,18 @@
 .position {
   text-align: center;
-  height: 160px;
-  width: 200px;
-  margin: 2px auto;
-  padding: 8px 8px;
+  height: auto;
+  width: 300px;
+  margin: 3px auto;
+  padding: 6px 6px;
 }
 .cos{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
-.image{
-  heigt:auto px;
-  width:60px;
+.text{
+  font-size: small;
 }
+
+ .imgNG{
+   font-size: 3em;
+ }
+

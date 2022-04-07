@@ -10,6 +10,7 @@ import { TagModule } from 'primeng/tag';
 import { HttpClient } from "@angular/common/http";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpLoaderFactory } from "../app.module";
+
 @NgModule({
     declarations: [
         HomeComponent
