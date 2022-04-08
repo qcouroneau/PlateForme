@@ -4,6 +4,9 @@ import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "../app-routing.module";
 import {RouterModule} from "@angular/router";
 import {DividerModule} from 'primeng/divider';
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpLoaderFactory} from "../app.module";
+import {HttpClient} from "@angular/common/http";
 
 
 @NgModule({
@@ -14,7 +17,14 @@ import {DividerModule} from 'primeng/divider';
     BrowserModule,
     DividerModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   exports: [
