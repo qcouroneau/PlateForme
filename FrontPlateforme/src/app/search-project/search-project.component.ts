@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProject } from '../entities/project-reference';
 import { ProjectService } from '../services/project.service';
-import { Subscription } from 'rxjs';
+import { bindNodeCallback, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ICategory } from '../entities/category-reference';
 import { CategoryService } from '../services/category.service';
@@ -77,6 +77,10 @@ export class SearchProjectComponent implements OnInit {
             environment.apiUrl + urls.image.folder + project.imagePath;
         });
         this.projects = projects;
+        this.projects.sort(function(a,b) {
+          return a.id - b.id
+        }
+        )
         this.showProjects = projects;
         this.projects.map(project => {
           project.urlName = project.name.split(" ").join("_")

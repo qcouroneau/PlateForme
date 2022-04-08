@@ -56,3 +56,15 @@
  .surface-section{
    padding-bottom: 50px;
  }
+
+ .p-dialog{
+  display: flex-wrap;
+  align-items: center;
+  justify-content: space-between;
+ }
+
+ .img-overlay{
+  max-width: 500px;
+  height: 500px;  
+  padding: 0.5rem;
+ }

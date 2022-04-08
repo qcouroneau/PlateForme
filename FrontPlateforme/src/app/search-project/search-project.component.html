@@ -48,11 +48,14 @@
           <div class="product-list-detail">
             <div class="product-name">{{ project.name }}</div>
             <div class="product-description">{{ project.description }}</div>
-            <div>{{project.imagePath}}</div>
           </div>
           <div class="product-list-action">
             <span class="product-price">{{ project.budget }}</span>
-            <p-button icon="pi pi-arrow-right" label="Go to project"></p-button>
+            <p-button
+              icon="pi pi-arrow-right"
+              [label]="goToButton"
+              [routerLink]="['/project', project.urlName]"
+            ></p-button>
           </div>
         </div>
       </div>
@@ -71,7 +74,7 @@
             <div class="product-description">{{ project.description }}</div>
             <p-button
               icon="pi pi-arrow-right"
-              [label]= "goToButton"
+              [label]="goToButton"
               [routerLink]="['/project', project.urlName]"
             ></p-button>
           </div>
