@@ -59,5 +59,11 @@
     "TITLE2": "Que ta communauté mérite",
     "SEEPROJECT": "Voir le projet",
     "DESC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+
+  "FOOTER": {
+    "CONTACT" : "contactez nous",
+    "SOCIAL" : "suivez nous",
+    "LOCATION" : "Partout nulle part c'est la decentralisation"
   }
 }
