@@ -112,6 +112,7 @@ export class SearchProjectComponent implements OnInit {
 
   onFilterChange() {
     var haveToAdd = false;
+    var countValid = 0;
     this.showProjects = [];
     if (this.selectedCategoriesFilter.length != 0) {
       if (this.selectedOption.value == this.sortOptions[0].value) {
@@ -124,22 +125,21 @@ export class SearchProjectComponent implements OnInit {
             });
           });
           if (haveToAdd) this.showProjects.push(project);
+          haveToAdd = false
         });
       } else {
         this.projects.forEach((project) => {
           project.categories.forEach((projectCategory) => {
             this.selectedCategoriesFilter.forEach((category) => {
               if (projectCategory.name == category.name) {
-                haveToAdd = true;
-              } else {
-                haveToAdd = false;
-              }
+                countValid ++;
+              };
             });
-            if (haveToAdd) {
-              this.showProjects.push(project);
-            }
-            haveToAdd = false;
           });
+          if (countValid==this.selectedCategoriesFilter.length) {
+            this.showProjects.push(project);
+          }
+          countValid = 0
         });
       }
     } else {
