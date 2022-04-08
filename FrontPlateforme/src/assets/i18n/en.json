@@ -60,10 +60,12 @@
     "SEEPROJECT": "Go to project",
     "DESC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
-  "FOOTER": {
+  "HEADER" : {
+  "LANGUAGE" : "Language"
+  },
+    "FOOTER": {
     "CONTACT" : "contact us",
     "SOCIAL" : "follow us",
     "LOCATION" : "Nowhere everywhere it's decentralization"
   }
-
 }
