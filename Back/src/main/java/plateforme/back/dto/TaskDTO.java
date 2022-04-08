@@ -6,5 +6,6 @@ public interface TaskDTO {
     int getId();
     String getName();
     String getDescription();
+    boolean getDone();
     List<CategoryDTO> getCategories();
 }

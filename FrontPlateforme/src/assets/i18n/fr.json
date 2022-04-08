@@ -1,11 +1,11 @@
 {
   "PROJECT": {
     "CREATE": {
-      "TITLE": "Créer votre projet",
+      "TITLE": "Créer un projet",
       "FIELD": {
         "NAME": "Nom *",
         "DESCRIPTION": "Description *",
-        "BUDGET" : "Budget *",
+        "BUDGET": "Budget *",
         "CATEGORY": "Categories *",
         "IMAGE": "Image",
         "IMAGE_BROWSE": "Parcourir"
@@ -13,6 +13,7 @@
       "ERROR": {
         "GENERIC": "Ce champ est obligatoire",
         "EMPTY": "Ce champ ne peut pas être vide",
+        "UNDERSCORE": "Le nom ne peut pas contenir le caractère suivant : '_'",
         "NAME": "Ce nom est déjà pris",
         "CATEGORY": "Sélectionnez au moins une catégorie",
         "SUMMARY": "Erreur",
@@ -27,6 +28,29 @@
         "NAME": "Nom du projet",
         "CATEGORY_FILTER": "Catégories projet",
         "GO_TO_PROJECT": "Aller sur la page projet"
+      }
+    }
+  },
+  "TASK": {
+    "NEW": "Ajouter une nouvelle tâche",
+    "CREATE": {
+      "TITLE": "Créer une tâche",
+      "SUBMIT": "Enregistrer",
+      "ERROR": {
+        "SUMMARY": "Erreur",
+        "DETAIL": "Ajoutez au moins une tâche à votre projet."
+      }
+    },
+    "ATTRIBUTES": {
+      "NAME": "Tâche(s)",
+      "DESCRIPTION": "Description",
+      "BUDGET": "Budget",
+      "CATEGORY": "Categorie(s)",
+      "IMAGE": "Image",
+      "STATE": {
+        "STATE": "Etat",
+        "TODO": "A Faire",
+        "DONE": "Terminée"
       }
     }
   },

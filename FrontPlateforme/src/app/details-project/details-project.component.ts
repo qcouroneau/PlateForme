@@ -16,33 +16,30 @@ export class DetailsProjectComponent implements OnInit {
   public name = "";
   public project: IProject;
   public projectImagePath: string;
-  sub!:Subscription;
+  sub!: Subscription;
   errorMessage = 'Erreur lors du chargement';
 
   constructor(private router: Router, private projectService: ProjectService) {
-    
-   }
+
+  }
 
   ngOnInit(): void {
     this.url = this.router.url.split("/");
     this.name = this.url[this.url.length - 1];
     this.loadProject(this.formatNameForBdd(this.name));
-  } 
+  }
 
-  formatNameForBdd(name: string) : string {
+  formatNameForBdd(name: string): string {
     return name.split('_').join(' ');
   }
 
-  loadProject(name: string){
+  loadProject(name: string) {
     this.sub = this.projectService.getByName(name).subscribe({
       next: project => {
         this.project = project;
-        this.projectImagePath = environment.apiUrl + urls.image.folder +  project.imagePath;
+        this.projectImagePath = environment.apiUrl + urls.image.folder + project.imagePath;
       },
       error: err => this.errorMessage = err
     });
   }
-  
-
-  
 }
