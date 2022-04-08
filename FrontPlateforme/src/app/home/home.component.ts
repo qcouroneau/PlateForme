@@ -57,6 +57,9 @@ export class HomeComponent implements OnInit {
             environment.apiUrl + urls.image.folder + project.imagePath;
         });
         this.projects = projects;
+        this.projects.map(project => {
+          project.urlName = project.name.split(" ").join("_")
+        })
 
         this.loadHomeTranslation();
       },

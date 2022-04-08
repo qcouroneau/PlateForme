@@ -78,6 +78,9 @@ export class SearchProjectComponent implements OnInit {
         });
         this.projects = projects;
         this.showProjects = projects;
+        this.projects.map(project => {
+          project.urlName = project.name.split(" ").join("_")
+        })
       },
       error: (err) => (this.errorMessage = err),
     });

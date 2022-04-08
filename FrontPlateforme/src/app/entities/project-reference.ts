@@ -8,5 +8,6 @@ export interface IProject {
     budget: number,
     imagePath: String,
     categories: ICategory[],
-    tasks: ITask[]
+    tasks: ITask[],
+    urlName?: string
 }
