@@ -3,15 +3,15 @@
 
   <div class="field col-12">
     <label for="name">{{ 'PROJECT.CREATE.FIELD.NAME' | translate}}</label>
-    <input id="name" type="text" formControlName="name" class="form-control inputfield w-full"
+    <input id="nameModale" type="text" formControlName="name" class="form-control inputfield w-full"
       [ngClass]="{ 'is-invalid' : submitted && createTaskControls['name'].errors }" style="height: 42px" pInputText
       required>
-    <small *ngIf="submitted && !!createTaskControls['name'].errors?.['required'] else empty" id="name-help"
+    <small *ngIf="submitted && !!createTaskControls['name'].errors?.['required'] else empty" id="nameModale-help"
       class="p-error">
       {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
     </small>
     <ng-template #empty>
-      <small *ngIf="submitted && !!createTaskControls['name'].errors?.['empty']" id="name-help-empty" class="p-error">
+      <small *ngIf="submitted && !!createTaskControls['name'].errors?.['empty']" id="nameModale-help-empty" class="p-error">
         {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
       </small>
     </ng-template>
@@ -19,16 +19,16 @@
 
   <div class="field col-12">
     <label for="description">{{ 'PROJECT.CREATE.FIELD.DESCRIPTION' | translate}}</label>
-    <textarea id="description" type="text" formControlName="description" class="form-control inputfield w-full"
+    <textarea id="descriptionModale" type="text" formControlName="description" class="form-control inputfield w-full"
       [rows]="5" [cols]="30" [ngClass]="{ 'is-invalid' : submitted && createTaskControls['description'].errors }"
       pInputTextArea required>
     </textarea>
     <small *ngIf="submitted && !!createTaskControls['description'].errors?.['required'] else empty"
-      id="description-help" class="p-error">
+      id="descriptionModale-help" class="p-error">
       {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
     </small>
     <ng-template #empty>
-      <small *ngIf="submitted && !!createTaskControls['description'].errors?.['empty']" id="description-help-empty"
+      <small *ngIf="submitted && !!createTaskControls['description'].errors?.['empty']" id="descriptionModale-help-empty"
         class="p-error">
         {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
       </small>
@@ -40,16 +40,17 @@
     <p-autoComplete formControlName="categories" [suggestions]="filteredCategories"
       (completeMethod)="filterCategories($event)" appendTo="body" field="name" [multiple]="true" [dropdown]="true"
       [required]="true" class="inputfield w-full"
-      [ngClass]="{ 'ng-invalid ng-dirty' : submitted && createTaskControls['categories'].errors }">
+      [ngClass]="{ 'ng-invalid ng-dirty' : submitted && createTaskControls['categories'].errors }"
+      id="categoriesModale">
     </p-autoComplete>
-    <small *ngIf="submitted && !!createTaskControls['categories'].errors?.['required']" id="categories-help"
+    <small *ngIf="submitted && !!createTaskControls['categories'].errors?.['required']" id="categoriesModale-help"
       class="p-error">
       {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
     </small>
   </div>
 
   <div>
-    <button type="submit" class="button align-self-center p-button-rounded" pButton>
+    <button type="submit" class="button align-self-center p-button-rounded" pButton id="newTask">
       {{ 'TASK.CREATE.SUBMIT' | translate}}
     </button>
   </div>

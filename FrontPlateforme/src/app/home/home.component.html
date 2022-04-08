@@ -1,59 +1,94 @@
-
 <div class="grid grid-nogutter surface-section text-800">
-  <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
-      <section>
-          <span class="block text-6xl font-bold mb-1">{{ 'HOME.TITLE' | translate}}</span>
-          <div class="text-6xl text-primary font-bold mb-3">{{ 'HOME.TITLE2' | translate}}</div>
-          <p class="mt-0 mb-4 text-700 line-height-3">{{ 'HOME.DESC' | translate}}</p>
+  <div
+    class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center"
+  >
+    <section>
+      <span class="block text-6xl font-bold mb-1">{{
+        "HOME.TITLE" | translate
+      }}</span>
+      <div class="text-6xl text-primary font-bold mb-3">
+        {{ "HOME.TITLE2" | translate }}
+      </div>
+      <p class="mt-0 mb-4 text-700 line-height-3">
+        {{ "HOME.DESC" | translate }}
+      </p>
 
-          <button pButton pRipple [label]="labelButton" type="button" class="mr-3 p-button-raised" [routerLink]="['/newproject']"></button>
-
-      </section>
+      <button
+        pButton
+        pRipple
+        [label]="labelButton"
+        type="button"
+        class="mr-3 p-button-raised"
+        [routerLink]="['/newproject']"
+        id="createProjectBTN"
+      ></button>
+    </section>
   </div>
   <div class="col-12 md:col-6 overflow-hidden">
-      <img src="https://www.daf-mag.fr/Assets/Img/BREVE/2020/12/355489/Quelle-methode-projet-votre-transformation--F.jpg" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+    <img
+      src="https://www.daf-mag.fr/Assets/Img/BREVE/2020/12/355489/Quelle-methode-projet-votre-transformation--F.jpg"
+      alt="Image"
+      class="md:ml-auto block md:h-full"
+      style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)"
+    />
   </div>
 </div>
 
-
-
-
-
-
-<div class="card-group container"  id="card-trend">
+<div class="card-group container" id="card-trend">
   <div class="card">
-    <p-dataView [value]="projects" [paginator]="true" [rows]="6" filterBy="name" layout="grid">
+    <p-dataView
+      [value]="projects"
+      [paginator]="true"
+      [rows]="6"
+      filterBy="name"
+      layout="grid"
+    >
       <ng-template let-project pTemplate="gridItem">
-
-          <div class="project-grid-item card">
-            <div class="project-grid-item-top">
-            </div>
-            <div class="project-grid-item-content ">
-              <img class="project-grid-item img" [src]="project.imagePath" (click)="showDialog(project)"/>
-             </div>
-             <p-dialog [header]="selectedProject.name" [(visible)]="display" [modal]="true">
-                <img class='img-overlay' [src]="selectedProject.imagePath"/>
-              <p>
-                {{selectedProject.description}}
-              </p>
-
-              <p-tag styleClass="p-mr-2" *ngFor="let category of selectedProject.categories;">
-                {{category.name}}
-              </p-tag>
-              <p>
-                {{selectedProject.budget}}
-              </p>
-              <p>
-                <button pButton pRipple [label]="labelButton2" type="button" class="mr-3 p-button-raised" [routerLink]="['/project',project.name]"></button>
-              </p>
-            </p-dialog>
-              <div class="project-grid-item-bottom">
-            </div>
+        <div class="project-grid-item card" [id]="project.name">
+          <div class="project-grid-item-top"></div>
+          <div class="project-grid-item-content">
+            <img
+              class="project-grid-item img"
+              [src]="project.imagePath"
+              (click)="showDialog(project)"
+            />
           </div>
-
+          <div class="project-grid-item-bottom"></div>
+        </div>
       </ng-template>
-
     </p-dataView>
   </div>
 </div>
 
+<p-dialog
+  [header]="selectedProject.name"
+  [(visible)]="display"
+  [draggable]="false"
+  [modal]="true"
+>
+  <img class="img-overlay" [src]="selectedProject.imagePath" />
+  <p>
+    {{ selectedProject.description }}
+  </p>
+
+  <p-tag
+    styleClass="p-mr-2"
+    *ngFor="let category of selectedProject.categories"
+  >
+    {{ category.name }}
+  </p-tag>
+  <p>
+    {{ selectedProject.budget }}
+  </p>
+  <p>
+    <button
+      pButton
+      pRipple
+      [label]="labelButton2"
+      type="button"
+      class="mr-3 p-button-raised"
+      [routerLink]="['/project', selectedProject.urlName]"
+      id="goToProjectBTN"
+    ></button>
+  </p>
+</p-dialog>

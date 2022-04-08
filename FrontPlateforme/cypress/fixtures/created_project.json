@@ -1,0 +1,8 @@
+{
+    "id": 1,
+    "name": "new project",
+    "description": "Project description",
+    "budget": 20,
+    "categories": [{ "id": 1, "name": "Nature" }],
+    "imagePath": null
+}

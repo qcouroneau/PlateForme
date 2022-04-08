@@ -77,7 +77,13 @@ export class SearchProjectComponent implements OnInit {
             environment.apiUrl + urls.image.folder + project.imagePath;
         });
         this.projects = projects;
+        this.projects.sort(function (a, b) {
+          return a.id - b.id;
+        });
         this.showProjects = projects;
+        this.projects.map((project) => {
+          project.urlName = project.name.split(' ').join('_');
+        });
       },
       error: (err) => (this.errorMessage = err),
     });
@@ -125,21 +131,21 @@ export class SearchProjectComponent implements OnInit {
             });
           });
           if (haveToAdd) this.showProjects.push(project);
-          haveToAdd = false
+          haveToAdd = false;
         });
       } else {
         this.projects.forEach((project) => {
           project.categories.forEach((projectCategory) => {
             this.selectedCategoriesFilter.forEach((category) => {
               if (projectCategory.name == category.name) {
-                countValid ++;
-              };
+                countValid++;
+              }
             });
           });
-          if (countValid==this.selectedCategoriesFilter.length) {
+          if (countValid == this.selectedCategoriesFilter.length) {
             this.showProjects.push(project);
           }
-          countValid = 0
+          countValid = 0;
         });
       }
     } else {

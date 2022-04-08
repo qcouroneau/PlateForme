@@ -1,58 +1,70 @@
 :host ::ng-deep .p-dropdown {
-    width: 14rem;
-    font-weight: normal;
-  }
-  :host ::ng-deep .project-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-  :host ::ng-deep .project-description {
-    margin: 0 0 1rem 0;
-  }
-  :host ::ng-deep .project-category-icon {
-    vertical-align: middle;
-    margin-right: 0.5rem;
-  }
-  :host ::ng-deep .project-category {
-    font-weight: 600;
-    vertical-align: middle;
-  }
+  width: 14rem;
+  font-weight: normal;
+}
+:host ::ng-deep .project-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+:host ::ng-deep .project-description {
+  margin: 0 0 1rem 0;
+}
+:host ::ng-deep .project-category-icon {
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+:host ::ng-deep .project-category {
+  font-weight: 600;
+  vertical-align: middle;
+}
 
-  :host ::ng-deep .project-grid-item {
-    margin: 0.5em;
-    border: 1px solid #dee2e6;
-  }
-  :host ::ng-deep .project-grid-item .project-grid-item-top, :host ::ng-deep .project-grid-item .project-grid-item-bottom {
-    display: flex-wrap;
-    align-items: center;
-    justify-content: space-between;
-  }
-  :host ::ng-deep .project-grid-item img {
-    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.16), 0 0px 0px rgba(0, 0, 0, 0.23);
-    margin: 0rem 0;
-    width: 100%;
-    height: 500px;
-  }
-  :host ::ng-deep .project-grid-item .project-grid-item-content {
-    text-align: center;
-  }
-  .card {
+:host ::ng-deep .project-grid-item {
+  margin: 0.5em;
+  border: 1px solid #dee2e6;
+}
+:host ::ng-deep .project-grid-item .project-grid-item-top,
+:host ::ng-deep .project-grid-item .project-grid-item-bottom {
+  display: flex-wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+:host ::ng-deep .project-grid-item img {
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.16), 0 0px 0px rgba(0, 0, 0, 0.23);
+  margin: 0rem 0;
+  width: 25rem;
+  height: 25rem;
+}
+:host ::ng-deep .project-grid-item .project-grid-item-content {
+  text-align: center;
+}
+.card {
+  margin: auto auto;
+  margin-bottom: 0.5em;
+}
 
-    margin: auto auto;
+.grid123 {
+  margin: 0 40px;
+}
 
-  }
+.card123 {
+  margin: 0 auto !important;
+}
 
- .grid123{
-   margin: 0 40px;
- }
+.p-element {
+  margin: auto;
+}
+.surface-section {
+  padding-bottom: 50px;
+}
 
- .card123{
-   margin: 0 auto !important;
- }
+.p-dialog {
+  display: flex-wrap;
+  align-items: center;
+  justify-content: space-between;
+}
 
- .p-element{
-   margin: auto;
- }
- .surface-section{
-   padding-bottom: 50px;
- }
+.img-overlay {
+  max-width: 500px;
+  height: 500px;
+  padding: 0.5rem;
+}

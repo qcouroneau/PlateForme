@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Super 1",
+    "description": "test",
+    "budget": 0,
+    "categories": [{ "id": 3, "name": "Informatique" }],
+    "imagePath": "35caee13-02ea-41f0-8d08-0b584b0388e5.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Nul 2",
+    "description": "test",
+    "budget": 0,
+    "categories": [{ "id": 3, "name": "Informatique" }, {"id": 2, "name": "Finance"}],
+    "imagePath": "35caee13-02ea-41f0-8d08-0b584b0388e5.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Moyen 3",
+    "description": "test",
+    "budget": 0,
+    "categories": [{ "id": 2, "name": "Finance" }],
+    "imagePath": "35caee13-02ea-41f0-8d08-0b584b0388e5.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Tata",
+    "description": "test",
+    "budget": 0,
+    "categories": [{ "id": 1, "name": "Nature" }],
+    "imagePath": "35caee13-02ea-41f0-8d08-0b584b0388e5.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Toto",
+    "description": "test",
+    "budget": 0,
+    "categories": [{ "id": 3, "name": "Informatique" }],
+    "imagePath": "35caee13-02ea-41f0-8d08-0b584b0388e5.jpg"
+  }
+]
