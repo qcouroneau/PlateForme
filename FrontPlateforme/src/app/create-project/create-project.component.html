@@ -61,7 +61,8 @@
       <p-autoComplete formControlName="categories" [suggestions]="filteredCategories"
         (completeMethod)="filterCategories($event)" field="name" [multiple]="true" [dropdown]="true" [required]="true"
         class="inputfield w-full"
-        [ngClass]="{ 'ng-invalid ng-dirty' : submitted && createProjetControls['categories'].errors }">
+        [ngClass]="{ 'ng-invalid ng-dirty' : submitted && createProjetControls['categories'].errors }"
+        id="categories">
       </p-autoComplete>
       <small *ngIf="submitted && !!createProjetControls['categories'].errors?.['required']" id="categories-help"
         class="p-error">
@@ -80,7 +81,7 @@
     </div>
 
     <div class="field col-12 flex justify-content-center">
-      <app-modal-task (task)="addNewTask($event)" [initialCategories]="initialCategories" [header]="createTask">
+      <app-modal-task (task)="addNewTask($event)" [initialCategories]="initialCategories" [header]="createTask" id="addNewTask">
       </app-modal-task>
     </div>
 
@@ -88,7 +89,7 @@
       <app-liste [project]="form.value"></app-liste>
     </div>
 
-    <button type="submit" class="button justify-self-center p-button-rounded" pButton>
+    <button type="submit" class="button justify-self-center p-button-rounded" pButton id="saveProject">
       {{ 'PROJECT.CREATE.SUBMIT' | translate}}
     </button>
 
