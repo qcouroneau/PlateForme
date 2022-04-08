@@ -109,4 +109,59 @@ describe("create project", () => {
 
     cy.url().should("eq", "http://localhost:4200/project/new_project");
   });
+
+  it.only("check valid name and descritpion", () => {
+
+    cy.get('[id="name"] ').click().type(" ");
+    cy.get('[id="saveProject"]').click();
+    cy.get('[id="name-help-empty"').should("be.visible");
+    cy.get('[id="name"] ').click().type("_");
+    cy.get('[id="name-help-pattern"]').should("be.visible");
+    cy.get('[id="name"] ').click().type("{backspace}new project");
+
+    cy.get('[id="saveProject"]').click();
+    cy.get('[id="budget"] ').click().type("20");
+
+    //TO DO empty
+    cy.get('[id="description"] ').click().type("Project description");
+
+    cy.get('[id="saveProject"]').click();
+    cy.get('[id="categories-help"]').should("be.visible");
+    cy.get('[id="categories"]')
+      .click()
+      .type("nat")
+      .wait(300)
+      .find("li")
+      .get(".p-autocomplete-item")
+      .click();
+
+    cy.get('[id="saveProject"]').click();
+    cy.get('[id="addNewTask"]').click();
+
+    cy.wait(300);
+
+    cy.get('[id="newTask"]').click();
+    cy.get('[id="nameModale"]').click().type(" ");
+    cy.get('[id="nameModale-help-empty"').should("be.visible");
+    cy.get('[id="nameModale"]').click().type("New Task");
+
+    cy.get('[id="newTask"]').click();
+    cy.get('[id="descriptionModale"]').click().type("Task description");
+
+    cy.get('[id="newTask"]').click();
+    cy.get('[id="categoriesModale-help"]').should("be.visible");
+    cy.get('[id="categoriesModale"]')
+      .click()
+      .type("nat")
+      .wait(300)
+      .find("li")
+      .get(".p-autocomplete-item")
+      .click();
+
+    cy.get('[id="newTask"]').click();
+
+    cy.get('[id="saveProject"]').click();
+
+    cy.url().should("eq", "http://localhost:4200/project/new_project");
+  });
 });

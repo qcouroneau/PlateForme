@@ -11,7 +11,7 @@
       {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
     </small>
     <ng-template #empty>
-      <small *ngIf="submitted && !!createTaskControls['name'].errors?.['empty']" id="name-help-empty" class="p-error">
+      <small *ngIf="submitted && !!createTaskControls['name'].errors?.['empty']" id="nameModale-help-empty" class="p-error">
         {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
       </small>
     </ng-template>
@@ -28,7 +28,7 @@
       {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
     </small>
     <ng-template #empty>
-      <small *ngIf="submitted && !!createTaskControls['description'].errors?.['empty']" id="description-help-empty"
+      <small *ngIf="submitted && !!createTaskControls['description'].errors?.['empty']" id="descriptionModale-help-empty"
         class="p-error">
         {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
       </small>
