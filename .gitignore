@@ -286,3 +286,7 @@ Back/src/main/resources/application.properties
 
 
 application.properties
+*.mp4
+*.png
+*.jpg
+*.svg
