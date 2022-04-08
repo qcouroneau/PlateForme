@@ -20,6 +20,7 @@
         type="button"
         class="mr-3 p-button-raised"
         [routerLink]="['/newproject']"
+        id="createProjectBTN"
       ></button>
     </section>
   </div>
@@ -43,7 +44,7 @@
       layout="grid"
     >
       <ng-template let-project pTemplate="gridItem">
-        <div class="project-grid-item card">
+        <div class="project-grid-item card" [id]="project.name">
           <div class="project-grid-item-top"></div>
           <div class="project-grid-item-content">
             <img
@@ -87,6 +88,7 @@
       type="button"
       class="mr-3 p-button-raised"
       [routerLink]="['/project', selectedProject.urlName]"
+      id="goToProjectBTN"
     ></button>
   </p>
 </p-dialog>

@@ -110,7 +110,7 @@ describe("create project", () => {
     cy.url().should("eq", "http://localhost:4200/project/new_project");
   });
 
-  it.only("check valid name and descritpion", () => {
+  it("check valid name and descritpion", () => {
 
     cy.get('[id="name"] ').click().type(" ");
     cy.get('[id="saveProject"]').click();
