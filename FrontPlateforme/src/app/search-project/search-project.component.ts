@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProject } from '../entities/project-reference';
 import { ProjectService } from '../services/project.service';
-import { bindNodeCallback, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { ICategory } from '../entities/category-reference';
 import { CategoryService } from '../services/category.service';
@@ -77,14 +77,13 @@ export class SearchProjectComponent implements OnInit {
             environment.apiUrl + urls.image.folder + project.imagePath;
         });
         this.projects = projects;
-        this.projects.sort(function(a,b) {
-          return a.id - b.id
-        }
-        )
+        this.projects.sort(function (a, b) {
+          return a.id - b.id;
+        });
         this.showProjects = projects;
-        this.projects.map(project => {
-          project.urlName = project.name.split(" ").join("_")
-        })
+        this.projects.map((project) => {
+          project.urlName = project.name.split(' ').join('_');
+        });
       },
       error: (err) => (this.errorMessage = err),
     });
@@ -132,21 +131,21 @@ export class SearchProjectComponent implements OnInit {
             });
           });
           if (haveToAdd) this.showProjects.push(project);
-          haveToAdd = false
+          haveToAdd = false;
         });
       } else {
         this.projects.forEach((project) => {
           project.categories.forEach((projectCategory) => {
             this.selectedCategoriesFilter.forEach((category) => {
               if (projectCategory.name == category.name) {
-                countValid ++;
-              };
+                countValid++;
+              }
             });
           });
-          if (countValid==this.selectedCategoriesFilter.length) {
+          if (countValid == this.selectedCategoriesFilter.length) {
             this.showProjects.push(project);
           }
-          countValid = 0
+          countValid = 0;
         });
       }
     } else {
