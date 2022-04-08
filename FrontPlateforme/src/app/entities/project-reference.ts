@@ -1,18 +1,13 @@
+import { ICategory } from "./category-reference";
+import { ITask } from "./task-reference";
+
 export interface IProject {
     id: number,
     name: string,
     description: string,
     budget: number,
-    image: any,
-    tags: tag[],
-    categories: ProjectCategory[]
-}
-
-interface tag {
-  display: string,
-  value: string
-}
-
-export interface ProjectCategory {
-  name: string
+    imagePath: String,
+    categories: ICategory[],
+    tasks: ITask[],
+    urlName?: string
 }

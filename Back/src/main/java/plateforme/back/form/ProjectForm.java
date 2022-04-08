@@ -4,18 +4,26 @@ import com.sun.istack.NotNull;
 
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+
 public class ProjectForm {
-    @NotNull
+	
+    @NotBlank
     private String name;
 
     @NotNull
     private int budget;
 
-    @NotNull
+    @NotBlank
     private String description;
 
     @NotNull
-    private List<ProjectCategoryForm> categories;
+    private List<CategoryForm> categories;
+    
+    @NotNull
+    private List<TaskForm> tasks;
+    
+    private String imagePath;
 
     public String getName() {
         return name;
@@ -41,12 +49,27 @@ public class ProjectForm {
         this.budget = budget;
     }
 
-    public void setCategories(List<ProjectCategoryForm> categories) {
+    public void setCategories(List<CategoryForm> categories) {
         this.categories = categories;
     }
 
-    public List<ProjectCategoryForm> getCategories() {
+    public List<CategoryForm> getCategories() {
         return categories;
     }
 
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
+
+	public List<TaskForm> getTasks() {
+		return tasks;
+	}
+
+	public void setTasks(List<TaskForm> tasks) {
+		this.tasks = tasks;
+	}
 }
