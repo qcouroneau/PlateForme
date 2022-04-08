@@ -37,9 +37,6 @@ public class Skill implements Serializable {
 	@Column(name="name")
     private String name;
 	
-	@Column(name="description")
-    private String description;
-	
 	@OneToMany(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
 	@JoinTable(name="task_category", joinColumns = @JoinColumn(name = "id_task", referencedColumnName =  "id"), inverseJoinColumns = @JoinColumn(name = "id_category", referencedColumnName = "id"))
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
@@ -67,14 +64,6 @@ public class Skill implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 	
 }

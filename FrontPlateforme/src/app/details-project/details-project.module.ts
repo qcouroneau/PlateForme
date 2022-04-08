@@ -3,8 +3,9 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "../app-routing.module";
 import { DetailsProjectComponent } from "./details-project.component";
-
-
+import { TableModule } from 'primeng/table';
+import { ListeModule } from "../shared/liste/liste.module";
+import { TagModule } from 'primeng/tag';
 
 @NgModule({
     declarations: [
@@ -13,10 +14,11 @@ import { DetailsProjectComponent } from "./details-project.component";
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        TableModule,
+        ListeModule,
+        TagModule
     ],
-    providers: [],
-    bootstrap: [DetailsProjectComponent]
+    providers: []
 })
-export class DetailsProjectModule
-{}
+export class DetailsProjectModule {}

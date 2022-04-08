@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
     description: '',
     categories: [],
     imagePath: '',
+    tasks: []
   };
   labelButton: string = '';
   labelButton2: string = '';

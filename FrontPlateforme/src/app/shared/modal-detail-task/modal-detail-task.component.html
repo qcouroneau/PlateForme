@@ -1,0 +1,14 @@
+<p-dialog [header]="selectedTask.name" [(visible)]="displayModal" (onHide)="onHide()">
+    <p>{{ 'TASK.ATTRIBUTES.DESCRIPTION' | translate}}</p>
+    <div class="field col-12">
+        <label for="description">{{ selectedTask.description }}</label>
+    </div>
+
+    <div class="field col-12 p-fluid">
+        <label for="categories">
+            <p-tag styleClass="p-mr-2" *ngFor="let category of selectedTask.categories;">
+                {{category.name}}
+            </p-tag>
+        </label>
+    </div>
+</p-dialog>

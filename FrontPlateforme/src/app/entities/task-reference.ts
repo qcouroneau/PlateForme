@@ -1,8 +1,9 @@
 import {ICategory} from "./category-reference";
 
 export interface ITask{
-  name:string,
   id: number,
-  category: ICategory[],
+  name: string,
   description: string,
+  done: boolean,
+  categories: ICategory[],
 }

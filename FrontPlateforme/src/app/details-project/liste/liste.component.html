@@ -1,0 +1,24 @@
+<div class="card-group container" id="card-trend">
+    <div class="card" *ngIf="project?.tasks">
+      <p-table [value]="project.tasks" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Tâche(s)</th>
+            <th>Description</th>
+            <th>Categorie(s)</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-task>
+          <tr>
+            <td>{{task.name}}</td>
+            <td>{{task.description}}</td>
+            <td>
+              <div *ngFor="let category of task.categories;">
+                {{category.name}}
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>

@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -19,7 +20,10 @@ import javax.persistence.Table;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import plateforme.back.form.TaskForm;
 
 @Entity()
 @Table(name = "task")
@@ -29,6 +33,14 @@ public class Task implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -7768287230870691285L;
+	
+	public Task() { }
+	
+	public Task(TaskForm task) {
+		this.name = task.getName();
+		this.description = task.getName();
+	}
+
 
 	@Id
     @SequenceGenerator(name = "pk_sequence", sequenceName = "task_id_seq", allocationSize = 1)
@@ -41,6 +53,14 @@ public class Task implements Serializable {
 	
 	@Column(name="description")
     private String description;
+	
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_project", nullable = false)
+    private Project project;
+	
+	@Column(name="done")
+    private boolean done;
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL)
@@ -76,6 +96,22 @@ public class Task implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+	
+	public boolean isDone() {
+		return done;
+	}
+
+	public void setDone(boolean done) {
+		this.done = done;
 	}
 
 	public List<Category> getCategories() {
