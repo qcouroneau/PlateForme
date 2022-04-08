@@ -56,11 +56,15 @@
 
 .col-12 {
   background-color: rgb(235, 235, 235);
-  min-height: 300px;
-  max-height : 300px;
+}
 
+.p-tag {
+  font-size: 3em;
 }
 
 .p-element {
-  margin: 7px ;
+  margin: 0px 7px 0px 0px;
+  min-height: 300px;
+  max-height : 300px;
+
 }

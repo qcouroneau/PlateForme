@@ -32,6 +32,15 @@
     }
   },
   "TASK": {
+    "NEW": "Ajouter une nouvelle tâche",
+    "CREATE": {
+      "TITLE": "Créer une tâche",
+      "SUBMIT": "Enregistrer",
+      "ERROR": {
+        "SUMMARY": "Erreur",
+        "DETAIL": "Ajoutez au moins une tâche à votre projet."
+      }
+    },
     "ATTRIBUTES": {
       "NAME": "Tâche(s)",
       "DESCRIPTION": "Description",
@@ -43,7 +52,8 @@
         "TODO": "A Faire",
         "DONE": "Terminée"
       }
-    },
+    }
+  },
   "HOME" : {
     "TITLE" : "Crée le projet",
     "TITLE2": "Que ta communauté mérite",
