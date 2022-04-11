@@ -17,11 +17,10 @@ import { validateNotEmpty } from '../shared/validators/empty.validator';
 })
 export class CreateProjectComponent implements OnInit {
 
-  @Input() pattern: string | RegExp;
 
   form: FormGroup;
 
-  private name = new FormControl('', [Validators.required,  validateNotEmpty, Validators.pattern(/^[^_]+$/)]);
+  private name = new FormControl('', [Validators.required, validateNotEmpty, Validators.pattern(/^[^_]+$/)]);
   private description = new FormControl('', [Validators.required, validateNotEmpty]);
   private budget = new FormControl('0', [Validators.required, validateNotEmpty]);
   private categories = new FormControl([], [Validators.required, Validators.minLength(1)]);
@@ -71,28 +70,33 @@ export class CreateProjectComponent implements OnInit {
     this.categoryService.getAll().subscribe({
       next: categories => {
         this.initialCategories = categories;
-        this.loadErrorMesssagesTranslations();
       }
     });
+
+    this.loadErrorMesssagesTranslations();
   }
 
   loadErrorMesssagesTranslations() {
     let createErrorSummary, createErrorDetail;
-    createErrorSummary = this.translate.instant('PROJECT.CREATE.ERROR.SUMMARY');
-    createErrorDetail = this.translate.instant('PROJECT.CREATE.ERROR.DETAIL');
-    this.errorMessage.push({ severity: 'error', summary: createErrorSummary, detail: createErrorDetail });
 
-    let taskErrorSummary, taskErrorDetail;
-    taskErrorSummary = this.translate.instant('TASK.CREATE.ERROR.SUMMARY');
-    taskErrorDetail = this.translate.instant('TASK.CREATE.ERROR.DETAIL');
-    this.errorMessageTask.push({ severity: 'error', summary: taskErrorSummary, detail: taskErrorDetail });
+    this.translate.get('PROJECT.CREATE.ERROR.SUMMARY').subscribe(text => {
+      createErrorSummary = text;
+      createErrorDetail = this.translate.instant('PROJECT.CREATE.ERROR.DETAIL');
+      this.errorMessage.push({ severity: 'error', summary: createErrorSummary, detail: createErrorDetail });
 
-    this.invalidFileTypeMessageSummary = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_TYPE_SUMMARY');
-    this.invalidFileTypeMessageDetail = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_TYPE_DETAIL');
-    this.invalidFileSizeMessageSummary = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_SUMMARY');
-    this.invalidFileSizeMessageDetail = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_DETAIL');
-    this.chooseLabel = this.translate.instant('PROJECT.CREATE.FIELD.IMAGE_BROWSE');
-    this.createTask = this.translate.instant('TASK.CREATE.TITLE');
+      let taskErrorSummary, taskErrorDetail;
+      taskErrorSummary = this.translate.instant('TASK.CREATE.ERROR.SUMMARY');
+      taskErrorDetail = this.translate.instant('TASK.CREATE.ERROR.DETAIL');
+      this.errorMessageTask.push({ severity: 'error', summary: taskErrorSummary, detail: taskErrorDetail });
+
+      this.invalidFileTypeMessageSummary = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_TYPE_SUMMARY');
+      this.invalidFileTypeMessageDetail = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_TYPE_DETAIL');
+      this.invalidFileSizeMessageSummary = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_SUMMARY');
+      this.invalidFileSizeMessageDetail = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_DETAIL');
+      this.chooseLabel = this.translate.instant('PROJECT.CREATE.FIELD.IMAGE_BROWSE');
+      this.createTask = this.translate.instant('TASK.CREATE.TITLE');
+    });
+
   }
 
   filterCategories(event: any) {
