@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import plateforme.back.dto.ProjectDTO;
 import plateforme.back.form.ProjectForm;
 import plateforme.back.object.Category;
 import plateforme.back.object.Project;
@@ -34,7 +33,7 @@ public class ProjectService {
 		return this.repository.findAll().stream().map(Project.class::cast).collect(Collectors.toList());
 	}
 
-	public ProjectDTO getProjectDTOById(final int id) {
+	public Project getProjectDTOById(final int id) {
 		return this.repository.findById(id);
 	}
 
