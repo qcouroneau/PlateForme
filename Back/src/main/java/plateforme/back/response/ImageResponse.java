@@ -1,4 +1,4 @@
-package plateforme.back.reponse;
+package plateforme.back.response;
 
 public class ImageResponse {
     private String path;

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import plateforme.back.reponse.ImageResponse;
+import plateforme.back.response.ImageResponse;
 import plateforme.back.service.ImageService;
 
 @RestController

@@ -20,4 +20,13 @@ public class UserService {
     public List<User> getAllDTO() {
     	return this.repository.findAll();
     }
+
+	public void connection() {
+		
+		// Test ID MDP
+		
+		// Recup le user
+		
+		
+	}
 }
