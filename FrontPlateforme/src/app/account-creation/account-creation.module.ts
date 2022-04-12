@@ -1,24 +1,25 @@
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
-import { RouterModule } from "@angular/router";
-import { AppRoutingModule } from "../app-routing.module";
-import { AccountCreationComponent } from "./account-creation.component";
-import {DataViewModule} from 'primeng/dataview';
-import { ButtonModule } from "primeng/button";
-import {DialogModule} from 'primeng/dialog';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
+import { AccountCreationComponent } from './account-creation.component';
+import { DataViewModule } from 'primeng/dataview';
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
 import { TagModule } from 'primeng/tag';
-import { HttpClient } from "@angular/common/http";
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
-import { HttpLoaderFactory } from "../app.module";
-import {InputTextModule} from 'primeng/inputtext';
-import {PasswordModule} from 'primeng/password';
-import {CardModule} from 'primeng/card';
-import {ReactiveFormsModule} from "@angular/forms";
+import { HttpClient } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpLoaderFactory } from '../app.module';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { CardModule } from 'primeng/card';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MessagesModule } from 'primeng/messages';
+
 @NgModule({
-    declarations: [
-        AccountCreationComponent
-    ],
+  declarations: [AccountCreationComponent],
   imports: [
+    MessagesModule,
     BrowserModule,
     AppRoutingModule,
     RouterModule,
@@ -33,12 +34,12 @@ import {ReactiveFormsModule} from "@angular/forms";
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-    providers: [],
-    bootstrap: [AccountCreationComponent]
+  providers: [],
+  bootstrap: [AccountCreationComponent],
 })
-export class AccountCreationModule{}
+export class AccountCreationModule {}

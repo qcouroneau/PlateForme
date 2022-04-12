@@ -1,15 +1,15 @@
+import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
-import {MenuItem} from 'primeng/api';
+import { Router } from '@angular/router';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   items: MenuItem[];
   ngOnInit(): void {
@@ -17,26 +17,31 @@ export class HeaderComponent implements OnInit {
       {
         label: 'language',
         icon: 'pi pi-globe',
-        items: [
-          {label: 'Français'},
-          {label: 'English'}
-        ]
+        items: [{ label: 'Français' }, { label: 'English' }],
       },
       {
         label: 'profil',
         icon: 'pi pi-user',
-        routerLink: ['/accountcreation']
+        command: () => {
+          if (sessionStorage.getItem('auth-user') != null) {
+            this.router.navigate(['/myprofil']);
+          } else {
+            this.router.navigate(['/accountcreation']);
+          }
+        },
       },
       {
         label: 'new projects',
         icon: 'pi pi-plus',
-        routerLink: ['/newproject']
+        routerLink: ['/newproject'],
       },
       {
         label: 'find project',
         icon: 'pi pi-search',
-        routerLink: ['/searchproject']
-      }
+        routerLink: ['/searchproject'],
+      },
     ];
+
+    if (sessionStorage.getItem('auth-user') == null) this.items[1].label='Connexion';
   }
 }

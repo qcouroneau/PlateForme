@@ -36,10 +36,10 @@ public class UserService {
 
 	public ResponseEntity<?> registerUser(@Valid UserRegistrationForm userForm) {
 		if (userRepository.existsByUsername(userForm.getUsername())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
+			return ResponseEntity.badRequest().body(new MessageResponse("username"));
 		}
 		if (userRepository.existsByEmail(userForm.getEmail())) {
-			return ResponseEntity.badRequest().body(new MessageResponse("Error: Email is already in use!"));
+			return ResponseEntity.badRequest().body(new MessageResponse("email"));
 		}
 
 		User user = new User(userForm.getUsername(), userForm.getEmail(), encoder.encode(userForm.getPassword()));

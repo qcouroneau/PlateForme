@@ -21,9 +21,6 @@
           {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
         </small>
       </ng-template>
-      <small *ngIf="submitted && nameTaken" id="name-help-taken" class="p-error">
-        {{ 'ACCOUNT.CREATE.ERROR.NAME' | translate}}
-      </small>
     </div>
 
     <div class="field p-ml-2">
@@ -43,9 +40,6 @@
       </ng-template>
       <small *ngIf="submitted && !!createProjetControls['email'].errors?.['pattern']" id="mail-help-pattern" class="p-error">
         {{ 'ACCOUNT.CREATE.ERROR.MAIL_INVALID' | translate}}
-      </small>
-      <small *ngIf="submitted && mailTaken" id="mail-help-taken" class="p-error">
-        {{ 'ACCOUNT.CREATE.ERROR.MAIL' | translate}}
       </small>
     </div>
 
@@ -70,4 +64,8 @@
     </button>
 
   </form>
+
+  <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
+  <p-messages *ngIf="nameTaken" [(value)]="nameErrorMessage"></p-messages>
+  <p-messages *ngIf="mailTaken" [(value)]="mailErrorMessage"></p-messages>
 </div>
