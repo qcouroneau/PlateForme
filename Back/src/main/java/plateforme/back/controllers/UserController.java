@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import plateforme.back.form.UserForm;
+import plateforme.back.form.UserConnectionForm;
+import plateforme.back.form.UserRegistrationForm;
 import plateforme.back.impl.UserDetailsImpl;
 import plateforme.back.object.User;
 import plateforme.back.response.JwtResponse;
@@ -45,7 +46,7 @@ public class UserController {
 	}
 
 	@PostMapping("/signin")
-	public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserForm userForm) {
+	public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserConnectionForm userForm) {
 		Authentication authentication = authenticationManager
 				.authenticate(new UsernamePasswordAuthenticationToken(userForm.getUsername(), userForm.getPassword()));
 
@@ -59,7 +60,7 @@ public class UserController {
 	}
 
 	@PostMapping("/signup")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody UserForm userForm) {
+	public ResponseEntity<?> registerUser(@Valid @RequestBody UserRegistrationForm userForm) {
 		return this.service.registerUser(userForm);
 	}
 }
