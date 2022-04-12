@@ -18,6 +18,9 @@ import { AccountCreationModule } from './account-creation/account-creation.modul
 import { ProfilUserComponent } from './profil-user/profil-user.component';
 import {TagModule} from "primeng/tag";
 import {ButtonModule} from "primeng/button";
+import {DataViewModule} from "primeng/dataview";
+import {AutoCompleteModule} from "primeng/autocomplete";
+import {DropdownModule} from "primeng/dropdown";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -50,7 +53,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     TagModule,
-    ButtonModule
+    ButtonModule,
+    DataViewModule,
+    AutoCompleteModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
