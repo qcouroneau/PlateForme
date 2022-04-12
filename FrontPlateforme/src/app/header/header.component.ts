@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
       {
         label: 'profil',
         icon: 'pi pi-user',
-        routerLink: ['/home']
+        routerLink: ['/accountcreation']
       },
       {
         label: 'new projects',
