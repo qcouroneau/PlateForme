@@ -4,8 +4,8 @@ CREATE SCHEMA plateform AUTHORIZATION postgres;
 
 CREATE TABLE plateform.plateform_user (
 	id serial NOT NULL,
-	login varchar NOT NULL,
-	mail varchar NOT NULL,
+	username varchar NOT NULL,
+	email varchar NOT NULL,
 	password varchar NOT null,
 	CONSTRAINT plateform_user_pkey PRIMARY KEY (id)
 );
@@ -116,6 +116,22 @@ CREATE TABLE plateform.skill_category (
 
 ALTER TABLE plateform.skill_category ADD CONSTRAINT skill_category_fk1 FOREIGN KEY (id_skill) REFERENCES plateform.skill(id);
 ALTER TABLE plateform.skill_category ADD CONSTRAINT skill_category_fk2 FOREIGN KEY (id_category) REFERENCES plateform.category(id);
+
+CREATE TABLE plateform.role (
+	id serial NOT NULL,	
+	name varchar UNIQUE NOT NULL,
+	CONSTRAINT role_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE plateform.user_role (
+	id serial NOT NULL,	
+	id_role int4 NOT null,
+	id_user int4 NOT null,
+	CONSTRAINT user_role_pkey PRIMARY KEY (id)
+);
+
+ALTER TABLE plateform.user_role ADD CONSTRAINT user_role_fk1 FOREIGN KEY (id_role) REFERENCES plateform.role(id);
+ALTER TABLE plateform.user_role ADD CONSTRAINT user_role_fk2 FOREIGN KEY (id_user) REFERENCES plateform.plateform_user(id);
 
 INSERT INTO plateform.category
 (name)
@@ -235,3 +251,10 @@ VALUES(7,6);
 INSERT INTO plateform.task_category
 (id_category, id_task)
 VALUES(8,7);
+
+INSERT INTO plateform.role
+(name)
+VALUES('ROLE_USER');
+INSERT INTO plateform.role
+(name)
+VALUES('ROLE_ADMIN');
