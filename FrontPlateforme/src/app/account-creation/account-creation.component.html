@@ -7,16 +7,16 @@
 
 
     <div class="field p-ml-2">
-      <label for="name">{{ 'ACCOUNT.CREATE.FIELD.PSEUDO' | translate}}</label>
-      <input id="name" type="text" formControlName="name" class="form-control inputfield w-full"
-             [ngClass]="{ 'is-invalid' : submitted && createProjetControls['name'].errors }" style="height: 42px" pInputText
+      <label for="username">{{ 'ACCOUNT.CREATE.FIELD.PSEUDO' | translate}}</label>
+      <input id="username" type="text" formControlName="username" class="form-control inputfield w-full"
+             [ngClass]="{ 'is-invalid' : submitted && createProjetControls['username'].errors }" style="height: 42px" pInputText
              required>
-      <small *ngIf="submitted && !!createProjetControls['name'].errors?.['required']; else empty" e id="name-help"
+      <small *ngIf="submitted && !!createProjetControls['username'].errors?.['required']; else empty" e id="name-help"
              class="p-error">
         {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
       </small>
       <ng-template #empty>
-        <small *ngIf="submitted && !!createProjetControls['name'].errors?.['empty']" id="name-help-empty"
+        <small *ngIf="submitted && !!createProjetControls['username'].errors?.['empty']" id="name-help-empty"
                class="p-error">
           {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
         </small>
@@ -27,25 +27,25 @@
     </div>
 
     <div class="field p-ml-2">
-      <label for="mail">{{ 'ACCOUNT.CREATE.FIELD.MAIL' | translate}}</label>
-      <input id="mail" type="text" formControlName="mail" class="form-control inputfield w-full"
-             [ngClass]="{ 'is-invalid' : submitted && createProjetControls['mail'].errors }" style="height: 42px" pInputText
+      <label for="email">{{ 'ACCOUNT.CREATE.FIELD.MAIL' | translate}}</label>
+      <input id="email" type="text" formControlName="email" class="form-control inputfield w-full"
+             [ngClass]="{ 'is-invalid' : submitted && createProjetControls['email'].errors }" style="height: 42px" pInputText
              required>
-      <small *ngIf="submitted && !!createProjetControls['mail'].errors?.['required']; else empty" e id="mail-help"
+      <small *ngIf="submitted && !!createProjetControls['email'].errors?.['required']; else empty" e id="mail-help"
              class="p-error">
         {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
       </small>
       <ng-template #empty>
-        <small *ngIf="submitted && !!createProjetControls['mail'].errors?.['empty']" id="mail-help-empty"
+        <small *ngIf="submitted && !!createProjetControls['email'].errors?.['empty']" id="mail-help-empty"
                class="p-error">
           {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
         </small>
       </ng-template>
-      <small *ngIf="submitted && !!createProjetControls['mail'].errors?.['pattern']" id="mail-help-pattern" class="p-error">
-        {{ 'ACCOUNT.CREATE.ERROR.NAME' | translate}}
+      <small *ngIf="submitted && !!createProjetControls['email'].errors?.['pattern']" id="mail-help-pattern" class="p-error">
+        {{ 'ACCOUNT.CREATE.ERROR.MAIL_INVALID' | translate}}
       </small>
       <small *ngIf="submitted && mailTaken" id="mail-help-taken" class="p-error">
-        {{ 'ACCOUNT.CREATE.ERROR.NAME' | translate}}
+        {{ 'ACCOUNT.CREATE.ERROR.MAIL' | translate}}
       </small>
     </div>
 

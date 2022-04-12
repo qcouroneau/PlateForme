@@ -1,9 +1,10 @@
-import { Component, NgModule} from '@angular/core';
+import { Component} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {validateNotEmpty} from "../shared/validators/empty.validator";
 import {Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
-import {IProject} from "../entities/project-reference";
+import {IUser} from "../entities/user-reference";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-account-creation',
@@ -15,8 +16,8 @@ export class AccountCreationComponent  {
 
   form: FormGroup;
 
-  private name = new FormControl('', [Validators.required, validateNotEmpty, Validators.pattern(/^[^_]+$/)]);
-  private mail = new FormControl('', [Validators.required, validateNotEmpty, Validators.pattern(/^[.+@.+\..+]+$/)]);
+  private username = new FormControl('', [Validators.required, validateNotEmpty, Validators.pattern(/^[^_]+$/)]);
+  private email = new FormControl('', [Validators.required, validateNotEmpty, Validators.pattern(/^((\w[^\W]+)[\.\-]?){1,}\@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]);
   private password = new FormControl('', [Validators.required, validateNotEmpty, Validators.pattern(/^(?=.*[a-z])(?!=.*\s)(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/)]);
 
   submitted: boolean = false;
@@ -24,27 +25,30 @@ export class AccountCreationComponent  {
   mailTaken: boolean = false;
 
   constructor(private router: Router, private formBuilder: FormBuilder,
-              private translate: TranslateService) {
+              private translate: TranslateService, private authService: AuthService) {
     this.form = formBuilder.group({
-      name: this.name,
-      mail: this.mail,
+      username: this.username,
+      email: this.email,
       password: this.password,
     });
   }
 
   ngOnInit(): void {
-    console.log("test");
+
   }
 
-  onSubmit(formValues: IProject): void {
+  onSubmit(formValues: IUser): void {
     this.submitted = true;
-    console.log(this.form);
-    console.log(this.form.controls);
     if (this.form.invalid) {
       return;
     }
-
-    formValues.name = formValues.name.trim();
+    formValues.username = formValues.username.trim();
+    formValues.email = formValues.email.trim();
+    this.authService.register(formValues).subscribe({
+      next:msg=>{
+        console.log(msg);
+      }
+    })
   }
 
   isInvalid() {

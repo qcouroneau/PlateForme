@@ -22,7 +22,9 @@ export const urls = {
   user:{
     get :{
       all: '/user/dto'
-    }
+    },
+    register: '/user/signup',
+    connection: '/user/signin'
   },
   category: {
     get: {
