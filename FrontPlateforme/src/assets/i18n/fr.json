@@ -31,6 +31,25 @@
       }
     }
   },
+  "ACCOUNT": {
+    "CREATE": {
+      "TITLE": "Créer votre compte",
+      "FIELD": {
+        "PSEUDO": "Pseudo",
+        "MAIL": "Mail",
+        "PASSWORD": "Mot de passe"
+      },
+      "ERROR": {
+        "GENERIC": "Ce champ est obligatoire",
+        "EMPTY": "Ce champ ne peut pas être vide",
+        "PSEUDO": "Ce nom d'utilisateur est déjà pris",
+        "SUMMARY": "Erreur",
+        "PASSWORD": "Mot de passe trop faible ou contient un espace",
+        "MAIL": "Un compe existe déjà avec ce mail",
+        "MAIL_INVALID": "Adresse mail non valide"
+      }
+    }
+  },
   "TASK": {
     "NEW": "Ajouter une nouvelle tâche",
     "CREATE": {
@@ -54,18 +73,18 @@
       }
     }
   },
-  "HOME" : {
-    "TITLE" : "Crée le projet",
+  "HOME": {
+    "TITLE": "Crée le projet",
     "TITLE2": "Que ta communauté mérite",
     "SEEPROJECT": "Voir le projet",
     "DESC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
-  "HEADER" : {
-    "LANGUAGE" : "Langue"
+  "HEADER": {
+    "LANGUAGE": "Langue"
   },
   "FOOTER": {
-    "CONTACT" : "contactez nous",
-    "SOCIAL" : "suivez nous",
-    "LOCATION" : "Partout nulle part c'est la decentralisation"
+    "CONTACT": "contactez nous",
+    "SOCIAL": "suivez nous",
+    "LOCATION": "Partout nulle part c'est la decentralisation"
   }
 }

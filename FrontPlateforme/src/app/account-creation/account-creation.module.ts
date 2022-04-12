@@ -13,29 +13,31 @@ import { HttpLoaderFactory } from "../app.module";
 import {InputTextModule} from 'primeng/inputtext';
 import {PasswordModule} from 'primeng/password';
 import {CardModule} from 'primeng/card';
+import {ReactiveFormsModule} from "@angular/forms";
 @NgModule({
     declarations: [
         AccountCreationComponent
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        RouterModule,
-        DataViewModule,
-        ButtonModule,
-        DialogModule,
-        TagModule,
-        InputTextModule,
-        PasswordModule,
-        CardModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient]
-            }
-          })
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule,
+    DataViewModule,
+    ButtonModule,
+    DialogModule,
+    TagModule,
+    InputTextModule,
+    PasswordModule,
+    CardModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
+    ReactiveFormsModule
+  ],
     providers: [],
     bootstrap: [AccountCreationComponent]
 })
