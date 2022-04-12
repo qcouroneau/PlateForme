@@ -19,7 +19,6 @@ import plateforme.back.response.JwtResponse;
 import plateforme.back.service.UserService;
 import plateforme.back.utils.JwtUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -30,7 +29,7 @@ public class UserController {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	
+
 	@Autowired
 	private JwtUtils jwtUtils;
 
@@ -45,7 +44,7 @@ public class UserController {
 		return this.service.getAllDTO();
 	}
 
-	@PostMapping("/connection")
+	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody UserForm userForm) {
 		Authentication authentication = authenticationManager
 				.authenticate(new UsernamePasswordAuthenticationToken(userForm.getUsername(), userForm.getPassword()));
@@ -53,11 +52,14 @@ public class UserController {
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 
 		String jwt = jwtUtils.generateJwtToken(authentication);
-		
-		List<String> roles = new ArrayList<String>();
-		
+
 		UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-		return ResponseEntity.ok(
-				new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(), userDetails.getEmail(), roles));
+		return ResponseEntity.ok(new JwtResponse(jwt, userDetails.getId(), userDetails.getUsername(),
+				userDetails.getEmail(), userDetails.getAuthorities()));
+	}
+
+	@PostMapping("/signup")
+	public ResponseEntity<?> registerUser(@Valid @RequestBody UserForm userForm) {
+		return this.service.registerUser(userForm);
 	}
 }

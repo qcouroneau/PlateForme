@@ -1,6 +1,8 @@
 package plateforme.back.response;
 
-import java.util.List;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
 
 public class JwtResponse {
 
@@ -8,15 +10,16 @@ public class JwtResponse {
 	private int id;
 	private String username;
 	private String email;
-	List<String> roles;
-	
-	public JwtResponse(String jwt, int id, String username, String email, List<String> roles) {
+	private Collection<? extends GrantedAuthority> authorities;
+
+	public JwtResponse(String jwt, int id, String username, String email,
+			Collection<? extends GrantedAuthority> authorities) {
 		super();
 		this.jwt = jwt;
 		this.id = id;
 		this.username = username;
 		this.email = email;
-		this.roles = roles;
+		this.authorities = authorities;
 	}
 
 	public String getJwt() {
@@ -35,7 +38,7 @@ public class JwtResponse {
 		return email;
 	}
 
-	public List<String> getRoles() {
-		return roles;
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
 	}
 }

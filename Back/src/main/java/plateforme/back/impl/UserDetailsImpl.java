@@ -1,15 +1,17 @@
 package plateforme.back.impl;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import plateforme.back.object.User;
-
 
 public class UserDetailsImpl implements UserDetails {
 
@@ -17,7 +19,7 @@ public class UserDetailsImpl implements UserDetails {
 	private int id;
 	private String username;
 	private String email;
-	
+
 	@JsonIgnore
 	private String password;
 	private Collection<? extends GrantedAuthority> authorities;
@@ -32,7 +34,9 @@ public class UserDetailsImpl implements UserDetails {
 	}
 
 	public static UserDetailsImpl build(User user) {
-		return new UserDetailsImpl(user.getId(), user.getLogin(), user.getMail(), user.getPassword(), null);
+		List<GrantedAuthority> authorities = user.getRoles().stream()
+				.map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+		return new UserDetailsImpl(user.getId(), user.getUsername(), user.getEmail(), user.getPassword(), authorities);
 	}
 
 	@Override
