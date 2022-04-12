@@ -28,6 +28,11 @@ export class HeaderComponent implements OnInit {
         routerLink: ['/accountcreation']
       },
       {
+        label: 'profiluser',
+        icon: 'pi pi-user',
+        routerLink: ['/profiluser']
+      },
+      {
         label: 'new projects',
         icon: 'pi pi-plus',
         routerLink: ['/newproject']

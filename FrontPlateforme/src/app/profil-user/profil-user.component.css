@@ -1,0 +1,10 @@
+.p-element {
+  background-color: transparent;
+  margin : 10px;
+  display: inline-block;
+}
+
+.nav{
+  float:right;
+  padding: auto;
+}
