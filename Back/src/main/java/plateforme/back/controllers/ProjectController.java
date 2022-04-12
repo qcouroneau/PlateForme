@@ -24,44 +24,44 @@ import plateforme.back.service.ProjectService;
 public class ProjectController {
 
 	private final ProjectService service;
-	
+
 	private ModelMapper modelMapper;
 
-	public ProjectController(ProjectService service){
+	public ProjectController(ProjectService service) {
 		this.service = service;
 		this.modelMapper = new ModelMapper();
 	}
 
 	@GetMapping("/dto")
-	public List<SimpleProjectDTO> getAllProjectDTO(){
+	public List<SimpleProjectDTO> getAllProjectDTO() {
 		return convertListToSimpleProjectDto(this.service.getAllProjectDTO());
 	}
 
 	@GetMapping("/dto/getById/{id}")
-	public ProjectDTO getProjectDTOById(@PathVariable("id") final int id){
+	public ProjectDTO getProjectDTOById(@PathVariable("id") final int id) {
 		return convertToProjectDto(this.service.getProjectDTOById(id));
 	}
 
 	@GetMapping("/dto/getByName/{name}")
-	public Project getProjectDTOByName(@PathVariable("name") final String name){
+	public Project getProjectDTOByName(@PathVariable("name") final String name) {
 		return this.service.getProjectDTOByName(name);
 	}
 
-	@PostMapping(value="/create")
+	@PostMapping(value = "/create")
 	public Project createProject(@Valid @RequestBody ProjectForm project) throws IOException {
 		return this.service.createProject(project);
 	}
-	
+
 	private ProjectDTO convertToProjectDto(Project project) {
 		ProjectDTO projectDTO = modelMapper.map(project, ProjectDTO.class);
-	    return projectDTO;
+		return projectDTO;
 	}
 
 	private List<SimpleProjectDTO> convertListToSimpleProjectDto(List<Project> projects) {
 		List<SimpleProjectDTO> convertedDTOs = new ArrayList<>();
-		for(Project project: projects) {
+		for (Project project : projects) {
 			convertedDTOs.add(modelMapper.map(project, SimpleProjectDTO.class));
 		}
-	    return convertedDTOs;
+		return convertedDTOs;
 	}
 }

@@ -5,7 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import plateforme.back.form.UserForm;
+import plateforme.back.form.UserRegistrationForm;
 import plateforme.back.object.Role;
 import plateforme.back.object.User;
 import plateforme.back.repository.RoleRepository;
@@ -34,7 +34,7 @@ public class UserService {
 		return this.userRepository.findAll();
 	}
 
-	public ResponseEntity<?> registerUser(@Valid UserForm userForm) {
+	public ResponseEntity<?> registerUser(@Valid UserRegistrationForm userForm) {
 		if (userRepository.existsByUsername(userForm.getUsername())) {
 			return ResponseEntity.badRequest().body(new MessageResponse("Error: Username is already taken!"));
 		}
