@@ -1,6 +1,8 @@
 package plateforme.back.form;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 public class UserForm {
 
@@ -10,6 +12,9 @@ public class UserForm {
 	@NotBlank
 	private String password;
 
+	@NotBlank
+	@Email
+	@Pattern(regexp = ".+@.+\\..+")
 	private String email;
 
 	public String getUsername() {
