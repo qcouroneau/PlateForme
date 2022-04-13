@@ -4,17 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity()
 @Table(name = "plateform_user")
@@ -45,7 +35,10 @@ public class User implements Serializable {
 				joinColumns = @JoinColumn(name = "id_user"), 
 				inverseJoinColumns = @JoinColumn(name = "id_role"))
 	private Set<Role> roles = new HashSet<>();
-	
+
+	@OneToMany(mappedBy = "user")
+	private Set<ProjectUser> projectUsers;
+
 	public User() { }
 
 	public User(String username, String email, String encode) {

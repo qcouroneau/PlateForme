@@ -2,16 +2,7 @@ package plateforme.back.object;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity()
 @Table(name = "project_user")
@@ -29,13 +20,23 @@ public class ProjectUser implements Serializable {
     private int id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_project", nullable = false)
+	@JoinColumn(name="id_project")
     private Project project;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_user", nullable = false)
+	@JoinColumn(name="id_user")
     private User user;
 	
 	@Column(name="is_initiater")
     private Boolean isInitiater;
+
+	public ProjectUser(Project project, User user, boolean isinitiator) {
+		this.project = project;
+		this.user = user;
+		this.isInitiater = isinitiator;
+	}
+
+	public ProjectUser() {
+
+	}
 }
