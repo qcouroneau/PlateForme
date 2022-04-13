@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
         icon: 'pi pi-user',
         command: () => {
           if (sessionStorage.getItem('auth-user') != null) {
-            this.router.navigate(['/myprofil']);
+            this.router.navigate(['/profiluser']);
           } else {
             this.router.navigate(['/login']);
           }

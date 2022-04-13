@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -8,12 +8,10 @@ import {
 import { validateNotEmpty } from '../shared/validators/empty.validator';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { IProject } from '../entities/project-reference';
 import { IUser } from '../entities/user-reference';
 import { AuthService } from '../services/auth.service';
 import { ICredential } from '../entities/credential-reference';
 import { TokenStorageService } from '../services/token-storage.service';
-import { create } from 'cypress/types/lodash';
 
 @Component({
   selector: 'app-login',
