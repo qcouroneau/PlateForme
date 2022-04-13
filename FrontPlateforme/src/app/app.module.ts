@@ -6,9 +6,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HeaderModule} from "./header/header.module";
-import {FooterModule} from "./footer/footer.module";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { HeaderModule } from "./header/header.module";
+import { FooterModule } from "./footer/footer.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HomeModule } from './home/home.module';
 import { CreateProjectModule } from './create-project/create-project.module';
 import { DetailsProjectModule } from './details-project/details-project.module';
@@ -18,11 +18,12 @@ import { AccountCreationModule } from './account-creation/account-creation.modul
 import { TokenStorageService } from './services/token-storage.service';
 import { AuthInterceptor } from './helper/auth.interceptor';
 import { ProfilUserComponent } from './profil-user/profil-user.component';
-import {TagModule} from "primeng/tag";
-import {ButtonModule} from "primeng/button";
-import {DataViewModule} from "primeng/dataview";
-import {AutoCompleteModule} from "primeng/autocomplete";
-import {DropdownModule} from "primeng/dropdown";
+import { TagModule } from "primeng/tag";
+import { ButtonModule } from "primeng/button";
+import { DataViewModule } from "primeng/dataview";
+import { AutoCompleteModule } from "primeng/autocomplete";
+import { DropdownModule } from "primeng/dropdown";
+import { LoginModule } from './login/login.module';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -46,6 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeModule,
     SearchProjectModule,
     AccountCreationModule,
+    LoginModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -60,8 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DropdownModule
   ],
   providers: [{
-    provide: HTTP_INTERCEPTORS, 
-    useClass: AuthInterceptor, 
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
     multi: true
   }],
   bootstrap: [AppComponent]

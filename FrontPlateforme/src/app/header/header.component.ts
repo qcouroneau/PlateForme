@@ -36,6 +36,11 @@ export class HeaderComponent implements OnInit {
         routerLink: ['/profiluser']
       },
       {
+        label: 'connexion',
+        icon: 'pi pi-user',
+        routerLink: ['login']
+      },
+      {
         label: 'new projects',
         icon: 'pi pi-plus',
         routerLink: ['/newproject'],
