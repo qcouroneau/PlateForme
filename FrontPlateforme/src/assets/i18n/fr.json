@@ -48,7 +48,8 @@
         "MAIL": "Un compe existe déjà avec ce mail",
         "MAIL_INVALID": "Adresse mail non valide",
         "DETAIL": "Votre compte n'a pas pu être créé. Veuillez réessayer plus tard."
-      }
+      },
+      "SUBMIT": "Créez votre compte"
     }
   },
   "TASK": {

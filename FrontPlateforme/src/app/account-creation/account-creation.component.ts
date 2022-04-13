@@ -126,7 +126,6 @@ export class AccountCreationComponent {
         });
       },
       error: (err) => {
-        console.log(err);
         this.nameTaken = err.error.message == 'username';
         this.mailTaken = err.error.message == 'email';
         this.submissionFailed = !this.mailTaken && !this.nameTaken;
@@ -134,15 +133,7 @@ export class AccountCreationComponent {
     });
   }
 
-  isInvalid() {
-    return (
-      this.form.get('name').invalid &&
-      this.form.get('name').touched &&
-      this.form.get('name').dirty
-    );
-  }
-
-  public get createProjetControls() {
+  public get createAccountControls() {
     return this.form.controls;
   }
 }

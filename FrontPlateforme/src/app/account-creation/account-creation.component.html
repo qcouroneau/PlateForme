@@ -9,14 +9,14 @@
     <div class="field p-ml-2">
       <label for="username">{{ 'ACCOUNT.CREATE.FIELD.PSEUDO' | translate}}</label>
       <input id="username" type="text" formControlName="username" class="form-control inputfield w-full"
-             [ngClass]="{ 'is-invalid' : submitted && createProjetControls['username'].errors }" style="height: 42px" pInputText
+             [ngClass]="{ 'is-invalid' : submitted && createAccountControls['username'].errors }" style="height: 42px" pInputText
              required>
-      <small *ngIf="submitted && !!createProjetControls['username'].errors?.['required']; else empty" e id="name-help"
+      <small *ngIf="submitted && !!createAccountControls['username'].errors?.['required']; else empty" e id="name-help"
              class="p-error">
         {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
       </small>
       <ng-template #empty>
-        <small *ngIf="submitted && !!createProjetControls['username'].errors?.['empty']" id="name-help-empty"
+        <small *ngIf="submitted && !!createAccountControls['username'].errors?.['empty']" id="name-help-empty"
                class="p-error">
           {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
         </small>
@@ -26,19 +26,19 @@
     <div class="field p-ml-2">
       <label for="email">{{ 'ACCOUNT.CREATE.FIELD.MAIL' | translate}}</label>
       <input id="email" type="text" formControlName="email" class="form-control inputfield w-full"
-             [ngClass]="{ 'is-invalid' : submitted && createProjetControls['email'].errors }" style="height: 42px" pInputText
+             [ngClass]="{ 'is-invalid' : submitted && createAccountControls['email'].errors }" style="height: 42px" pInputText
              required>
-      <small *ngIf="submitted && !!createProjetControls['email'].errors?.['required']; else empty" e id="mail-help"
+      <small *ngIf="submitted && !!createAccountControls['email'].errors?.['required']; else empty" e id="mail-help"
              class="p-error">
         {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
       </small>
       <ng-template #empty>
-        <small *ngIf="submitted && !!createProjetControls['email'].errors?.['empty']" id="mail-help-empty"
+        <small *ngIf="submitted && !!createAccountControls['email'].errors?.['empty']" id="mail-help-empty"
                class="p-error">
           {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
         </small>
       </ng-template>
-      <small *ngIf="submitted && !!createProjetControls['email'].errors?.['pattern']" id="mail-help-pattern" class="p-error">
+      <small *ngIf="submitted && !!createAccountControls['email'].errors?.['pattern']" id="mail-help-pattern" class="p-error">
         {{ 'ACCOUNT.CREATE.ERROR.MAIL_INVALID' | translate}}
       </small>
     </div>
@@ -46,13 +46,13 @@
     <div class="field p-ml-2">
       <label for="password">{{ 'ACCOUNT.CREATE.FIELD.PASSWORD' | translate}}</label>
       <input pPassword id="password" type="text" formControlName="password" class="form-control inputfield w-full"
-             [ngClass]="{ 'is-invalid' : submitted && createProjetControls['password'].errors }" style="height: 42px"
+             [ngClass]="{ 'is-invalid' : submitted && createAccountControls['password'].errors }" style="height: 42px"
              required>
-      <small *ngIf="submitted && !!createProjetControls['password'].errors?.['required'];" id="password-help"
+      <small *ngIf="submitted && !!createAccountControls['password'].errors?.['required'];" id="password-help"
              class="p-error">
         {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
       </small>
-      <small *ngIf="submitted && !!createProjetControls['password'].errors?.['pattern']" id="password-help-password"
+      <small *ngIf="submitted && !!createAccountControls['password'].errors?.['pattern']" id="password-help-password"
              class="p-error">
         {{ 'ACCOUNT.CREATE.ERROR.PASSWORD' | translate}}
       </small>
@@ -60,7 +60,7 @@
 
 
     <button type="submit" class="button justify-self-center p-button-rounded" pButton id="createUser">
-      {{ 'PROJECT.CREATE.SUBMIT' | translate}}
+      {{ 'ACCOUNT.CREATE.SUBMIT' | translate}}
     </button>
 
   </form>

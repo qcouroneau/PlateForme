@@ -44,10 +44,11 @@
         "EMPTY": "This field can't be empty",
         "PSEUDO": "This username is already taken",
         "SUMMARY": "Error",
-        "PASSWORD": "This password is to weak or contains a whitespace character",
+        "PASSWORD": "This password is too weak or contains a whitespace character",
         "MAIL": "This email is already used",
         "MAIL_INVALID": "This email is not valid"
-      }
+      },
+      "SUBMIT": "Create your account"
     }
   },
   "TASK": {
