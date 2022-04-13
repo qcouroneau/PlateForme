@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -15,6 +15,8 @@ import { DetailsProjectModule } from './details-project/details-project.module';
 import { ModalTaskModule } from './shared/modal-task/modal-task.module';
 import { SearchProjectModule } from './search-project/search-project.module';
 import { AccountCreationModule } from './account-creation/account-creation.module';
+import { TokenStorageService } from './services/token-storage.service';
+import { AuthInterceptor } from './helper/auth.interceptor';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -46,7 +48,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     })
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, 
+    useClass: AuthInterceptor, 
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

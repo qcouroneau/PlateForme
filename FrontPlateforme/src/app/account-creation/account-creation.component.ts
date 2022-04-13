@@ -115,12 +115,11 @@ export class AccountCreationComponent {
     formValues.email = formValues.email.trim();
     this.authService.register(formValues).subscribe({
       next: (msg) => {
-        console.log(msg);
         this.createdCredentials.username = formValues.username;
         this.createdCredentials.password = formValues.password;
         this.authService.login(this.createdCredentials).subscribe({
           next: (data) => {
-            this.tokenStorage.saveToken(data.accessToken);
+            this.tokenStorage.saveToken(data.jwt);
             this.tokenStorage.saveUser(data);
             this.router.navigate(['/myprofile']);
           }
