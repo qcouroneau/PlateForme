@@ -9,6 +9,8 @@ import {ProjectService} from "../services/project.service";
 import {TranslateService} from "@ngx-translate/core";
 import {environment} from "../../environments/environment";
 import {urls} from "../../urls";
+import { TokenStorageService } from '../services/token-storage.service';
+import { IUserToken } from '../entities/user-token-reference';
 
 
 interface queryOption {
@@ -23,6 +25,8 @@ interface queryOption {
 })
 export class ProfilUserComponent implements OnInit {
 
+  user: IUserToken;
+
   name: string = '';
   sub!: Subscription;
   projects: IProject[] = [];
@@ -36,11 +40,13 @@ export class ProfilUserComponent implements OnInit {
   sortField: string;
   sortOptions: queryOption[] = [];
   selectedOption: queryOption;
+
   constructor(
     private router: Router,
     private categoryService: CategoryService,
     private project: ProjectService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private tokenStorageService: TokenStorageService
   ) {}
 
   searchProjectName: string = '';
@@ -48,6 +54,9 @@ export class ProfilUserComponent implements OnInit {
   goToButton: string = '';
 
   ngOnInit(): void {
+
+    this.user = this.tokenStorageService.getUser();
+
     this.sortOptions = [
       { label: 'Ne pas inclure toutes les catégories', value: 'or' },
       { label: 'Inclure toutes les catégories', value: 'and' },
