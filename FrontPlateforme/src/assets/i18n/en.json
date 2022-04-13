@@ -35,9 +35,9 @@
     "CREATE": {
       "TITLE": "Create your account",
       "FIELD": {
-        "PSEUDO" : "Pseudo",
-        "MAIL" : "Mail",
-        "PASSWORD" : "Password"
+        "PSEUDO": "Pseudo",
+        "MAIL": "Mail",
+        "PASSWORD": "Password"
       },
       "ERROR": {
         "GENERIC": "This field is mandatory",
@@ -87,5 +87,15 @@
     "CONTACT": "contact us",
     "SOCIAL": "follow us",
     "LOCATION": "Nowhere everywhere it's decentralization"
+  },
+  "LOGIN": {
+    "TITLE": "Log In",
+    "PSEUDO": "Username",
+    "PASSWORD": "Password",
+    "SUBMIT": "Connect",
+    "ERROR": {
+      "GENERIC": "This field cannot be empty",
+      "MAIL": "Unknown email"
+    }
   }
 }

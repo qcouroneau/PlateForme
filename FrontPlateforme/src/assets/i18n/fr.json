@@ -88,5 +88,14 @@
     "CONTACT": "contactez nous",
     "SOCIAL": "suivez nous",
     "LOCATION": "Partout nulle part c'est la decentralisation"
+  },
+  "LOGIN": {
+    "TITLE": "Connectez vous",
+    "PSEUDO": "Nom d'utilisateur",
+    "PASSWORD": "Mot de passe",
+    "SUBMIT": "Connexion",
+    "ERROR": {
+      "GENERIC": "Ce champ ne peut pas etre vide"
+    }
   }
 }
