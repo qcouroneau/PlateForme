@@ -1,0 +1,87 @@
+
+<div class="grid grid-nogutter surface-section text-800">
+  <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
+    <section>
+      <span class="block text-6xl font-bold mb-1">  UserName <!--{{project?.name}} --></span>
+      <span class="mt-0 mb-4 text-700 line-height-3">
+        <div>
+          <p>Mail a remonter </p>
+        </div>
+        <div>
+          <p>Password a remonter </p>
+        </div>
+        <h5>Compétences</h5>
+        <p-tag styleClass="p-mr-2" >
+        Compétence1
+      </p-tag>
+      </span>
+      <br>
+      <br>
+      <div class="Gcard">
+        <div class="card">
+          <p-dataView
+            #dv
+            [value]="showProjects"
+            [paginator]="true"
+            [rows]="9"
+            filterBy="name"
+            [sortField]="sortField"
+            [sortOrder]="sortOrder"
+            layout="grid"
+          >
+            <ng-template pTemplate="header">
+
+                <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+
+            </ng-template>
+            <ng-template let-project pTemplate="listItem">
+              <div class="col-12">
+                <div class="product-list-item">
+                  <img class="image" [src]="project.imagePath" [alt]="project.name" />
+                  <div class="product-list-detail">
+                    <div class="product-name">{{ project.name }}</div>
+                    <div class="product-description">{{ project.description }}</div>
+                  </div>
+                  <div class="product-list-action">
+                    <span class="product-price">{{ project.budget }}</span>
+                    <p-button
+                      icon="pi pi-arrow-right"
+                      [label]="goToButton"
+                      [routerLink]="['/project', project.urlName]"
+                    ></p-button>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template let-project pTemplate="gridItem">
+              <div class="col-12 md:col-4">
+                <div class="product-grid-item card">
+                  <div class="product-grid-item-top">
+                    <div>
+                      <span class="product-category">{{ project.category }}</span>
+                    </div>
+                  </div>
+                  <div class="product-grid-item-content">
+                    <img [src]="project.imagePath" [alt]="project.name" />
+                    <div class="product-name">{{ project.name }}</div>
+                    <div class="product-description">{{ project.description }}</div>
+                    <p-button
+                      icon="pi pi-arrow-right"
+                      [label]="goToButton"
+                      [routerLink]="['/project', project.urlName]"
+                    ></p-button>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </p-dataView>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="nav">
+  <p-button label="Edit" ></p-button>
+  <p-button label="Cancel" [routerLink]="['/home']"></p-button>
+</div>
+<br><br>
