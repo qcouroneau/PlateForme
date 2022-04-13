@@ -5,7 +5,7 @@
       "FIELD": {
         "NAME": "Name *",
         "DESCRIPTION": "Description *",
-        "BUDGET" : "Budget *",
+        "BUDGET": "Budget *",
         "CATEGORY": "Categories *",
         "IMAGE": "Image",
         "IMAGE_BROWSE": "Browse"
@@ -31,6 +31,26 @@
       "GO_TO_PROJECT": "Go to project"
     }
   },
+  "ACCOUNT": {
+    "CREATE": {
+      "TITLE": "Create your account",
+      "FIELD": {
+        "PSEUDO" : "Pseudo",
+        "MAIL" : "Mail",
+        "PASSWORD" : "Password"
+      },
+      "ERROR": {
+        "GENERIC": "This field is mandatory",
+        "EMPTY": "This field can't be empty",
+        "PSEUDO": "This username is already taken",
+        "SUMMARY": "Error",
+        "PASSWORD": "This password is too weak or contains a whitespace character",
+        "MAIL": "This email is already used",
+        "MAIL_INVALID": "This email is not valid"
+      },
+      "SUBMIT": "Create your account"
+    }
+  },
   "TASK": {
     "NEW": "Add a new task",
     "CREATE": {
@@ -54,18 +74,18 @@
       }
     }
   },
-  "HOME" : {
-    "TITLE" : "Create the project",
+  "HOME": {
+    "TITLE": "Create the project",
     "TITLE2": "your community deserves to see",
     "SEEPROJECT": "Go to project",
     "DESC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
-  "HEADER" : {
-  "LANGUAGE" : "Language"
+  "HEADER": {
+    "LANGUAGE": "Language"
   },
-    "FOOTER": {
-    "CONTACT" : "contact us",
-    "SOCIAL" : "follow us",
-    "LOCATION" : "Nowhere everywhere it's decentralization"
+  "FOOTER": {
+    "CONTACT": "contact us",
+    "SOCIAL": "follow us",
+    "LOCATION": "Nowhere everywhere it's decentralization"
   }
 }

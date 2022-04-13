@@ -1,23 +1,71 @@
-<div class="acc-create"> 
+<div class="acc-create">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="formgrid justify-content-center"
+        style="margin-right: 0;">
+
+    <h1>{{ 'ACCOUNT.CREATE.TITLE' | translate}}</h1>
 
 
-<h1>Creez votre profil</h1> 
+    <div class="field p-ml-2">
+      <label for="username">{{ 'ACCOUNT.CREATE.FIELD.PSEUDO' | translate}}</label>
+      <input id="username" type="text" formControlName="username" class="form-control inputfield w-full"
+             [ngClass]="{ 'is-invalid' : submitted && createAccountControls['username'].errors }" style="height: 42px" pInputText
+             required>
+      <small *ngIf="submitted && !!createAccountControls['username'].errors?.['required']; else empty" e id="name-help"
+             class="p-error">
+        {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
+      </small>
+      <ng-template #empty>
+        <small *ngIf="submitted && !!createAccountControls['username'].errors?.['empty']" id="name-help-empty"
+               class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
+        </small>
+      </ng-template>
+    </div>
 
-<h5>Adresse Mail</h5>
-<input type="text" pInputText ="value1"> 
-<span class="p-ml-2">{{value1}}</span>
+    <div class="field p-ml-2">
+      <label for="email">{{ 'ACCOUNT.CREATE.FIELD.MAIL' | translate}}</label>
+      <input id="email" type="text" formControlName="email" class="form-control inputfield w-full"
+             [ngClass]="{ 'is-invalid' : submitted && createAccountControls['email'].errors }" style="height: 42px" pInputText
+             required>
+      <small *ngIf="submitted && !!createAccountControls['email'].errors?.['required']; else empty" e id="mail-help"
+             class="p-error">
+        {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
+      </small>
+      <ng-template #empty>
+        <small *ngIf="submitted && !!createAccountControls['email'].errors?.['empty']" id="mail-help-empty"
+               class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
+        </small>
+      </ng-template>
+      <small *ngIf="submitted && !!createAccountControls['email'].errors?.['pattern']" id="mail-help-pattern" class="p-error">
+        {{ 'ACCOUNT.CREATE.ERROR.MAIL_INVALID' | translate}}
+      </small>
+    </div>
+
+    <div class="field p-ml-2">
+      <label for="password">{{ 'ACCOUNT.CREATE.FIELD.PASSWORD' | translate}}</label>
+      <input pPassword id="password" type="text" formControlName="password" class="form-control inputfield w-full"
+             [ngClass]="{ 'is-invalid' : submitted && createAccountControls['password'].errors }" style="height: 42px"
+             required>
+      <small *ngIf="submitted && !!createAccountControls['password'].errors?.['required'];" id="password-help"
+             class="p-error">
+        {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
+      </small>
+      <small *ngIf="submitted && !!createAccountControls['password'].errors?.['pattern']" id="password-help-password"
+             class="p-error">
+        {{ 'ACCOUNT.CREATE.ERROR.PASSWORD' | translate}}
+      </small>
+    </div>
 
 
+    <button type="submit" class="button justify-self-center p-button-rounded" pButton id="createUser">
+      {{ 'ACCOUNT.CREATE.SUBMIT' | translate}}
+    </button>
 
-<h5>Pseudo</h5>
-<input type="text" pInputText ="value2"> 
-<span class="p-ml-2">{{value1}}</span>
+  </form>
 
-<h5>Mot de passe</h5>
-<input type="password" pPassword />
-
-
-<p>
-<p-button class="bouton1" label="Confirmer" ></p-button>
-</p>
+  <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
+  <p-messages *ngIf="nameTaken" [(value)]="nameErrorMessage"></p-messages>
+  <p-messages *ngIf="mailTaken" [(value)]="mailErrorMessage"></p-messages>
 </div>
