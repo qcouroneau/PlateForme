@@ -97,5 +97,9 @@
     "ERROR": {
       "GENERIC": "Ce champ ne peut pas etre vide"
     }
+  },
+  "GENERIC": {
+    "EDIT": "Editer",
+    "CANCEL": "Annuler"
   }
 }

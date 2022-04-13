@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IUser } from '../entities/user-reference';
+import { IUserToken } from '../entities/user-token-reference';
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 @Injectable({
@@ -21,7 +22,7 @@ export class TokenStorageService {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
-  public getUser() {
+  public getUser(): IUserToken {
     return JSON.parse(sessionStorage.getItem(USER_KEY));
   }
 }
