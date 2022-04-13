@@ -1,16 +1,16 @@
 package plateforme.back.service;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import plateforme.back.form.ProjectForm;
 import plateforme.back.object.Category;
 import plateforme.back.object.Project;
+import plateforme.back.object.User;
 import plateforme.back.repository.ProjectRepository;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProjectService {
@@ -20,6 +20,12 @@ public class ProjectService {
     private final TaskService taskService;
 
 	private final ProjectRepository repository;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private  ProjectUserService projectUserService;
 
 	@Autowired
     public ProjectService(final ProjectRepository repository, ImageService imageService, CategoryService categoryService,
@@ -49,6 +55,8 @@ public class ProjectService {
         List<Category> categories = this.categoryService.persistCategories(project.getCategories());
         createdProject.setCategories(categories);
         repository.save(createdProject);
+        User user = this.userService.findUser().get();
+        this.projectUserService.createAssociation(createdProject,user,true);
         this.taskService.createTasks(project.getTasks(), createdProject);
         return createdProject;
     }
