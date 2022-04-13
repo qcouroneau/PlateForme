@@ -42,6 +42,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
           })
     ],
     providers: [],
-    bootstrap: [LoginComponent]
+    bootstrap: [LoginComponent],
+    exports: [LoginComponent]
 })
 export class LoginModule{}

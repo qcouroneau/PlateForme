@@ -24,6 +24,7 @@ import { DataViewModule } from "primeng/dataview";
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { DropdownModule } from "primeng/dropdown";
 import { LoginModule } from './login/login.module';
+import { SignInPageModule } from './sign-in-page/sign-in-page.module';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -31,7 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    ProfilUserComponent
+    ProfilUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,8 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ModalTaskModule,
     HomeModule,
     SearchProjectModule,
-    AccountCreationModule,
-    LoginModule,
+    SignInPageModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
