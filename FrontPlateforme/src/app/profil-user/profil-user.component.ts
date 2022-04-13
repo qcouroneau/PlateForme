@@ -36,6 +36,10 @@ export class ProfilUserComponent implements OnInit {
   filteredCategories: ICategory[];
   selectedCategoriesFilter: ICategory[] = [];
 
+  labelEdit: string = "";
+
+  labelCancel: string = "";
+
   sortOrder: number;
   sortField: string;
   sortOptions: queryOption[] = [];
@@ -70,7 +74,16 @@ export class ProfilUserComponent implements OnInit {
     });
 
     this.selectedOption = this.sortOptions[0];
+    this.loadLabels();
     this.loadProjects();
+  }
+
+  loadLabels() {
+    this.translate.get('GENERIC').subscribe(text => {
+      this.labelCancel = this.translate.instant('GENERIC.CANCEL');
+      this.labelEdit = this.translate.instant('GENERIC.EDIT');
+    });
+
   }
 
   placeHolderTranslations() {

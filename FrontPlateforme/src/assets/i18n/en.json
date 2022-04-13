@@ -97,5 +97,9 @@
       "GENERIC": "This field cannot be empty",
       "MAIL": "Unknown email"
     }
+  },
+  "GENERIC": {
+    "EDIT": "Edit",
+    "CANCEL": "Cancel"
   }
 }
