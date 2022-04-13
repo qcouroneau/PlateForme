@@ -7,11 +7,11 @@
   
       
       <div class="field p-ml-2">
-        <label for="name">{{ 'LOGIN.PSEUDO' | translate}}</label>
-        <input id="name" type="text" formControlName="name" class="form-control inputfield w-full"
-               [ngClass]="{ 'is-invalid' : submitted && createProjetControls['name'].errors }" style="height: 42px" pInputText
+        <label for="username">{{ 'LOGIN.PSEUDO' | translate}}</label>
+        <input id="username" type="text" formControlName="username" class="form-control inputfield w-full"
+               [ngClass]="{ 'is-invalid' : submitted && ConnectionControls['username'].errors }" style="height: 42px" pInputText
                required>
-        <small *ngIf="submitted && !!createProjetControls['name'].errors?.['required']; else empty" e id="name-help"
+        <small *ngIf="submitted && !!ConnectionControls['username'].errors?.['required']; else empty" e id="username-help"
                class="p-error">
           {{ 'LOGIN.ERROR.GENERIC' | translate}}
         </small>
@@ -23,9 +23,9 @@
       <div class="field p-ml-2">
         <label for="password">{{ 'LOGIN.PASSWORD' | translate}}</label>
         <input pPassword id="password" type="text" formControlName="password" class="form-control inputfield w-full"
-               [ngClass]="{ 'is-invalid' : submitted && createProjetControls['password'].errors }" style="height: 42px"
+               [ngClass]="{ 'is-invalid' : submitted && ConnectionControls['password'].errors }" style="height: 42px" 
                required>
-        <small *ngIf="submitted && !!createProjetControls['password'].errors?.['required'];else empty" id="password-help"
+        <small *ngIf="submitted && !!ConnectionControls['password'].errors?.['required'];else empty" id="password-help"
                class="p-error">
           {{ 'LOGIN.ERROR.GENERIC' | translate}}
         </small>
@@ -38,4 +38,7 @@
       </button>
   
     </form>
+
+    <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
+    <p-messages *ngIf="loginFailed" [(value)]="LoginFailMessage"></p-messages>
   </div>

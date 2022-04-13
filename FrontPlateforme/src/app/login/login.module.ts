@@ -15,6 +15,7 @@ import {PasswordModule} from 'primeng/password';
 import {CardModule} from 'primeng/card';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MessagesModule } from 'primeng/messages';
 @NgModule({
     declarations: [
         LoginComponent
@@ -32,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
         InputTextModule,
         PasswordModule,
         CardModule,
+        MessagesModule,
         BrowserAnimationsModule,
         TranslateModule.forRoot({
             loader: {
