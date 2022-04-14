@@ -45,8 +45,8 @@
 
     <div class="field p-ml-2">
       <label for="password">{{ 'ACCOUNT.CREATE.FIELD.PASSWORD' | translate}}</label>
-      <input pPassword id="password" type="text" formControlName="password" class="form-control inputfield w-full"
-             [ngClass]="{ 'is-invalid' : submitted && createAccountControls['password'].errors }" style="height: 42px"
+      <input pPassword id="password" type="password" formControlName="password" class="form-control inputfield w-full"
+             [ngClass]="{ 'is-invalid' : submitted && createAccountControls['password'].errors }" style="height: 42px" [feedback]="false"
              required>
       <small *ngIf="submitted && !!createAccountControls['password'].errors?.['required'];" id="password-help"
              class="p-error">

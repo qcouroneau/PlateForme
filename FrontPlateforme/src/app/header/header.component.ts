@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
@@ -20,25 +19,15 @@ export class HeaderComponent implements OnInit {
         items: [{ label: 'Français' }, { label: 'English' }],
       },
       {
-        label: 'profil',
+        label: 'Profil',
         icon: 'pi pi-user',
         command: () => {
           if (sessionStorage.getItem('auth-user') != null) {
-            this.router.navigate(['/myprofil']);
+            this.router.navigate(['/profiluser']);
           } else {
-            this.router.navigate(['/accountcreation']);
+            this.router.navigate(['/login']);
           }
         },
-      },
-      {
-        label: 'profiluser',
-        icon: 'pi pi-user',
-        routerLink: ['/profiluser']
-      },
-      {
-        label: 'connexion',
-        icon: 'pi pi-user',
-        routerLink: ['login']
       },
       {
         label: 'new projects',

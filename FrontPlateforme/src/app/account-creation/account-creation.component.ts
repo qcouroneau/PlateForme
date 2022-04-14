@@ -121,7 +121,7 @@ export class AccountCreationComponent {
           next: (data) => {
             this.tokenStorage.saveToken(data.jwt);
             this.tokenStorage.saveUser(data);
-            this.router.navigate(['/myprofile']);
+            this.router.navigate(['/profiluser']);
           }
         });
       },

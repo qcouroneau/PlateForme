@@ -41,5 +41,6 @@ import { MessagesModule } from 'primeng/messages';
   ],
   providers: [],
   bootstrap: [AccountCreationComponent],
+  exports: [AccountCreationComponent],
 })
 export class AccountCreationModule {}

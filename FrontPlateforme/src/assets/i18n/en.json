@@ -95,7 +95,10 @@
     "SUBMIT": "Connect",
     "ERROR": {
       "GENERIC": "This field cannot be empty",
-      "MAIL": "Unknown email"
+      "MAIL": "Unknown email",
+      "SUMMARY": "Error",
+      "LOG_FAIL": "Username or password incorrect",
+      "DETAIL": "Server down"
     }
   },
   "GENERIC": {

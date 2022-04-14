@@ -95,7 +95,10 @@
     "PASSWORD": "Mot de passe",
     "SUBMIT": "Connexion",
     "ERROR": {
-      "GENERIC": "Ce champ ne peut pas etre vide"
+      "GENERIC": "Ce champ ne peut pas etre vide",
+      "SUMMARY": "Erreur",
+      "LOG_FAIL": "Mot de passe ou pseudo incorrects",
+      "DETAIL": "Impossible d'acceder au serveur, reessayez plus tard"
     }
   },
   "GENERIC": {
