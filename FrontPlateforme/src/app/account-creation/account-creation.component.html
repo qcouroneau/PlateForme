@@ -8,7 +8,7 @@
 
     <div class="field p-ml-2">
       <label for="username">{{ 'ACCOUNT.CREATE.FIELD.PSEUDO' | translate}}</label>
-      <input id="username" type="text" formControlName="username" class="form-control inputfield w-full"
+      <input id="newusername" type="text" formControlName="username" class="form-control inputfield w-full"
              [ngClass]="{ 'is-invalid' : submitted && createAccountControls['username'].errors }" style="height: 42px" pInputText
              required>
       <small *ngIf="submitted && !!createAccountControls['username'].errors?.['required']; else empty" e id="name-help"
@@ -25,7 +25,7 @@
 
     <div class="field p-ml-2">
       <label for="email">{{ 'ACCOUNT.CREATE.FIELD.MAIL' | translate}}</label>
-      <input id="email" type="text" formControlName="email" class="form-control inputfield w-full"
+      <input id="newemail" type="text" formControlName="email" class="form-control inputfield w-full"
              [ngClass]="{ 'is-invalid' : submitted && createAccountControls['email'].errors }" style="height: 42px" pInputText
              required>
       <small *ngIf="submitted && !!createAccountControls['email'].errors?.['required']; else empty" e id="mail-help"
@@ -45,7 +45,7 @@
 
     <div class="field p-ml-2">
       <label for="password">{{ 'ACCOUNT.CREATE.FIELD.PASSWORD' | translate}}</label>
-      <input pPassword id="password" type="password" formControlName="password" class="form-control inputfield w-full"
+      <input pPassword id="newpassword" type="password" formControlName="password" class="form-control inputfield w-full"
              [ngClass]="{ 'is-invalid' : submitted && createAccountControls['password'].errors }" style="height: 42px" [feedback]="false"
              required>
       <small *ngIf="submitted && !!createAccountControls['password'].errors?.['required'];" id="password-help"
@@ -65,7 +65,7 @@
 
   </form>
 
-  <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
-  <p-messages *ngIf="nameTaken" [(value)]="nameErrorMessage"></p-messages>
-  <p-messages *ngIf="mailTaken" [(value)]="mailErrorMessage"></p-messages>
+  <p-messages *ngIf="submissionFailed" [(value)]="errorMessage", id="internalError"></p-messages>
+  <p-messages *ngIf="nameTaken" [(value)]="nameErrorMessage" id="nameTaken"></p-messages>
+  <p-messages *ngIf="mailTaken" [(value)]="mailErrorMessage" id="mailTaken"></p-messages>
 </div>
