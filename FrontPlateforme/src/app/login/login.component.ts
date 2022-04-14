@@ -24,7 +24,6 @@ export class LoginComponent {
   private username = new FormControl('', [
     Validators.required,
     validateNotEmpty,
-    Validators.pattern(/^[^_]+$/),
   ]);
   private password = new FormControl('', [
     Validators.required,
