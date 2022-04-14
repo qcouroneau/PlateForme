@@ -21,10 +21,9 @@
  .footer {
   bottom: 0;
   padding: 19px 15px 20px;
-  position: absolute;
+  position: -webkit-sticky;
   right: 0;
   color:  #1f80b0;
   left: 0;
   background-color: #ffffff;
-  
  }
