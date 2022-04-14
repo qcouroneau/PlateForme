@@ -21,7 +21,8 @@ export const urls = {
   },
   user:{
     get :{
-      all: '/user/dto'
+      all: '/user/dto',
+      projectsByUsername: '/user/getProjectsByUsername/'
     },
     register: '/user/signup',
     connection: '/user/signin'

@@ -26,7 +26,6 @@ interface queryOption {
 export class ProfilUserComponent implements OnInit {
 
   user: IUserToken;
-
   name: string = '';
   sub!: Subscription;
   projects: IProject[] = [];
@@ -95,20 +94,9 @@ export class ProfilUserComponent implements OnInit {
   }
 
   loadProjects(): void {
-    this.sub = this.project.getAll().subscribe({
+    this.sub = this.project.getProjectsByUsername(this.user.username).subscribe({
       next: (projects) => {
-        projects.map((project: { imagePath: string }) => {
-          project.imagePath =
-            environment.apiUrl + urls.image.folder + project.imagePath;
-        });
         this.projects = projects;
-        this.projects.sort(function (a, b) {
-          return a.id - b.id;
-        });
-        this.showProjects = projects;
-        this.projects.map((project) => {
-          project.urlName = project.name.split(' ').join('_');
-        });
       },
       error: (err) => (this.errorMessage = err),
     });
