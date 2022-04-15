@@ -66,13 +66,13 @@ public class UserService {
 	}
 
 	public ResponseEntity<?> editUser(@Valid UserEditForm userForm) {
-		if (userRepository.existsByUsername(userForm.getNewUsername())) {
+		User user = findUser().get();
+		if (userForm.getUsername() != userForm.getNewUsername() && userRepository.existsByUsername(userForm.getNewUsername())) {
 			return ResponseEntity.badRequest().body(new MessageResponse("username"));
 		}
-		if (userRepository.existsByEmail(userForm.getEmail())) {
+		if (userForm.getEmail() != user.getEmail() && userRepository.existsByEmail(userForm.getEmail())) {
 			return ResponseEntity.badRequest().body(new MessageResponse("email"));
 		}
-		User user = findUser().get();
 		user.setUsername(userForm.getNewUsername());
 		user.setEmail(userForm.getEmail());
 		user.setPassword(encoder.encode(userForm.getNewPassword()));

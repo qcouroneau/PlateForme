@@ -43,20 +43,20 @@
       <div class="field col-12">
         <label for="newPassword">{{ 'ACCOUNT.EDIT.FIELD.NEW_PASSWORD' | translate}}</label>
         <input id="newPassword" type="password" formControlName="newPassword" class="form-control inputfield w-full"
-          pPassword required>
-        <small *ngIf="submitted && !!editAccountControls['newPassword'].errors?.['required'];" id="password-help"
-          class="p-error">
-          {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
-        </small>
-        <small *ngIf="submitted && !!editAccountControls['newPassword'].errors?.['pattern']" id="password-help-password"
-          class="p-error">
-          {{ 'ACCOUNT.CREATE.ERROR.PASSWORD' | translate}}
-        </small>
+          pPassword>
       </div>
 
       <div class="field col-12">
         <label for="password">{{ 'ACCOUNT.EDIT.FIELD.OLD_PASSWORD' | translate}}</label>
         <input id="password" type="password" formControlName="password" class="form-control inputfield w-full" required>
+        <small *ngIf="submitted && !!editAccountControls['password'].errors?.['required'];" id="password-help"
+          class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
+        </small>
+        <small *ngIf="submitted && !!editAccountControls['password'].errors?.['pattern']" id="password-help-password"
+          class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.PASSWORD' | translate}}
+        </small>
       </div>
 
       <div class="field col-12">

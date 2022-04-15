@@ -26,11 +26,10 @@ export class ProfilUserEditComponent implements OnInit {
     /^((\w[^\W]+)[\.\-]?){1,}\@(([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   ),]);
   private password = new FormControl('', [Validators.required, validateNotEmpty]);
-  private newPassword = new FormControl('', [Validators.required,
-    validateNotEmpty,
-  Validators.pattern(
-    /^(?=.*[a-z])(?!=.*\s)(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/
-  ),]);
+  private newPassword = new FormControl('', [
+    Validators.pattern(
+      /^(?=.*[a-z])(?!=.*\s)(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/
+    ),]);
 
   submitted: boolean = false;
   submissionFailed: boolean = false;
@@ -103,8 +102,11 @@ export class ProfilUserEditComponent implements OnInit {
 
   onSubmit(formValues: IUserEdit): void {
     this.submitted = true;
+    if (this.form.invalid) {
+      return;
+    }
     formValues.username = this.user.username;
-    formValues.newPassword === "" ? formValues.password : formValues.newPassword;
+    formValues.newPassword = formValues.newPassword === "" ? formValues.password : formValues.newPassword;
     this.userService.edit(formValues).subscribe({
       next: () => {
         this.authService.login({ username: formValues.newUsername, password: formValues.newPassword }).subscribe({
