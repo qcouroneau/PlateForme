@@ -107,6 +107,7 @@ export class ProfilUserEditComponent implements OnInit {
     }
     formValues.username = this.user.username;
     formValues.newPassword = formValues.newPassword === "" ? formValues.password : formValues.newPassword;
+    formValues.newUsername = formValues.newUsername.trim();
     this.userService.edit(formValues).subscribe({
       next: () => {
         this.authService.login({ username: formValues.newUsername, password: formValues.newPassword }).subscribe({
