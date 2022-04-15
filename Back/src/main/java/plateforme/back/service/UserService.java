@@ -8,8 +8,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import plateforme.back.form.UserRegistrationForm;
+import plateforme.back.object.Project;
 import plateforme.back.object.Role;
 import plateforme.back.object.User;
+import plateforme.back.repository.ProjectRepository;
 import plateforme.back.repository.RoleRepository;
 import plateforme.back.repository.UserRepository;
 import plateforme.back.response.MessageResponse;
@@ -32,6 +34,9 @@ public class UserService {
 
 	@Autowired
 	RoleRepository roleRepository;
+	
+	@Autowired
+	ProjectRepository projectRepository;
 
 	public List<User> getAllDTO() {
 		return this.userRepository.findAll();
@@ -62,5 +67,9 @@ public class UserService {
 
 	private UserDetails getUser(){
 		return (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	}
+
+	public Set<Project> getProjectsByUsername(String username) {
+		return this.projectRepository.findByUsers(this.userRepository.findByUsername(username));
 	}
 }

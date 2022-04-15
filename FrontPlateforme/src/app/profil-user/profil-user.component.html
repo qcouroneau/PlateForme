@@ -15,12 +15,10 @@
       <br>
       <div class="Gcard">
         <div class="card">
-          <p-dataView #dv [value]="showProjects" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
+          <p-dataView #dv [value]="projects" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
             [sortOrder]="sortOrder" layout="grid">
             <ng-template pTemplate="header">
-
               <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
-
             </ng-template>
             <ng-template let-project pTemplate="listItem">
               <div class="col-12">

@@ -28,4 +28,8 @@ export class ProjectService {
   createProject(project: IProject): Observable<IProject> {
     return this.http.post<IProject>(environment.apiUrl + urls.project.create, project);
   }
+
+  getProjectsByUsername(username: string): Observable<any> {
+    return this.http.get<IProject>(environment.apiUrl + urls.user.get.projectsByUsername + username);
+  }
 }

@@ -5,7 +5,6 @@ import plateforme.back.form.ProjectForm;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -67,9 +66,9 @@ public class Project implements Serializable {
 	@OneToMany(mappedBy = "project")
 	@Fetch(value = FetchMode.SUBSELECT)
 	private List<Task> tasks = new ArrayList<>();
-
-	@OneToMany(mappedBy = "project")
-	private Set<ProjectUser> projectUsers;
+	
+	@ManyToMany(mappedBy = "projects")
+    private List<User> users;
 
 	@Column(name="image_path")
 	private String imagePath;
