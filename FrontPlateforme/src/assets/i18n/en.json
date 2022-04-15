@@ -49,6 +49,17 @@
         "MAIL_INVALID": "This email is not valid"
       },
       "SUBMIT": "Create your account"
+    },
+    "EDIT": {
+      "TITLE": "Edit your account",
+      "FIELD": {
+        "PSEUDO": "Pseudo",
+        "MAIL": "Mail",
+        "OLD_PASSWORD": "Old password",
+        "NEW_PASSWORD": "New password"
+      },
+      "SAVE": "Save",
+      "CANCEL": "Cancel"
     }
   },
   "TASK": {

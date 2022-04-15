@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {environment} from "../../environments/environment";
 import {urls} from "../../urls";
 import {IUser} from "../entities/user-reference";
+import { IUserEdit } from '../entities/user-edit-reference';
 
 
 @Injectable({
@@ -18,4 +19,7 @@ export class UserService {
     return this.http.get<IUser[]>(environment.apiUrl + urls.user.get.all);
   }
 
+  edit(user: IUserEdit): Observable<any> {
+    return this.http.put(environment.apiUrl + urls.user.edit, user);
+  }
 }

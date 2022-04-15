@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import plateforme.back.form.UserEditForm;
 import plateforme.back.form.UserRegistrationForm;
 import plateforme.back.object.Role;
 import plateforme.back.object.User;
@@ -62,5 +63,14 @@ public class UserService {
 
 	private UserDetails getUser(){
 		return (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	}
+
+	public ResponseEntity<?> editUser(@Valid UserEditForm userForm) {
+		User user = findUser().get();
+		user.setUsername(userForm.getNewUsername());
+		user.setEmail(userForm.getEmail());
+		user.setPassword(encoder.encode(userForm.getNewPassword()));
+		userRepository.save(user);
+		return ResponseEntity.ok(new MessageResponse("User edited successfully!"));
 	}
 }

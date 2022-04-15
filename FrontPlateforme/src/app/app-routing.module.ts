@@ -6,6 +6,7 @@ import { HomeComponent } from "./home/home.component";
 import { SearchProjectComponent } from "./search-project/search-project.component";
 import { ProfilUserComponent } from "./profil-user/profil-user.component";
 import { SignInPageComponent } from "./sign-in-page/sign-in-page.component";
+import { ProfilUserEditComponent } from "./profil-user copy/profil-user-edit.component";
 
 const routes: Routes = [
     { path: "home", component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
     { path: "project/:name", component: DetailsProjectComponent },
     { path: "searchproject", component: SearchProjectComponent },
     { path: "profiluser", component: ProfilUserComponent },
+    { path: "profiluser/edit", component: ProfilUserEditComponent },
     { path: "login", component: SignInPageComponent },
 
     { path: "", redirectTo: "home", pathMatch: "full" },

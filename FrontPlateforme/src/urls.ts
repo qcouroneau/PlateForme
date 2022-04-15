@@ -24,7 +24,8 @@ export const urls = {
       all: '/user/dto'
     },
     register: '/user/signup',
-    connection: '/user/signin'
+    connection: '/user/signin',
+    edit: '/user/edit'
   },
   category: {
     get: {

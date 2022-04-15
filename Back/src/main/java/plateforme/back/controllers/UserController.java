@@ -8,15 +8,18 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import plateforme.back.form.UserConnectionForm;
+import plateforme.back.form.UserEditForm;
 import plateforme.back.form.UserRegistrationForm;
 import plateforme.back.impl.UserDetailsImpl;
 import plateforme.back.object.User;
 import plateforme.back.response.JwtResponse;
+import plateforme.back.response.MessageResponse;
 import plateforme.back.service.UserService;
 import plateforme.back.utils.JwtUtils;
 
@@ -62,5 +65,15 @@ public class UserController {
 	@PostMapping("/signup")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody UserRegistrationForm userForm) {
 		return this.service.registerUser(userForm);
+	}
+
+	@PutMapping("/edit")
+	public ResponseEntity<?> editUser(@Valid @RequestBody UserEditForm userForm) {
+		Authentication authentication = authenticationManager
+				.authenticate(new UsernamePasswordAuthenticationToken(userForm.getUsername(), userForm.getPassword()));
+		if(authentication.isAuthenticated()) {
+			return this.service.editUser(userForm);
+		}
+		return ResponseEntity.badRequest().body(new MessageResponse("password")); 
 	}
 }
