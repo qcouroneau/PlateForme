@@ -32,9 +32,14 @@ export class ProfilUserEditComponent implements OnInit {
     /^(?=.*[a-z])(?!=.*\s)(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}/
   ),]);
 
-  labelEdit: string = "";
+  submitted: boolean = false;
+  submissionFailed: boolean = false;
+  nameTaken: boolean = false;
+  mailTaken: boolean = false;
 
-  labelCancel: string = "";
+  errorMessage: any[] = [];
+  nameErrorMessage: any[] = [];
+  mailErrorMessage: any[] = [];
 
   constructor(
     private router: Router,
@@ -53,10 +58,6 @@ export class ProfilUserEditComponent implements OnInit {
     });
   }
 
-  searchProjectName: string = '';
-  searchByCategories: string = '';
-  goToButton: string = '';
-
   ngOnInit(): void {
 
     this.user = this.tokenStorageService.getUser();
@@ -64,29 +65,65 @@ export class ProfilUserEditComponent implements OnInit {
     this.newUsername.setValue(this.user.username);
     this.email.setValue(this.user.email);
 
-    this.loadLabels();
+    this.loadErrorMesssagesTranslations();
   }
 
-  loadLabels() {
-    this.translate.get('GENERIC').subscribe(text => {
-      this.labelCancel = this.translate.instant('GENERIC.CANCEL');
-      this.labelEdit = this.translate.instant('GENERIC.EDIT');
+  loadErrorMesssagesTranslations() {
+    let createErrorSummary,
+      createNameErrorDetail,
+      createMailErrorDetail,
+      createErrorDetail;
+
+    this.translate.get('ACCOUNT.CREATE.ERROR.SUMMARY').subscribe((text) => {
+      createErrorSummary = text;
+      createNameErrorDetail = this.translate.instant(
+        'ACCOUNT.CREATE.ERROR.PSEUDO'
+      );
+      createMailErrorDetail = this.translate.instant(
+        'ACCOUNT.CREATE.ERROR.MAIL'
+      );
+      createErrorDetail = this.translate.instant('ACCOUNT.CREATE.ERROR.DETAIL');
+      this.nameErrorMessage.push({
+        severity: 'error',
+        summary: createErrorSummary,
+        detail: createNameErrorDetail,
+      });
+      this.mailErrorMessage.push({
+        severity: 'error',
+        summary: createErrorSummary,
+        detail: createMailErrorDetail,
+      });
+      this.errorMessage.push({
+        severity: 'error',
+        summary: createErrorSummary,
+        detail: createErrorDetail,
+      });
     });
   }
 
   onSubmit(formValues: IUserEdit): void {
+    this.submitted = true;
     formValues.username = this.user.username;
-    formValues.newPassword === "" ?  formValues.password : formValues.newPassword;
+    formValues.newPassword === "" ? formValues.password : formValues.newPassword;
     this.userService.edit(formValues).subscribe({
       next: () => {
-        this.authService.login({username: formValues.newUsername, password: formValues.newPassword}).subscribe({
+        this.authService.login({ username: formValues.newUsername, password: formValues.newPassword }).subscribe({
           next: (data) => {
             this.tokenStorage.saveToken(data.jwt);
             this.tokenStorage.saveUser(data);
             this.router.navigate(['/profiluser']);
           }
         });
-      }
+      },
+      error: (err) => {
+        this.nameTaken = err.error.message == 'username';
+        this.mailTaken = err.error.message == 'email';
+        this.submissionFailed = !this.mailTaken && !this.nameTaken;
+      },
     });
+  }
+
+  public get editAccountControls() {
+    return this.form.controls;
   }
 }

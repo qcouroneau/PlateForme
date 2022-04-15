@@ -8,23 +8,55 @@
         <label for="newUsername">{{ 'ACCOUNT.CREATE.FIELD.PSEUDO' | translate}}</label>
         <input id="newUsername" type="text" formControlName="newUsername" class="form-control inputfield w-full"
           pInputText required>
+        <small *ngIf="submitted && !!editAccountControls['newUsername'].errors?.['required']; else empty" e
+          id="name-help" class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
+        </small>
+        <ng-template #empty>
+          <small *ngIf="submitted && !!editAccountControls['newUsername'].errors?.['empty']" id="name-help-empty"
+            class="p-error">
+            {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
+          </small>
+        </ng-template>
       </div>
 
       <div class="field col-12">
         <label for="email">{{ 'ACCOUNT.CREATE.FIELD.MAIL' | translate}}</label>
         <input id="email" type="text" formControlName="email" class="form-control inputfield w-full" pInputText
           required>
+        <small *ngIf="submitted && !!editAccountControls['email'].errors?.['required']; else empty" e id="mail-help"
+          class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
+        </small>
+        <ng-template #empty>
+          <small *ngIf="submitted && !!editAccountControls['email'].errors?.['empty']" id="mail-help-empty"
+            class="p-error">
+            {{ 'ACCOUNT.CREATE.ERROR.EMPTY' | translate}}
+          </small>
+        </ng-template>
+        <small *ngIf="submitted && !!editAccountControls['email'].errors?.['pattern']" id="mail-help-pattern"
+          class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.MAIL_INVALID' | translate}}
+        </small>
       </div>
 
       <div class="field col-12">
         <label for="newPassword">{{ 'ACCOUNT.EDIT.FIELD.NEW_PASSWORD' | translate}}</label>
-        <input id="newPassword" type="password" formControlName="newPassword" class="form-control inputfield w-full" pPassword required>
+        <input id="newPassword" type="password" formControlName="newPassword" class="form-control inputfield w-full"
+          pPassword required>
+        <small *ngIf="submitted && !!editAccountControls['newPassword'].errors?.['required'];" id="password-help"
+          class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.GENERIC' | translate}}
+        </small>
+        <small *ngIf="submitted && !!editAccountControls['newPassword'].errors?.['pattern']" id="password-help-password"
+          class="p-error">
+          {{ 'ACCOUNT.CREATE.ERROR.PASSWORD' | translate}}
+        </small>
       </div>
 
       <div class="field col-12">
         <label for="password">{{ 'ACCOUNT.EDIT.FIELD.OLD_PASSWORD' | translate}}</label>
-        <input id="password" type="password" formControlName="password" class="form-control inputfield w-full"
-          required>
+        <input id="password" type="password" formControlName="password" class="form-control inputfield w-full" required>
       </div>
 
       <div class="field col-12">
@@ -36,4 +68,8 @@
         </button>
       </div>
     </form>
+
+    <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
+    <p-messages *ngIf="nameTaken" [(value)]="nameErrorMessage"></p-messages>
+    <p-messages *ngIf="mailTaken" [(value)]="mailErrorMessage"></p-messages>
   </div>
