@@ -36,8 +36,8 @@ export class ProfilUserComponent implements OnInit {
   selectedCategoriesFilter: ICategory[] = [];
 
   labelEdit: string = "";
-
   labelCancel: string = "";
+  labelLogout: string = "";
 
   sortOrder: number;
   sortField: string;
@@ -81,6 +81,7 @@ export class ProfilUserComponent implements OnInit {
     this.translate.get('GENERIC').subscribe(text => {
       this.labelCancel = this.translate.instant('GENERIC.CANCEL');
       this.labelEdit = this.translate.instant('GENERIC.EDIT');
+      this.labelLogout = this.translate.instant('GENERIC.LOGOUT');
     });
 
   }
@@ -174,4 +175,7 @@ export class ProfilUserComponent implements OnInit {
     this.onFilterChange();
   }
 
+  logout() {
+    this.tokenStorageService.signOut();
+  }
 }
