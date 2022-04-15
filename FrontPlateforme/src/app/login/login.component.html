@@ -8,7 +8,7 @@
       
       <div class="field p-ml-2">
         <label for="username">{{ 'LOGIN.PSEUDO' | translate}}</label>
-        <input id="username" type="text" formControlName="username" class="form-control inputfield w-full"
+        <input id="connectusername" type="text" formControlName="username" class="form-control inputfield w-full"
                [ngClass]="{ 'is-invalid' : submitted && ConnectionControls['username'].errors }" style="height: 42px" pInputText
                required>
         <small *ngIf="submitted && !!ConnectionControls['username'].errors?.['required']; else empty" e id="username-help"
@@ -22,7 +22,7 @@
       
       <div class="field p-ml-2">
         <label for="password">{{ 'LOGIN.PASSWORD' | translate}}</label>
-        <input pPassword id="password" type="password" formControlName="password" class="form-control inputfield w-full"
+        <input pPassword id="connectpassword" type="password" formControlName="password" class="form-control inputfield w-full"
                [ngClass]="{ 'is-invalid' : submitted && ConnectionControls['password'].errors }" style="height: 42px" [feedback]="false"
                required>
         <small *ngIf="submitted && !!ConnectionControls['password'].errors?.['required'];else empty" id="password-help"
@@ -39,6 +39,6 @@
   
     </form>
 
-    <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
-    <p-messages *ngIf="loginFailed" [(value)]="LoginFailMessage"></p-messages>
+    <p-messages *ngIf="submissionFailed" [(value)]="errorMessage" id="internalError"></p-messages>
+    <p-messages *ngIf="loginFailed" [(value)]="LoginFailMessage" id="loginFail"></p-messages>
   </div>

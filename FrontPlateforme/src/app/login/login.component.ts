@@ -92,7 +92,7 @@ export class LoginComponent {
         this.router.navigate(['/profiluser']);
       },
       error: (err) => {
-        this.loginFailed = err.error.error == 'Forbidden';
+        this.loginFailed = err.status==403;
         this.submissionFailed = !this.loginFailed;
       },
     });
