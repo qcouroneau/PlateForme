@@ -103,6 +103,7 @@
   },
   "GENERIC": {
     "EDIT": "Edit",
-    "CANCEL": "Cancel"
+    "CANCEL": "Cancel",
+    "LOGOUT": "Logout"
   }
 }
