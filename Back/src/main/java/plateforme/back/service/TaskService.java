@@ -10,7 +10,9 @@ import plateforme.back.object.Project;
 import plateforme.back.object.Task;
 import plateforme.back.repository.TaskRepository;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TaskService {
@@ -37,5 +39,13 @@ public class TaskService {
         	createdTask.setProject(project);
         	repository.save(createdTask);
         }
+	}
+
+	public List<Task> getTasks(List<TaskForm> tasks) {
+		Set<Integer> ids = new HashSet<>();
+		for(TaskForm taskForm: tasks) {
+			ids.add(taskForm.getId());
+		}
+		return this.repository.findByIdIn(ids);
 	}
 }

@@ -10,11 +10,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import plateforme.back.dto.ProjectDTO;
 import plateforme.back.dto.SimpleProjectDTO;
+import plateforme.back.form.ProjectEditForm;
 import plateforme.back.form.ProjectForm;
 import plateforme.back.object.Project;
 import plateforme.back.service.ProjectService;
@@ -63,5 +65,10 @@ public class ProjectController {
 			convertedDTOs.add(modelMapper.map(project, SimpleProjectDTO.class));
 		}
 		return convertedDTOs;
+	}
+	
+	@PutMapping("/edit")
+	public Project editProject(@Valid @RequestBody ProjectEditForm projectEditForm) {
+		return this.service.editProject(projectEditForm);
 	}
 }

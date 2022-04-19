@@ -24,6 +24,7 @@ import { AutoCompleteModule } from "primeng/autocomplete";
 import { DropdownModule } from "primeng/dropdown";
 import { SignInPageModule } from './sign-in-page/sign-in-page.module';
 import { AuthGuardService } from './services/auth-guard.service';
+import { DetailProjectEditComponent } from './detail-project-edit/detail-project-edit.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     ProfilUserComponent,
+    DetailProjectEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,15 +2,20 @@ package plateforme.back.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import plateforme.back.form.ProjectEditForm;
 import plateforme.back.form.ProjectForm;
 import plateforme.back.object.Category;
 import plateforme.back.object.Project;
+import plateforme.back.object.Task;
 import plateforme.back.object.User;
 import plateforme.back.repository.ProjectRepository;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.validation.Valid;
 
 @Service
 public class ProjectService {
@@ -67,4 +72,26 @@ public class ProjectService {
     private boolean isProjectNameUnique(String name){
         return this.repository.findByName(name) == null;
     }
+
+	public Project editProject(@Valid ProjectEditForm projectEditForm) {
+		// Check de l'auth du Token (le user a t'il le droit de modif le projet)
+		
+		Project project = this.findProject(projectEditForm.getId());
+		List<Category> categories = this.categoryService.getCategories(projectEditForm.getCategories());
+		List<Task> tasks = this.taskService.getTasks(projectEditForm.getTasks());
+		
+		project.setBudget(projectEditForm.getBudget());
+		project.setDescription(projectEditForm.getDescription());
+		project.setImagePath(projectEditForm.getImagePath());
+		project.setName(projectEditForm.getName());
+		
+		project.setCategories(categories);
+		project.setTasks(tasks);
+		
+		return this.repository.save(project);
+	}
+
+	private Project findProject(int id) {
+		return this.repository.findById(id);
+	}
 }
