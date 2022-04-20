@@ -7,6 +7,7 @@ import { SearchProjectComponent } from "./search-project/search-project.componen
 import { ProfilUserComponent } from "./profil-user/profil-user.component";
 import { SignInPageComponent } from "./sign-in-page/sign-in-page.component";
 import { AuthGuardService } from './services/auth-guard.service';
+import { EditProjectComponent } from "./edit-project/edit-project.component";
 
 const routes: Routes = [
     { path: "home", component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: "searchproject", component: SearchProjectComponent },
     { path: "profiluser", component: ProfilUserComponent, canActivate: [AuthGuardService] },
     { path: "login", component: SignInPageComponent },
+    { path: "editProject/:name", component: EditProjectComponent, canActivate: [AuthGuardService] },
 
     { path: "", redirectTo: "home", pathMatch: "full" },
     { path: "**", redirectTo: "home", pathMatch: "full" }
