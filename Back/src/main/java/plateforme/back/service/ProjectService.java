@@ -15,11 +15,14 @@ import java.util.stream.Collectors;
 @Service
 public class ProjectService {
     
-    private final CategoryService categoryService;
+	@Autowired
+    private CategoryService categoryService;
     
-    private final TaskService taskService;
+	@Autowired
+    private TaskService taskService;
 
-	private final ProjectRepository repository;
+	@Autowired
+	private ProjectRepository repository;
 
     @Autowired
     private UserService userService;

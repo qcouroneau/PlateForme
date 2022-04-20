@@ -36,8 +36,11 @@ public class User implements Serializable {
 				inverseJoinColumns = @JoinColumn(name = "id_role"))
 	private Set<Role> roles = new HashSet<>();
 
-	@OneToMany(mappedBy = "user")
-	private Set<ProjectUser> projectUsers;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "project_user", 
+            joinColumns = { @JoinColumn(name = "id_user")}, 
+            inverseJoinColumns = { @JoinColumn(name = "id_project")})
+	private Set<Project> projects = new HashSet<>();
 
 	public User() { }
 
@@ -85,5 +88,13 @@ public class User implements Serializable {
 
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public Set<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(Set<Project> projects) {
+		this.projects = projects;
 	}
 }

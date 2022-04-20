@@ -1,3 +1,15 @@
+/*
+Composants pour créer un compte :
+Contient trois champs :
+ - Nom d'utilisateur
+ - Email
+ - Mot de passe
+
+ Renvoie une erreur si le mot de passe n'est pas 
+*/
+
+
+
 import { Component } from '@angular/core';
 import {
   FormBuilder,

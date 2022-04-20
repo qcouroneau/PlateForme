@@ -15,13 +15,8 @@
       <br>
       <div class="Gcard">
         <div class="card">
-          <p-dataView #dv [value]="showProjects" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
-            [sortOrder]="sortOrder" layout="grid">
-            <ng-template pTemplate="header">
-
-              <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
-
-            </ng-template>
+          <p-dataView #dv [value]="projects" [paginator]="true" [rows]="9" filterBy="name" [sortField]="sortField"
+            [sortOrder]="sortOrder" layout="list">
             <ng-template let-project pTemplate="listItem">
               <div class="col-12">
                 <div class="product-list-item">
@@ -38,24 +33,6 @@
                 </div>
               </div>
             </ng-template>
-            <ng-template let-project pTemplate="gridItem">
-              <div class="col-12 md:col-4">
-                <div class="product-grid-item card">
-                  <div class="product-grid-item-top">
-                    <div>
-                      <span class="product-category">{{ project.category }}</span>
-                    </div>
-                  </div>
-                  <div class="product-grid-item-content">
-                    <img [src]="project.imagePath" [alt]="project.name" />
-                    <div class="product-name">{{ project.name }}</div>
-                    <div class="product-description">{{ project.description }}</div>
-                    <p-button icon="pi pi-arrow-right" [label]="goToButton"
-                      [routerLink]="['/project', project.urlName]"></p-button>
-                  </div>
-                </div>
-              </div>
-            </ng-template>
           </p-dataView>
         </div>
       </div>
@@ -63,7 +40,8 @@
   </div>
 </div>
 <div class="nav">
-  <p-button label="Edit" [routerLink]="['/profiluser/edit']"></p-button>
-  <p-button label="Cancel" [routerLink]="['/home']"></p-button>
+  <p-button label={{labelEdit}} [routerLink]="['/profiluser/edit']"></p-button>
+  <p-button label={{labelCancel}} [routerLink]="['/home']"></p-button>
+  <p-button label={{labelLogout}} (onClick)="logout()" [routerLink]="['/home']"></p-button>
 </div>
 <br><br>

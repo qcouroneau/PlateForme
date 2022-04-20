@@ -7,6 +7,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import plateforme.back.form.UserConnectionForm;
 import plateforme.back.form.UserEditForm;
 import plateforme.back.form.UserRegistrationForm;
 import plateforme.back.impl.UserDetailsImpl;
+import plateforme.back.object.Project;
 import plateforme.back.object.User;
 import plateforme.back.response.JwtResponse;
 import plateforme.back.response.MessageResponse;
@@ -24,6 +26,7 @@ import plateforme.back.service.UserService;
 import plateforme.back.utils.JwtUtils;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -75,5 +78,9 @@ public class UserController {
 			return this.service.editUser(userForm);
 		}
 		return ResponseEntity.badRequest().body(new MessageResponse("password")); 
+	
+	@GetMapping("/getProjectsByUsername/{username}")
+	public Set<Project> getProjectsByUsername(@PathVariable("username") final String username) {
+		return this.service.getProjectsByUsername(username);
 	}
 }

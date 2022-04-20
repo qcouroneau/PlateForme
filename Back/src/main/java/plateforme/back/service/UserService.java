@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 
 import plateforme.back.form.UserEditForm;
 import plateforme.back.form.UserRegistrationForm;
+import plateforme.back.object.Project;
 import plateforme.back.object.Role;
 import plateforme.back.object.User;
+import plateforme.back.repository.ProjectRepository;
 import plateforme.back.repository.RoleRepository;
 import plateforme.back.repository.UserRepository;
 import plateforme.back.response.MessageResponse;
@@ -33,6 +35,9 @@ public class UserService {
 
 	@Autowired
 	RoleRepository roleRepository;
+	
+	@Autowired
+	ProjectRepository projectRepository;
 
 	public List<User> getAllDTO() {
 		return this.userRepository.findAll();
@@ -78,5 +83,9 @@ public class UserService {
 		user.setPassword(encoder.encode(userForm.getNewPassword()));
 		userRepository.save(user);
 		return ResponseEntity.ok(new MessageResponse("User edited successfully!"));
+}
+  
+	public Set<Project> getProjectsByUsername(String username) {
+		return this.projectRepository.findByUsers(this.userRepository.findByUsername(username));
 	}
 }

@@ -33,7 +33,7 @@
   },
   "ACCOUNT": {
     "CREATE": {
-      "TITLE": "Créer votre compte",
+      "TITLE": "Créez votre compte",
       "FIELD": {
         "PSEUDO": "Pseudo",
         "MAIL": "Mail",
@@ -88,7 +88,7 @@
   },
   "HOME": {
     "TITLE": "Crée le projet",
-    "TITLE2": "Que ta communauté mérite",
+    "TITLE2": "Dont tu as toujours rêvé",
     "SEEPROJECT": "Voir le projet",
     "DESC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   },
@@ -101,7 +101,7 @@
     "LOCATION": "Partout nulle part c'est la decentralisation"
   },
   "LOGIN": {
-    "TITLE": "Connectez vous",
+    "TITLE": "Connectez-vous",
     "PSEUDO": "Nom d'utilisateur",
     "PASSWORD": "Mot de passe",
     "SUBMIT": "Connexion",
@@ -114,6 +114,7 @@
   },
   "GENERIC": {
     "EDIT": "Editer",
-    "CANCEL": "Annuler"
+    "CANCEL": "Annuler",
+    "LOGOUT": "Déconnexion"
   }
 }
