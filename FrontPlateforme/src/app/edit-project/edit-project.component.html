@@ -1,0 +1,108 @@
+<div class="card">
+    <h5 class="align-self-center p-2">{{ 'PROJECT.EDIT.TITLE' | translate}}</h5>
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" class="formgrid grid p-5 justify-content-center"
+      style="margin-right: 0;">
+  
+      <div class="field col-12 md:col-10">
+        <label for="name">{{ 'PROJECT.CREATE.FIELD.NAME' | translate}}</label>
+        <input id="name" type="text" formControlName="name" class="form-control inputfield w-full"
+          [ngClass]="{ 'is-invalid' : submitted && createProjetControls['name'].errors }" style="height: 42px"  pInputText
+          required>
+        <small *ngIf="submitted && !!createProjetControls['name'].errors?.['required']; else empty" e id="name-help"
+          class="p-error">
+          {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
+        </small>
+        <ng-template #empty>
+          <small *ngIf="submitted && !!createProjetControls['name'].errors?.['empty']" id="name-help-empty"
+            class="p-error">
+            {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
+          </small>
+        </ng-template>
+        <small *ngIf="!!createProjetControls['name'].errors?.['pattern']" id="name-help-pattern" class="p-error">
+          {{ 'PROJECT.CREATE.ERROR.UNDERSCORE' | translate}}
+        </small>
+        <small *ngIf="submitted && nameTaken" id="name-help-taken" class="p-error">
+          {{ 'PROJECT.CREATE.ERROR.NAME' | translate}}
+        </small>
+      </div>
+  
+      <div class="field col-12 md:col-2 p-fluid">
+        <label for="budget">{{ 'PROJECT.CREATE.FIELD.BUDGET' | translate}}</label>
+        <p-inputNumber id="budget" type="number" formControlName="budget" [min]="0" class="inputfield w-full"
+          [showButtons]="false" [ngClass]="{ 'ng-invalid ng-dirty' : submitted && createProjetControls['budget'].errors }"
+          [required]="true">
+        </p-inputNumber>
+        <small *ngIf="submitted && !!createProjetControls['budget'].errors?.['required']" id="budget-help"
+          class="p-error">
+          {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
+        </small>
+      </div>
+  
+      <div class="field col-12">
+        <label for="description">{{ 'PROJECT.CREATE.FIELD.DESCRIPTION' | translate}}</label>
+        <textarea id="description" type="text" formControlName="description" class="form-control inputfield w-full"
+          [rows]="5" [cols]="30" [ngClass]="{ 'is-invalid' : submitted && createProjetControls['description'].errors }"
+          pInputTextArea required>
+        </textarea>
+        <small *ngIf="submitted && !!createProjetControls['description'].errors?.['required']; else empty" e
+          id="description-help" class="p-error">
+          {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
+        </small>
+        <ng-template #empty>
+          <small *ngIf="submitted && !!createProjetControls['description'].errors?.['empty']" id="description-help-empty"
+            class="p-error">
+            {{ 'PROJECT.CREATE.ERROR.EMPTY' | translate}}
+          </small>
+        </ng-template>
+      </div>
+  
+      <div class="field col-12 p-fluid">
+        <label for="categories">{{ 'PROJECT.CREATE.FIELD.CATEGORY' | translate}}</label>
+        <p-autoComplete formControlName="categories" [suggestions]="filteredCategories"
+          (completeMethod)="filterCategories($event)" field="name" [multiple]="true" [dropdown]="true" [required]="true"
+          class="inputfield w-full"
+          [ngClass]="{ 'ng-invalid ng-dirty' : submitted && createProjetControls['categories'].errors }"
+          id="categories">
+        </p-autoComplete>
+        <small *ngIf="submitted && !!createProjetControls['categories'].errors?.['required']" id="categories-help"
+          class="p-error">
+          {{ 'PROJECT.CREATE.ERROR.GENERIC' | translate}}
+        </small>
+      </div>
+  
+      <div class="field mb-4 col-12">
+        <label for="image">{{ 'PROJECT.CREATE.FIELD.IMAGE' | translate}}</label>
+        <p-fileUpload name="image" [customUpload]="true" (onSelect)="onImageUpload($event)" [multiple]="false"
+          accept="image/png, image/jpeg" [invalidFileTypeMessageSummary]="invalidFileTypeMessageSummary"
+          [invalidFileTypeMessageDetail]="invalidFileTypeMessageDetail" mode="basic" [maxFileSize]="1000000"
+          [invalidFileSizeMessageSummary]="invalidFileSizeMessageSummary"
+          [invalidFileSizeMessageDetail]="invalidFileSizeMessageDetail" [chooseLabel]="chooseLabel">
+        </p-fileUpload>
+      </div>
+  
+      <div class="field col-12 flex justify-content-center">
+        <app-modal-task (task)="addNewTask($event)" [initialCategories]="initialCategories" [header]="createTask" id="addNewTask">
+        </app-modal-task>
+      </div>
+  
+      <div *ngIf="form.value.tasks.length !== 0" class="field col-12">
+        <app-liste [project]="form.value"></app-liste>
+      </div>
+  
+      <button type="submit" class="button justify-self-center p-button-rounded" pButton id="saveProject" [hidden]="canEdit">
+        {{ 'PROJECT.EDIT.SUBMIT' | translate}}
+      </button>
+      <button class="button justify-self-center p-button-rounded" pButton id="saveProject" [routerLink]='["/project", projectName]'>
+        {{ 'PROJECT.EDIT.CANCEL' | translate}}
+      </button>
+  
+  
+    </form>
+  
+    <p-messages *ngIf="canEdit" [(value)]="notAllowedMessage"></p-messages>
+
+    <p-messages *ngIf="submitted && !!createProjetControls['tasks'].errors?.['required']" [(value)]="errorMessageTask">
+    </p-messages>
+  
+    <p-messages *ngIf="submissionFailed" [(value)]="errorMessage"></p-messages>
+  </div>

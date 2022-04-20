@@ -9,7 +9,9 @@ import plateforme.back.object.Category;
 import plateforme.back.repository.CategoryRepository;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.persistence.EntityManager;
@@ -43,5 +45,13 @@ public class CategoryService {
         	persistedCategories.add(fetchedCategory);
         }
         return persistedCategories;
+	}
+
+	public List<Category> getCategories(List<CategoryForm> categories) {
+		Set<Integer> ids = new HashSet<>();
+		for(CategoryForm categoryForm: categories) {
+			ids.add(categoryForm.getId());
+		}
+		return this.repository.findByIdIn(ids);
 	}
 }

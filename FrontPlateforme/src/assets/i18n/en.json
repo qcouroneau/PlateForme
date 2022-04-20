@@ -29,6 +29,12 @@
       "NAME": "Project Name",
       "CATEGORY_FILTER": "Project Categories",
       "GO_TO_PROJECT": "Go to project"
+    },
+    "EDIT": {
+      "TITLE": "Modifier votre projet",
+      "SUBMIT": "Sauvegarder",
+      "CANCEL": "Annuler",
+      "NOT_ALLOWED": "You can't edit this project."
     }
   },
   "ACCOUNT": {

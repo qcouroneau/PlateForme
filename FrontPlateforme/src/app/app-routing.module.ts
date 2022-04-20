@@ -8,6 +8,7 @@ import { ProfilUserComponent } from "./profil-user/profil-user.component";
 import { SignInPageComponent } from "./sign-in-page/sign-in-page.component";
 import { ProfilUserEditComponent } from "./profil-user copy/profil-user-edit.component";
 import { AuthGuardService } from './services/auth-guard.service';
+import { EditProjectComponent } from "./edit-project/edit-project.component";
 
 const routes: Routes = [
     { path: "home", component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
     { path: "profiluser/edit", component: ProfilUserEditComponent, canActivate: [AuthGuardService] },
     { path: "profiluser", component: ProfilUserComponent, canActivate: [AuthGuardService] },
     { path: "login", component: SignInPageComponent },
+    { path: "editProject/:name", component: EditProjectComponent, canActivate: [AuthGuardService] },
 
     { path: "", redirectTo: "home", pathMatch: "full" },
     { path: "**", redirectTo: "home", pathMatch: "full" }

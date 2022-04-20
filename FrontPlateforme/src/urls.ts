@@ -1,6 +1,7 @@
 export const urls = {
   project: {
     create: '/project/create',
+    edit: '/project/edit',
     get: {
       all: '/project/dto',
       byId: '/project/dto/getById/',
