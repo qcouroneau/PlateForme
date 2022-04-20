@@ -46,6 +46,10 @@
   margin: 0 40px;
 }
 
+.project-grid-item:hover {
+  filter: brightness(80%);
+}
+
 .card123 {
   margin: 0 auto !important;
 }
@@ -68,3 +72,5 @@
   height: 500px;
   padding: 0.5rem;
 }
+
+

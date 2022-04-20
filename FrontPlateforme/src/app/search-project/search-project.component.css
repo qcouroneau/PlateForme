@@ -111,4 +111,7 @@
     max-height: 250px;
   }
 }
+.product-grid-item:hover{
+  filter: brightness(80%);
+}
 
