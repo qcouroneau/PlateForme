@@ -21,6 +21,7 @@
 :host ::ng-deep .project-grid-item {
   margin: 0.5em;
   border: 1px solid #dee2e6;
+  
 }
 :host ::ng-deep .project-grid-item .project-grid-item-top,
 :host ::ng-deep .project-grid-item .project-grid-item-bottom {
@@ -44,6 +45,7 @@
 
 .grid123 {
   margin: 0 40px;
+
 }
 
 .card123 {
@@ -68,3 +70,4 @@
   height: 500px;
   padding: 0.5rem;
 }
+

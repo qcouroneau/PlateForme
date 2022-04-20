@@ -1,3 +1,11 @@
+/*
+Composants de la page d'accueil :
+Contient un bandeau avec une image, une description du site et un bouton créer un projet
+Contient une mosaique des derniers projets créés
+*/
+
+
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';

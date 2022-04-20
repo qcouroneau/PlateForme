@@ -1,3 +1,14 @@
+/*
+Composants pour se connecter :
+Contient deux champs :
+ - Nom d'utilisateur
+ - Mot de passe
+
+ Renvoie une erreur si le mot de passe ou le nom d'utilisateur est incorrect
+*/
+
+
+
 import { Component } from '@angular/core';
 import {
   FormBuilder,

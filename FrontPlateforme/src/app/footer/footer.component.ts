@@ -1,3 +1,13 @@
+/*
+Composants du footer contenant 3 boutons :
+- Instagram
+- Facebook
+- Twitter
+*/
+
+
+
+
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from "@ngx-translate/core";
 

@@ -1,3 +1,11 @@
+/*
+Composants du header contenant les différents boutons :
+- Language
+- Connexion
+- Créez un projet
+- Rechercher un projet
+- Logo redirigeant vers la page d'accueil
+*/
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
@@ -14,7 +22,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
-        label: 'language',
+        label: 'Language',
         icon: 'pi pi-globe',
         items: [{ label: 'Français' }, { label: 'English' }],
       },
@@ -30,12 +38,12 @@ export class HeaderComponent implements OnInit {
         },
       },
       {
-        label: 'new projects',
+        label: 'New project',
         icon: 'pi pi-plus',
         routerLink: ['/newproject'],
       },
       {
-        label: 'find project',
+        label: 'Search projects',
         icon: 'pi pi-search',
         routerLink: ['/searchproject'],
       },
