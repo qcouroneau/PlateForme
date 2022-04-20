@@ -32,7 +32,7 @@ export class EditProjectComponent implements OnInit {
 
   private name = new FormControl('', [Validators.required, validateNotEmpty, Validators.pattern(/^[^_]+$/)]);
   private description = new FormControl('', [Validators.required, validateNotEmpty]);
-  private budget = new FormControl('0', [Validators.required, validateNotEmpty]);
+  private budget = new FormControl('0');
   private categories = new FormControl([], [Validators.required, Validators.minLength(1)]);
   private image = new FormData();
   private tasks = new FormControl([], [Validators.required, Validators.minLength(1)]);
@@ -177,28 +177,27 @@ export class EditProjectComponent implements OnInit {
 
   onSubmit(formValues: IProject): void {
     this.submitted = true;
-    console.log(this.form.controls);
     if (this.form.invalid) {
       return;
     }
-
     formValues.name = formValues.name.trim();
     if (this.image.get('image') != null) {
       this.imageService.saveFile(this.image).subscribe({
         next: image => {
           formValues.imagePath = image.path;
-          this.updateProject(formValues);
+          this.createProject(formValues);
         }
       });
     } else {
-      this.updateProject(formValues);
+      this.createProject(formValues);
     }
 
 
   }
 
-  private updateProject(formValues: IProject) {
+  private createProject(formValues: IProject) {
     formValues.id = this.project.id;
+    formValues.imagePath = this.project.imagePath;
     this.projectService.editProject(formValues).subscribe({
       next: project => {
         if (project) {
