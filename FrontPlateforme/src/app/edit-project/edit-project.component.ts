@@ -51,6 +51,8 @@ export class EditProjectComponent implements OnInit {
 
   errorMessageTask: any[] = [];
 
+  notAllowedMessage: any[] = [];
+
   invalidFileTypeMessageSummary: string = "";
 
   invalidFileTypeMessageDetail: string = "";
@@ -131,11 +133,12 @@ export class EditProjectComponent implements OnInit {
       createErrorDetail = this.translate.instant('PROJECT.CREATE.ERROR.DETAIL');
       this.errorMessage.push({ severity: 'error', summary: createErrorSummary, detail: createErrorDetail });
 
-      let taskErrorSummary, taskErrorDetail;
+      let taskErrorSummary, taskErrorDetail, notAllowedDetail;
+      notAllowedDetail = this.translate.instant('PROJECT.EDIT.NOT_ALLOWED')
       taskErrorSummary = this.translate.instant('TASK.CREATE.ERROR.SUMMARY');
       taskErrorDetail = this.translate.instant('TASK.CREATE.ERROR.DETAIL');
       this.errorMessageTask.push({ severity: 'error', summary: taskErrorSummary, detail: taskErrorDetail });
-
+      this.notAllowedMessage.push({ severity: 'error', summary: taskErrorSummary, detail: notAllowedDetail});
       this.invalidFileTypeMessageSummary = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_TYPE_SUMMARY');
       this.invalidFileTypeMessageDetail = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_TYPE_DETAIL');
       this.invalidFileSizeMessageSummary = this.translate.instant('PROJECT.CREATE.ERROR.INVALID_FILE_SIZE_SUMMARY');

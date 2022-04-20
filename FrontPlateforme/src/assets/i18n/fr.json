@@ -33,7 +33,8 @@
     "EDIT": {
       "TITLE": "Modifier votre projet",
       "SUBMIT": "Sauvegarder",
-      "CANCEL": "Annuler"
+      "CANCEL": "Annuler",
+      "NOT_ALLOWED": "Vous ne pouvez pas éditer ce projet."
     }
   },
   "ACCOUNT": {

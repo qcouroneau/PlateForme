@@ -99,6 +99,8 @@
   
     </form>
   
+    <p-messages *ngIf="canEdit" [(value)]="notAllowedMessage"></p-messages>
+
     <p-messages *ngIf="submitted && !!createProjetControls['tasks'].errors?.['required']" [(value)]="errorMessageTask">
     </p-messages>
   
