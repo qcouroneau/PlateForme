@@ -1,7 +1,5 @@
 package plateforme.back.object;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity()
 @Table(name = "role")
-public class Role implements Serializable {
+public class Role {
 	
 	/**
 	 * 
