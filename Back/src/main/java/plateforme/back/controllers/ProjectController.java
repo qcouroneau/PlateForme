@@ -7,7 +7,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -69,7 +68,7 @@ public class ProjectController {
 	}
 	
 	@PutMapping("/edit")
-	public ResponseEntity<?> editProject(@Valid @RequestBody ProjectEditForm projectEditForm) {
+	public Project editProject(@Valid @RequestBody ProjectEditForm projectEditForm) {
 		return this.service.editProject(projectEditForm);
 	}
 }
