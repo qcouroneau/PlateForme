@@ -5,6 +5,7 @@ import { IProject } from '../entities/project-reference';
 import { ProjectService } from '../services/project.service';
 import { environment } from 'src/environments/environment';
 import { urls } from 'src/urls';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-details-project',
@@ -19,7 +20,9 @@ export class DetailsProjectComponent implements OnInit {
   sub!: Subscription;
   errorMessage = 'Erreur lors du chargement';
 
-  constructor(private router: Router, private projectService: ProjectService) {
+  hasAuthority = true;
+
+  constructor(private router: Router, private projectService: ProjectService, private tokenStorageService: TokenStorageService) {
 
   }
 
@@ -38,8 +41,20 @@ export class DetailsProjectComponent implements OnInit {
       next: project => {
         this.project = project;
         this.projectImagePath = environment.apiUrl + urls.image.folder + project.imagePath;
+        this.project.urlName = project.name.split(' ').join('_');
       },
       error: err => this.errorMessage = err
     });
+
+    this.sub = this.projectService.getProjectsByUsername(this.tokenStorageService.getUser().username).subscribe({
+      next: projects => {
+        projects.forEach( (project: IProject) => {
+          if(this.project.name == project.name) {
+            this.hasAuthority = false
+          }
+        })
+      },
+      error: err => this.errorMessage = err
+    })
   }
 }
