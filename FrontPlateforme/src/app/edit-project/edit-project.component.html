@@ -89,9 +89,13 @@
         <app-liste [project]="form.value"></app-liste>
       </div>
   
-      <button type="submit" class="button justify-self-center p-button-rounded" pButton id="saveProject">
-        {{ 'PROJECT.CREATE.SUBMIT' | translate}}
+      <button type="submit" class="button justify-self-center p-button-rounded" pButton id="saveProject" [hidden]="canEdit">
+        {{ 'PROJECT.EDIT.SUBMIT' | translate}}
       </button>
+      <button class="button justify-self-center p-button-rounded" pButton id="saveProject" [routerLink]='["/project", projectName]'>
+        {{ 'PROJECT.EDIT.CANCEL' | translate}}
+      </button>
+  
   
     </form>
   

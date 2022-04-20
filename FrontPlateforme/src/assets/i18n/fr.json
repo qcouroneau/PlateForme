@@ -29,6 +29,11 @@
         "CATEGORY_FILTER": "Catégories projet",
         "GO_TO_PROJECT": "Aller sur la page projet"
       }
+    },
+    "EDIT": {
+      "TITLE": "Modifier votre projet",
+      "SUBMIT": "Sauvegarder",
+      "CANCEL": "Annuler"
     }
   },
   "ACCOUNT": {

@@ -12,6 +12,7 @@ import { validateNotEmpty } from '../shared/validators/empty.validator';
 import { Subscription } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { urls } from 'src/urls';
+import { TokenStorageService } from '../services/token-storage.service';
 
 @Component({
   selector: 'app-edit-project',
@@ -64,8 +65,10 @@ export class EditProjectComponent implements OnInit {
 
   private tmpTasks: ITask[] = [];
 
+  canEdit = true;
+
   constructor(private router: Router, private formBuilder: FormBuilder, private projectService: ProjectService,
-    private categoryService: CategoryService, private translate: TranslateService, private imageService: ImageService) {
+    private categoryService: CategoryService, private translate: TranslateService, private imageService: ImageService, private tokenStorageService: TokenStorageService) {
     this.form = formBuilder.group({
       name: this.name,
       description: this.description,
@@ -107,6 +110,17 @@ export class EditProjectComponent implements OnInit {
       },
       error: err => this.loadingErrorMessage = err
     });
+
+    this.sub = this.projectService.getProjectsByUsername(this.tokenStorageService.getUser().username).subscribe({
+      next: projects => {
+        projects.forEach( (project: IProject) => {
+          if(this.project.name == project.name) {
+            this.canEdit = false
+          }
+        })
+      },
+      error: err => this.errorMessage = err
+    })
   }
 
   loadErrorMesssagesTranslations() {
@@ -170,17 +184,17 @@ export class EditProjectComponent implements OnInit {
       this.imageService.saveFile(this.image).subscribe({
         next: image => {
           formValues.imagePath = image.path;
-          this.createProject(formValues);
+          this.updateProject(formValues);
         }
       });
     } else {
-      this.createProject(formValues);
+      this.updateProject(formValues);
     }
 
 
   }
 
-  private createProject(formValues: IProject) {
+  private updateProject(formValues: IProject) {
     formValues.id = this.project.id;
     this.projectService.editProject(formValues).subscribe({
       next: project => {
