@@ -29,6 +29,10 @@ export class ProjectService {
     return this.http.post<IProject>(environment.apiUrl + urls.project.create, project);
   }
 
+  editProject(project: IProject): Observable<IProject> {
+    return this.http.put<IProject>(environment.apiUrl + urls.project.edit, project);
+  }
+
   getProjectsByUsername(username: string): Observable<any> {
     return this.http.get<IProject>(environment.apiUrl + urls.user.get.projectsByUsername + username);
   }
