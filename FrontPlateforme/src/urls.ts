@@ -25,7 +25,8 @@ export const urls = {
       projectsByUsername: '/user/getProjectsByUsername/'
     },
     register: '/user/signup',
-    connection: '/user/signin'
+    connection: '/user/signin',
+    edit: '/user/edit'
   },
   category: {
     get: {

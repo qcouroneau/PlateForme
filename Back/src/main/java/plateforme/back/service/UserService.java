@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import plateforme.back.form.UserEditForm;
 import plateforme.back.form.UserRegistrationForm;
 import plateforme.back.object.Project;
 import plateforme.back.object.Role;
@@ -69,6 +70,21 @@ public class UserService {
 		return (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	}
 
+	public ResponseEntity<?> editUser(@Valid UserEditForm userForm) {
+		User user = findUser().get();
+		if (!user.getUsername().equals(userForm.getNewUsername()) && userRepository.existsByUsername(userForm.getNewUsername())) {
+			return ResponseEntity.badRequest().body(new MessageResponse("username"));
+		}
+		if (!userForm.getEmail().equals(user.getEmail()) && userRepository.existsByEmail(userForm.getEmail())) {
+			return ResponseEntity.badRequest().body(new MessageResponse("email"));
+		}
+		user.setUsername(userForm.getNewUsername());
+		user.setEmail(userForm.getEmail());
+		user.setPassword(encoder.encode(userForm.getNewPassword()));
+		userRepository.save(user);
+		return ResponseEntity.ok(new MessageResponse("User edited successfully!"));
+}
+  
 	public Set<Project> getProjectsByUsername(String username) {
 		return this.projectRepository.findByUsers(this.userRepository.findByUsername(username));
 	}

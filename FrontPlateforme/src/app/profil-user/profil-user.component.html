@@ -40,7 +40,7 @@
   </div>
 </div>
 <div class="nav">
-  <p-button label={{labelEdit}}></p-button>
+  <p-button label={{labelEdit}} [routerLink]="['/profiluser/edit']"></p-button>
   <p-button label={{labelCancel}} [routerLink]="['/home']"></p-button>
   <p-button label={{labelLogout}} (onClick)="logout()" [routerLink]="['/home']"></p-button>
 </div>

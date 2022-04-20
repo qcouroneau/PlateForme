@@ -23,6 +23,7 @@ import { DataViewModule } from "primeng/dataview";
 import { AutoCompleteModule } from "primeng/autocomplete";
 import { DropdownModule } from "primeng/dropdown";
 import { SignInPageModule } from './sign-in-page/sign-in-page.module';
+import { ProfilUserEditMdule } from './profil-user copy/profil-user-edit.module';
 import { AuthGuardService } from './services/auth-guard.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -48,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeModule,
     SearchProjectModule,
     SignInPageModule,
+    ProfilUserEditMdule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

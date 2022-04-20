@@ -127,7 +127,6 @@ export class CreateProjectComponent implements OnInit {
 
   onSubmit(formValues: IProject): void {
     this.submitted = true;
-    console.log(this.form.controls);
     if (this.form.invalid) {
       return;
     }
@@ -143,8 +142,6 @@ export class CreateProjectComponent implements OnInit {
     } else {
       this.createProject(formValues);
     }
-
-
   }
 
   private createProject(formValues: IProject) {

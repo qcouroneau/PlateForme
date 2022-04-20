@@ -50,6 +50,17 @@
         "DETAIL": "Votre compte n'a pas pu être créé. Veuillez réessayer plus tard."
       },
       "SUBMIT": "Créez votre compte"
+    },
+    "EDIT": {
+      "TITLE": "Modifiez votre compte",
+      "FIELD": {
+        "PSEUDO": "Pseudo",
+        "MAIL": "Mail",
+        "OLD_PASSWORD": "Ancien mot de passe",
+        "NEW_PASSWORD": "Nouveau mot de passe"
+      },
+      "SAVE": "Sauvegarder",
+      "CANCEL": "Annuler"
     }
   },
   "TASK": {
