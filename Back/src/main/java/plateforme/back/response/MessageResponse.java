@@ -1,5 +1,8 @@
 package plateforme.back.response;
 
+/*
+ * Classe de réponse permettant de renvoyer un message texte côté client.
+ */
 public class MessageResponse {
 	
     private String message;
