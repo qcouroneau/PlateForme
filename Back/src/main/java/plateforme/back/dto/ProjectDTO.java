@@ -2,6 +2,12 @@ package plateforme.back.dto;
 
 import java.util.List;
 
+/**
+ * Classe permettant de caster une classe java en objet JSON.
+ * On transforme un projet en un objet JSON comportant une ID, un nom, une
+ * description, une image, un budget. Mais aussi une liste de catégorie elles
+ * aussi castées en JSON, plus une liste de tâche castées en JSON.
+ */
 public class ProjectDTO {
 
 	private int id;

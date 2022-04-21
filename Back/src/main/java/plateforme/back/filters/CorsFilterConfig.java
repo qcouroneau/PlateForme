@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+/*
+ * Classe de filtre permettant de rajouter les headers nécessaires pour éviter les erreurs CORS
+ */
 @Component
 public class CorsFilterConfig extends OncePerRequestFilter {
 

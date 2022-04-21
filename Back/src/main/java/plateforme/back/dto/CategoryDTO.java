@@ -1,5 +1,9 @@
 package plateforme.back.dto;
 
+/**
+ * Classe permettant de caster une classe java en objet JSON.
+ * On transforme une catégorie en un objet JSON comportant une ID et un nom
+ */
 public class CategoryDTO {
 
 	private int id;

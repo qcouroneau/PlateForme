@@ -12,6 +12,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
+/*
+ * Classe permettant de renvoyer les erreurs HTTP correspondantes côté client
+ */
 @Component
 public class AuthEntryPointJwt implements AuthenticationEntryPoint {
 
