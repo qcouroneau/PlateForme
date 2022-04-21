@@ -4,6 +4,9 @@ import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
 
+/*
+ * Classe de réponse permettant de renoyer les détails de l'utilsiateur ainsi que son jeton d'authentification.
+ */
 public class JwtResponse {
 
 	private String jwt;

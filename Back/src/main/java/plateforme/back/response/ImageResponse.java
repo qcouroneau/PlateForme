@@ -1,5 +1,8 @@
 package plateforme.back.response;
 
+/*
+ * Classe de réponse permettant de renvoyer le chemin de l'image enregistrée sur le serveur.
+ */
 public class ImageResponse {
     private String path;
 

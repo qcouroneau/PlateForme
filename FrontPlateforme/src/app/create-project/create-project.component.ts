@@ -1,3 +1,20 @@
+/*
+Composants pour créer un projet :
+
+ - Nom du projet
+ - Description
+ - Catégories
+ - Taches
+ - Budget
+ - Image
+ 
+
+
+*/
+
+
+
+
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';

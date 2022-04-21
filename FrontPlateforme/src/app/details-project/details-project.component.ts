@@ -1,3 +1,16 @@
+/*
+Composants pour afficher les détails d'un projet
+- Nom
+- Image
+- Description
+- Catégories
+- Taches
+- Budget
+*/
+
+
+
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';

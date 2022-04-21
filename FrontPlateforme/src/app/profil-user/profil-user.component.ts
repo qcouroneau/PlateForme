@@ -1,3 +1,11 @@
+/*
+Composants pour afficher la page de profil de l'utilisateur connecté
+*/
+
+
+
+
+
 import { Component, OnInit } from '@angular/core';
 import {ButtonModule} from 'primeng/button';
 import {Subscription} from "rxjs";
