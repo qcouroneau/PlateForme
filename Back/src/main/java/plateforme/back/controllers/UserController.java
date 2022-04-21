@@ -77,7 +77,8 @@ public class UserController {
 		if(authentication.isAuthenticated()) {
 			return this.service.editUser(userForm);
 		}
-		return ResponseEntity.badRequest().body(new MessageResponse("password")); 
+		return ResponseEntity.badRequest().body(new MessageResponse("password"));
+	}
 	
 	@GetMapping("/getProjectsByUsername/{username}")
 	public Set<Project> getProjectsByUsername(@PathVariable("username") final String username) {
