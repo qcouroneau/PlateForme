@@ -4,17 +4,26 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+/**
+ * Classe permettant de caster l'object JSON en objet java
+ * Y est définit le comportement attendu du JSON :
+ * il ne sera validé que s'il respecte les annotations sur les variables.
+ * NotNull pour les variables obligatoires, NotBlank pour les strings que l'on
+ * ne veut pas vides.
+ * On transforme ici le JSON en édition d'utilisateur. Ce qui signifie que l'on
+ * modifie un utilisateur existant.
+ */
 public class UserEditForm {
 
 	@NotBlank
 	private String username;
-	
+
 	@NotBlank
 	private String newUsername;
 
 	@NotBlank
 	private String password;
-	
+
 	@NotBlank
 	private String newPassword;
 
@@ -62,5 +71,5 @@ public class UserEditForm {
 	public void setNewUsername(String newUsername) {
 		this.newUsername = newUsername;
 	}
-	
+
 }

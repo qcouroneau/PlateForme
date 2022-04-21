@@ -6,12 +6,21 @@ import javax.validation.constraints.NotBlank;
 
 import com.sun.istack.NotNull;
 
+/**
+ * Classe permettant de caster l'object JSON en objet java
+ * Y est définit le comportement attendu du JSON :
+ * il ne sera validé que s'il respecte les annotations sur les variables.
+ * NotNull pour les variables obligatoires, NotBlank pour les strings que l'on
+ * ne veut pas vides.
+ * On transforme ici le JSON en projet d'édition. Ce qui signifie que l'on
+ * modifie un projet existant. Avec un id déjà présent
+ */
 public class ProjectEditForm {
 
-	@NotNull
+    @NotNull
     private int id;
-	
-	@NotBlank
+
+    @NotBlank
     private String name;
 
     @NotNull
@@ -22,21 +31,21 @@ public class ProjectEditForm {
 
     @NotNull
     private List<CategoryForm> categories;
-    
+
     @NotNull
     private List<TaskForm> tasks;
-    
+
     private String imagePath;
 
     public int getId() {
-		return id;
-	}
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getName() {
+    public String getName() {
         return name;
     }
 
@@ -68,19 +77,19 @@ public class ProjectEditForm {
         return categories;
     }
 
-	public String getImagePath() {
-		return imagePath;
-	}
+    public String getImagePath() {
+        return imagePath;
+    }
 
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
-	}
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 
-	public List<TaskForm> getTasks() {
-		return tasks;
-	}
+    public List<TaskForm> getTasks() {
+        return tasks;
+    }
 
-	public void setTasks(List<TaskForm> tasks) {
-		this.tasks = tasks;
-	}
+    public void setTasks(List<TaskForm> tasks) {
+        this.tasks = tasks;
+    }
 }
