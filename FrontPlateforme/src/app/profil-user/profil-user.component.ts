@@ -108,6 +108,7 @@ export class ProfilUserComponent implements OnInit {
         this.projects = projects;
         this.projects.map((project) => {
           project.urlName = project.name.split(' ').join('_');
+          project.imagePath = environment.apiUrl + urls.image.folder + project.imagePath;
         });
       },
       error: (err) => (this.errorMessage = err),
