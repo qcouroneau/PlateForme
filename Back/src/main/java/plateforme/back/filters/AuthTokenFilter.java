@@ -20,6 +20,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import plateforme.back.service.UserDetailsServiceImpl;
 import plateforme.back.utils.JwtUtils;
 
+/*
+ * Classe de filtre permettant de filtrer les requêtes entrantes pour extraire le nom d'utilisateur du token
+ */
 public class AuthTokenFilter extends OncePerRequestFilter {
 
 	@Autowired
