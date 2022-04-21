@@ -1,3 +1,11 @@
+/*
+Composant pour modifier un projet
+*/
+
+
+
+
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

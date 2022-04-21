@@ -1,3 +1,12 @@
+/*
+Composants pour rechercher les projets avec des filtres
+- Nom
+- Catégories (ET/OU) 
+*/
+
+
+
+
 import { Component, OnInit } from '@angular/core';
 import { IProject } from '../entities/project-reference';
 import { ProjectService } from '../services/project.service';
