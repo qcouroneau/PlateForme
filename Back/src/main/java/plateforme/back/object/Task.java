@@ -38,7 +38,7 @@ public class Task implements Serializable {
 	
 	public Task(TaskForm task) {
 		this.name = task.getName();
-		this.description = task.getName();
+		this.description = task.getDescription();
 	}
 
 
