@@ -106,6 +106,9 @@ export class ProfilUserComponent implements OnInit {
     this.sub = this.project.getProjectsByUsername(this.user.username).subscribe({
       next: (projects) => {
         this.projects = projects;
+        this.projects.map((project) => {
+          project.urlName = project.name.split(' ').join('_');
+        });
       },
       error: (err) => (this.errorMessage = err),
     });
