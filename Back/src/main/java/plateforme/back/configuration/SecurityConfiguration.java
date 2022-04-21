@@ -18,6 +18,10 @@ import plateforme.back.filters.AuthTokenFilter;
 import plateforme.back.filters.CorsFilterConfig;
 import plateforme.back.service.UserDetailsServiceImpl;
 
+/*
+ * Classe de configuration de la sécurité de l'application permettant de déterminer certains points d'accès et
+ * d'ajouter des filtres aux requêtes entrantes. 
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)

@@ -16,6 +16,9 @@ import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
 import plateforme.back.impl.UserDetailsImpl;
 
+/*
+ * Classe utilitaire permettant de gérer la génération et la validation des json web token.
+ */
 @Component
 public class JwtUtils {
 

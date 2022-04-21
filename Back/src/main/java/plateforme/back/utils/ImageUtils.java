@@ -11,6 +11,9 @@ import java.util.UUID;
 
 import org.springframework.web.multipart.MultipartFile;
 
+/*
+ * Classe utilitaire permettant de traiter l'uplaod d'image sur le serveur.
+ */
 public class ImageUtils {
     
     public static void saveFile(String uploadDir, String fileName,
