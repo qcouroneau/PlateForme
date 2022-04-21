@@ -1,5 +1,7 @@
 package plateforme.back.dto;
 
+import java.util.List;
+
 /**
  * Classe permettant de caster une classe java en objet JSON.
  * On transforme un projet en un objet JSON. Ce JSON ne contient que les
@@ -16,6 +18,8 @@ public class SimpleProjectDTO {
 	private String imagePath;
 
 	private int budget;
+
+	private List<CategoryDTO> categories;
 
 	public String getName() {
 		return name;
@@ -47,5 +51,13 @@ public class SimpleProjectDTO {
 
 	public void setBudget(int budget) {
 		this.budget = budget;
+	}
+
+	public List<CategoryDTO> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<CategoryDTO> categories) {
+		this.categories = categories;
 	}
 }
